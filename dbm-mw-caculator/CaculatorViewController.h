@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CaculatorScreenLabel.h"
+#import "CaculatorButton.h"
+
 #import "CaculatorModel.h"
 
 #define SWITCHMODE_DBM2MW @"dbm"
@@ -21,40 +24,40 @@
 
 @interface CaculatorViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *dbmValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mwValueLabel;
+@property (weak, nonatomic) IBOutlet CaculatorScreenLabel *dbmValueLabel;
+@property (weak, nonatomic) IBOutlet CaculatorScreenLabel *mwValueLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *switchButton;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIButton *historyButton;
-@property (weak, nonatomic) IBOutlet UIButton *helpButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *switchButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *saveButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *historyButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *helpButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *digit9Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit8Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit7Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit6Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit5Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit4Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit3Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit2Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit1Button;
-@property (weak, nonatomic) IBOutlet UIButton *digit0Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit9Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit8Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit7Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit6Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit5Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit4Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit3Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit2Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit1Button;
+@property (weak, nonatomic) IBOutlet CaculatorButton *digit0Button;
 
-@property (weak, nonatomic) IBOutlet UIButton *dotButton;
-@property (weak, nonatomic) IBOutlet UIButton *clearButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *dotButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
 
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
 @property (nonatomic) BOOL isDbm2MwMode;
 
-- (IBAction)onSwitchButtonClicked:(UIButton *)sender;
-- (IBAction)onSaveButtonClicked:(UIButton *)sender;
-- (IBAction)onHistoryButtonClicked:(UIButton *)sender;
-- (IBAction)onHelpButtonClicked:(UIButton *)sender;
+- (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onSaveButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onHistoryButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onHelpButtonClicked:(CaculatorButton *)sender;
 
-- (IBAction)onDigitButtonClicked:(UIButton *)sender;
+- (IBAction)onDigitButtonClicked:(CaculatorButton *)sender;
 
-- (IBAction)onDotButtonClicked:(UIButton *)sender;
-- (IBAction)onClearButtonClicked:(UIButton *)sender;
+- (IBAction)onDotButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onClearButtonClicked:(CaculatorButton *)sender;
 
 @end

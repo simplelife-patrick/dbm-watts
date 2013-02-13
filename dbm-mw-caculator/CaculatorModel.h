@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define DECIMAL_ROUND_LENGTH 2
+
 @interface CaculatorModel : NSObject
 
 +(double) getRoundDoubleValue:(double) rawValue andRange:(int) rangeValue;

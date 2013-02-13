@@ -54,7 +54,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onSwitchButtonClicked:(UIButton *)sender
+- (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender
 {
     if ([self isDbm2MwMode])
     {
@@ -70,22 +70,22 @@
     [self onClearButtonClicked:self.clearButton];
 }
 
-- (IBAction)onSaveButtonClicked:(UIButton *)sender
+- (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
 {
     
 }
 
-- (IBAction)onHistoryButtonClicked:(UIButton *)sender
+- (IBAction)onHistoryButtonClicked:(CaculatorButton *)sender
 {
     
 }
 
-- (IBAction)onHelpButtonClicked:(UIButton *)sender
+- (IBAction)onHelpButtonClicked:(CaculatorButton *)sender
 {
     
 }
 
-- (IBAction)onDigitButtonClicked:(UIButton *)sender
+- (IBAction)onDigitButtonClicked:(CaculatorButton *)sender
 {
     NSString* sDigit = [sender currentTitle];
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
@@ -133,7 +133,7 @@
     }
 }
 
-- (IBAction)onDotButtonClicked:(UIButton *)sender
+- (IBAction)onDotButtonClicked:(CaculatorButton *)sender
 {
     if (!self.isDigitInDecimalPart)
     {
@@ -150,7 +150,7 @@
     }
 }
 
-- (IBAction)onClearButtonClicked:(UIButton *)sender
+- (IBAction)onClearButtonClicked:(CaculatorButton *)sender
 {
     if ([self isDbm2MwMode])
     {

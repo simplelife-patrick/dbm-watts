@@ -19,6 +19,8 @@
 		C5DA80E616CA70F3001B9EC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */; };
 		C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */; };
 		C5DA80F116CA7EF8001B9EC7 /* CaculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */; };
+		C5DA80F416CBE37B001B9EC7 /* CaculatorScreenLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */; };
+		C5DA80F716CBE39F001B9EC7 /* CaculatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaculatorViewController.m; sourceTree = "<group>"; };
 		C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorModel.h; sourceTree = "<group>"; };
 		C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorModel.m; sourceTree = "<group>"; };
+		C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorScreenLabel.h; sourceTree = "<group>"; };
+		C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorScreenLabel.m; sourceTree = "<group>"; };
+		C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorButton.h; sourceTree = "<group>"; };
+		C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,10 @@
 				C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */,
 				C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */,
 				C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */,
+				C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */,
+				C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */,
+				C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */,
+				C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */,
 				C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */,
 				C5DA80D316CA70F3001B9EC7 /* Supporting Files */,
 			);
@@ -182,6 +192,8 @@
 				C5DA80DD16CA70F3001B9EC7 /* AppDelegate.m in Sources */,
 				C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */,
 				C5DA80F116CA7EF8001B9EC7 /* CaculatorModel.m in Sources */,
+				C5DA80F416CBE37B001B9EC7 /* CaculatorScreenLabel.m in Sources */,
+				C5DA80F716CBE39F001B9EC7 /* CaculatorButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

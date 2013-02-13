@@ -63,7 +63,7 @@
 {
     double dbmValue = 10 * log10(mwValue);
     
-    return dbmValue;
+    return [self.class getRoundDoubleValue:dbmValue andRange:DECIMAL_ROUND_LENGTH];
 }
 
 /*
@@ -107,7 +107,7 @@
 {
     double mwValue = 1 * pow(10, dbmValue / 10);
     
-    return mwValue;
+    return [self.class getRoundDoubleValue:mwValue andRange:DECIMAL_ROUND_LENGTH];
 }
 
 @end
