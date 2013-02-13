@@ -17,7 +17,8 @@
 		C5DA80E116CA70F3001B9EC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E016CA70F3001B9EC7 /* Default@2x.png */; };
 		C5DA80E316CA70F3001B9EC7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */; };
 		C5DA80E616CA70F3001B9EC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */; };
-		C5DA80E916CA70F3001B9EC7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80E816CA70F3001B9EC7 /* ViewController.m */; };
+		C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */; };
+		C5DA80F116CA7EF8001B9EC7 /* CaculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,10 @@
 		C5DA80E016CA70F3001B9EC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5DA80E516CA70F3001B9EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C5DA80E716CA70F3001B9EC7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C5DA80E816CA70F3001B9EC7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaculatorViewController.h; sourceTree = "<group>"; };
+		C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaculatorViewController.m; sourceTree = "<group>"; };
+		C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorModel.h; sourceTree = "<group>"; };
+		C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +88,11 @@
 			children = (
 				C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */,
 				C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */,
+				C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */,
+				C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */,
+				C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */,
+				C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */,
 				C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */,
-				C5DA80E716CA70F3001B9EC7 /* ViewController.h */,
-				C5DA80E816CA70F3001B9EC7 /* ViewController.m */,
 				C5DA80D316CA70F3001B9EC7 /* Supporting Files */,
 			);
 			path = "dbm-mw-caculator";
@@ -175,7 +180,8 @@
 			files = (
 				C5DA80D916CA70F3001B9EC7 /* main.m in Sources */,
 				C5DA80DD16CA70F3001B9EC7 /* AppDelegate.m in Sources */,
-				C5DA80E916CA70F3001B9EC7 /* ViewController.m in Sources */,
+				C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */,
+				C5DA80F116CA7EF8001B9EC7 /* CaculatorModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
