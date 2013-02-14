@@ -8,12 +8,11 @@
 
 #import "CaculatorViewController.h"
 
-#define NEGATIVE_0 @"-0"
-
 @interface CaculatorViewController ()
 
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
+@property (nonatomic) BOOL isNegativeStatus;
 
 -(void) resetCaculatorStatus:(BOOL) status;
 
@@ -24,6 +23,7 @@
 @synthesize caculatorModel = _caculatorModel;
 @synthesize isDbm2MwMode;
 @synthesize isUserInMiddleOfEnteringDigit;
+@synthesize isNegativeStatus;
 
 -(void) resetCaculatorStatus:(BOOL) status
 {
@@ -46,6 +46,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.isDbm2MwMode = TRUE;
+    self.isNegativeStatus = FALSE;
     [self resetCaculatorStatus:FALSE];
     [self onClearButtonClicked:self.clearButton];
     
@@ -103,24 +104,9 @@
         }
         else
         {
-            if ([NEGATIVE_CHAR isEqualToString:self.dbmValueLabel.text])
-            {
-                [self.dbmValueLabel setText:[self.dbmValueLabel.text stringByAppendingString:digit.stringValue]];
-            }
-            else if ([NEGATIVE_0 isEqualToString:self.dbmValueLabel.text])
-            {
-                if (0 != digit.doubleValue)
-                {
-                    [self.dbmValueLabel setText:[self.dbmValueLabel.text stringByReplacingOccurrencesOfString:DIGIT_0 withString:digit.stringValue]];
-                }
-            }
-            else
-            {
-                [self.dbmValueLabel setText:digit.stringValue];
-            }
-            
             if (0 != digit.doubleValue)
             {
+                [self.dbmValueLabel setText:[self.dbmValueLabel.text stringByReplacingOccurrencesOfString:DIGIT_0 withString:digit.stringValue]];
                 self.isUserInMiddleOfEnteringDigit = TRUE;
             }
         }
@@ -156,33 +142,27 @@
 {
     if (self.isDbm2MwMode)
     {
-        NSNumber* currentDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
-        
-        if ([NEGATIVE_CHAR isEqualToString:self.dbmValueLabel.text])
+        if (self.isNegativeStatus)
         {
-            [self.dbmValueLabel setText:DIGIT_0];
-        }
-        else if ([NEGATIVE_CHAR isEqualToString:[self.dbmValueLabel.text substringToIndex:1]] && 0 == self.dbmValueLabel.text.doubleValue)
-        {
-            [self.dbmValueLabel setText:[self.dbmValueLabel.text substringFromIndex:1]];
+            NSMutableString* mutableStr = [NSMutableString stringWithString:self.dbmValueLabel.text];
+            NSRange deleteRange = NSMakeRange(0, 1);
+            [mutableStr deleteCharactersInRange:deleteRange];
+            [self.dbmValueLabel setText:mutableStr];
+            
+            self.isNegativeStatus = FALSE;
         }
         else
         {
-            if (0 != currentDbmValue.doubleValue)
-            {
-                currentDbmValue = [NSNumber numberWithDouble:-currentDbmValue.doubleValue];
-                [self.dbmValueLabel setText:currentDbmValue.stringValue];
-                
-                NSNumber* newMwValue = [[NSNumber alloc] initWithDouble:[self.caculatorModel getMwFromDbm:currentDbmValue.doubleValue]];
-                [self.mwValueLabel setText:newMwValue.stringValue];
-            }
-            else
-            {
-                NSMutableString* mutableStr = [NSMutableString stringWithString:self.dbmValueLabel.text];
-                [mutableStr insertString:NEGATIVE_CHAR atIndex:0];
-                [self.dbmValueLabel setText:mutableStr];
-            }
+            NSMutableString* mutableStr = [NSMutableString stringWithString:self.dbmValueLabel.text];
+            [mutableStr insertString:NEGATIVE_CHAR atIndex:0];
+            [self.dbmValueLabel setText:mutableStr];
+            
+            self.isNegativeStatus = TRUE;
         }
+        
+        NSNumber* currentDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
+        NSNumber* newMwValue = [NSNumber numberWithDouble:[self.caculatorModel getMwFromDbm:currentDbmValue.doubleValue]];
+        [self.mwValueLabel setText:newMwValue.stringValue];
     }
 }
 
@@ -222,6 +202,7 @@
     }
     
     [self resetCaculatorStatus:FALSE];
+    self.isNegativeStatus = FALSE;
 }
 
 @end
