@@ -181,7 +181,6 @@
             }
             else
             {
-                //[self.dbmValueLabel setText:NEGATIVE_CHAR];
                 NSMutableString* mutableStr = [NSMutableString stringWithString:self.dbmValueLabel.text];
                 [mutableStr insertString:NEGATIVE_CHAR atIndex:0];
                 [self.dbmValueLabel setText:mutableStr];
