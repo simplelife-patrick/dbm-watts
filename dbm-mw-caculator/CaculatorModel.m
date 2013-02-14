@@ -12,14 +12,15 @@
 
 +(double) getRoundDoubleValue:(double)rawValue andRange:(int)rangeValue
 {
-    int intVal = 1;
-    for (int i = 0; i < rangeValue; i++)
-    {
-        intVal = intVal * 10;
-    }
-    
-    double roundedValue = round(rawValue * intVal) / intVal;
-    return roundedValue;
+//    int intVal = 1;
+//    for (int i = 0; i < rangeValue; i++)
+//    {
+//        intVal = intVal * 10;
+//    }
+//    
+//    double roundedValue = round(rawValue * intVal) / intVal;
+//    return roundedValue;
+    return rawValue;
 }
 
 /*
