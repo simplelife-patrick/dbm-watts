@@ -46,6 +46,9 @@
     [self setIsDbm2MwMode:TRUE];
     [self resetCaculatorStatus:FALSE];
     [self onClearButtonClicked:self.clearButton];
+    
+    self.dbmValueLabel.adjustsFontSizeToFitWidth = YES;
+    self.mwValueLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 - (void)didReceiveMemoryWarning
