@@ -92,9 +92,7 @@
 
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender
 {
-    NSString* sDigit = [sender currentTitle];
-    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-    NSNumber* digit = [formatter numberFromString:sDigit];
+    NSNumber* digit = [NSNumber numberWithDouble:sender.currentTitle.doubleValue];
     
     if (self.isDbm2MwMode)
     {
@@ -127,8 +125,8 @@
             }
         }
 
-        NSNumber* newDbmValue = [formatter numberFromString:self.dbmValueLabel.text];
-        NSNumber* newMwValue = [[NSNumber alloc] initWithDouble:[self.caculatorModel getMwFromDbm:newDbmValue.doubleValue]];
+        NSNumber* newDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
+        NSNumber* newMwValue = [NSNumber numberWithDouble:[self.caculatorModel getMwFromDbm:newDbmValue.doubleValue]];
         [self.mwValueLabel setText:newMwValue.stringValue];
     }
     else
@@ -147,8 +145,8 @@
             }
         }
         
-        NSNumber* newMwValue = [formatter numberFromString:self.mwValueLabel.text];
-        NSNumber* newDbmValue = [[NSNumber alloc] initWithDouble:[self.caculatorModel getDbmFromMw:newMwValue.doubleValue]];
+        NSNumber* newMwValue = [NSNumber numberWithDouble:self.mwValueLabel.text.doubleValue];
+        NSNumber* newDbmValue = [NSNumber numberWithDouble:[self.caculatorModel getDbmFromMw:newMwValue.doubleValue]];
         [self.dbmValueLabel setText:newDbmValue.stringValue];
     }
 }
@@ -158,8 +156,7 @@
 {
     if (self.isDbm2MwMode)
     {
-        NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-        NSNumber* currentDbmValue = [formatter numberFromString:self.dbmValueLabel.text];
+        NSNumber* currentDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
         
         if ([NEGATIVE_CHAR isEqualToString:self.dbmValueLabel.text])
         {
