@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="270" width="70" height="41"/>
+                                <rect key="frame" x="10" y="275" width="70" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="dbm">
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pno-lS-dyB" userLabel="saveButton" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="270" width="70" height="41"/>
+                                <rect key="frame" x="86" y="275" width="70" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Save">
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="270" width="70" height="41"/>
+                                <rect key="frame" x="163" y="275" width="70" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="History">
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
-                                <rect key="frame" x="240" y="270" width="70" height="41"/>
+                                <rect key="frame" x="240" y="275" width="70" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Help">
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="315" width="70" height="51"/>
+                                <rect key="frame" x="10" y="320" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="7">
@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u8l-me-a3Z" userLabel="digit8Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="315" width="70" height="51"/>
+                                <rect key="frame" x="86" y="320" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="8">
@@ -129,7 +129,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nmo-tk-yP3" userLabel="digit9Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="315" width="70" height="51"/>
+                                <rect key="frame" x="163" y="320" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="9">
@@ -144,7 +144,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsC-XE-70A" userLabel="digit0Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="480" width="70" height="51"/>
+                                <rect key="frame" x="10" y="485" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="0">
@@ -159,7 +159,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yx2-hr-D9s" userLabel="digit4Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="370" width="70" height="51"/>
+                                <rect key="frame" x="10" y="375" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="4">
@@ -174,7 +174,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q3M-52-8lu" userLabel="digit5Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="370" width="70" height="51"/>
+                                <rect key="frame" x="86" y="375" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="5">
@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ssW-kk-4Cb" userLabel="digit1Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="425" width="70" height="51"/>
+                                <rect key="frame" x="10" y="430" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="1">
@@ -204,7 +204,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XZ1-fy-NBf" userLabel="digit2Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="425" width="70" height="51"/>
+                                <rect key="frame" x="86" y="430" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="2">
@@ -219,7 +219,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKF-if-aOW" userLabel="digit3Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="425" width="70" height="51"/>
+                                <rect key="frame" x="163" y="430" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="3">
@@ -234,7 +234,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="KZQ-NE-vk5" userLabel="clearButton" customClass="CaculatorButton">
-                                <rect key="frame" x="240" y="315" width="70" height="216"/>
+                                <rect key="frame" x="240" y="320" width="70" height="216"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="C">
@@ -249,7 +249,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y3j-3e-0bN" userLabel="digit6Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="370" width="70" height="51"/>
+                                <rect key="frame" x="163" y="375" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="6">
@@ -264,7 +264,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HkI-i8-3vh" userLabel="dotButton" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="480" width="70" height="51"/>
+                                <rect key="frame" x="86" y="485" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title=".">
@@ -279,7 +279,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N1R-Ag-Tdj" userLabel="negativeButton" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="480" width="70" height="51"/>
+                                <rect key="frame" x="163" y="485" width="70" height="51"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="±">
