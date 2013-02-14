@@ -19,8 +19,9 @@
 #define DIGIT_DOT @"."
 #define DIGIT_0 @"0"
 #define DIGIT_1 @"1"
-#define DIGIT_INFINITY @"Inf"
-#define DIGIT_NEGATIVE_INFINITY @"-Inf"
+#define DIGIT_INFINITY @"inf"
+#define DIGIT_NEGATIVE_INFINITY @"-inf"
+#define NEGATIVE_CHAR @"-"
 
 @interface CaculatorViewController : UIViewController
 
