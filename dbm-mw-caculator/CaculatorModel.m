@@ -18,7 +18,7 @@
         intVal = intVal * 10;
     }
     
-    double roundedValue = round(rawValue * intVal) / 100;
+    double roundedValue = round(rawValue * intVal) / intVal;
     return roundedValue;
 }
 
