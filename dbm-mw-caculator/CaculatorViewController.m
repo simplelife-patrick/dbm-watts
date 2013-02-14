@@ -15,6 +15,7 @@
 @property (nonatomic) BOOL isNegativeStatus;
 
 -(void) resetCaculatorStatus:(BOOL) status;
+-(void) enableNegativeButton:(BOOL) isEnabled;
 
 @end
 
@@ -24,6 +25,19 @@
 @synthesize isDbm2MwMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
+
+-(void) enableNegativeButton:(BOOL)isEnabled
+{
+    [self.negativeButton setEnabled:isEnabled];
+    if (isEnabled)
+    {
+        [self.negativeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.negativeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    }
+}
 
 -(void) resetCaculatorStatus:(BOOL) status
 {
@@ -66,11 +80,15 @@
     {
         self.isDbm2MwMode = FALSE;
         [sender setTitle:SWITCHMODE_MW2DBM forState:UIControlStateNormal];
+        
+        [self enableNegativeButton:FALSE];
     }
     else
     {
         self.isDbm2MwMode = TRUE;
         [sender setTitle:SWITCHMODE_DBM2MW forState:UIControlStateNormal];
+        
+        [self enableNegativeButton:TRUE];
     }
     
     [self onClearButtonClicked:self.clearButton];
