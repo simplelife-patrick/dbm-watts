@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define DECIMAL_ROUND_LENGTH 4
+#define DECIMAL_ROUND_LENGTH 10
 
 @interface CaculatorModel : NSObject
 
