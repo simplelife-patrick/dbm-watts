@@ -45,6 +45,7 @@
 
 @property (weak, nonatomic) IBOutlet CaculatorButton *dotButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *negativeButton;
 
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
@@ -56,7 +57,7 @@
 - (IBAction)onHelpButtonClicked:(CaculatorButton *)sender;
 
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender;
-
+- (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onDotButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onClearButtonClicked:(CaculatorButton *)sender;
 

@@ -133,6 +133,24 @@
     }
 }
 
+
+- (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender
+{
+    if (self.isDbm2MwMode)
+    {
+        NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+        NSNumber* currentDbmValue = [formatter numberFromString:self.dbmValueLabel.text];
+        if (0 != currentDbmValue.doubleValue)
+        {
+            currentDbmValue = [NSNumber numberWithDouble:-currentDbmValue.doubleValue];
+            [self.dbmValueLabel setText:currentDbmValue.stringValue];
+            
+            NSNumber* newMwValue = [[NSNumber alloc] initWithDouble:[self.caculatorModel getMwFromDbm:currentDbmValue.doubleValue]];
+            [self.mwValueLabel setText:newMwValue.stringValue];
+        }
+    }
+}
+
 - (IBAction)onDotButtonClicked:(CaculatorButton *)sender
 {
     if (!self.isDigitInDecimalPart)
