@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5D8A7DF16CFD277007C3C21 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */; };
 		C5DA80CD16CA70F3001B9EC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */; };
 		C5DA80CF16CA70F3001B9EC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */; };
 		C5DA80D116CA70F3001B9EC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C5DA80C916CA70F3001B9EC7 /* dbm-mw-caculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dbm-mw-caculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D8A7DF16CFD277007C3C21 /* QuartzCore.framework in Frameworks */,
 				C5DA80CD16CA70F3001B9EC7 /* UIKit.framework in Frameworks */,
 				C5DA80CF16CA70F3001B9EC7 /* Foundation.framework in Frameworks */,
 				C5DA80D116CA70F3001B9EC7 /* CoreGraphics.framework in Frameworks */,
@@ -82,6 +85,7 @@
 		C5DA80CB16CA70F3001B9EC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */,
 				C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */,
 				C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */,
 				C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */,
@@ -132,6 +136,7 @@
 				C5DA80C516CA70F3001B9EC7 /* Sources */,
 				C5DA80C616CA70F3001B9EC7 /* Frameworks */,
 				C5DA80C716CA70F3001B9EC7 /* Resources */,
+				C500EF2216CF363A00C2BFF0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -182,6 +187,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C500EF2216CF363A00C2BFF0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5DA80C516CA70F3001B9EC7 /* Sources */ = {
@@ -278,10 +299,14 @@
 		C5DA80ED16CA70F3001B9EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mw-caculator-Prefix.pch";
 				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mw-caculator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -289,10 +314,14 @@
 		C5DA80EE16CA70F3001B9EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mw-caculator-Prefix.pch";
 				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mw-caculator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -316,6 +345,7 @@
 				C5DA80EE16CA70F3001B9EC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

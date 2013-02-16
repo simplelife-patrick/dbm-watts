@@ -13,9 +13,15 @@
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
+@property (nonatomic, strong) NSMutableArray* caculatorButtons;
+@property (nonatomic, strong) NSMutableArray* functionButtons;
 
 -(void) resetCaculatorStatus:(BOOL) status;
 -(void) enableNegativeButton:(BOOL) isEnabled;
+-(void) decorateDbmValueLabel;
+-(void) decorateMwValueLabel;
+-(void) decorateCaculatorButtons;
+-(void) decorateFunctionButtons;
 
 @end
 
@@ -25,6 +31,7 @@
 @synthesize isDbm2MwMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
+@synthesize caculatorButtons;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -43,6 +50,74 @@
 {
     self.isDigitInDecimalPart = status;
     self.isUserInMiddleOfEnteringDigit = status;
+}
+
+-(void) decorateDbmValueLabel
+{
+    self.dbmValueLabel.adjustsFontSizeToFitWidth = YES;
+    self.dbmValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.dbmValueLabel.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
+    self.dbmValueLabel.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+}
+
+-(void) decorateMwValueLabel
+{
+    self.mwValueLabel.adjustsFontSizeToFitWidth = YES;
+    self.mwValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.mwValueLabel.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
+    self.mwValueLabel.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+}
+
+-(void) decorateCaculatorButtons
+{
+    if (nil == self.caculatorButtons)
+    {
+        self.caculatorButtons = [NSMutableArray arrayWithCapacity:13];
+        [self.caculatorButtons addObject:self.digit0Button];
+        [self.caculatorButtons addObject:self.digit1Button];
+        [self.caculatorButtons addObject:self.digit2Button];
+        [self.caculatorButtons addObject:self.digit3Button];
+        [self.caculatorButtons addObject:self.digit4Button];
+        [self.caculatorButtons addObject:self.digit5Button];
+        [self.caculatorButtons addObject:self.digit6Button];
+        [self.caculatorButtons addObject:self.digit7Button];
+        [self.caculatorButtons addObject:self.digit8Button];
+        [self.caculatorButtons addObject:self.digit9Button];
+        [self.caculatorButtons addObject:self.dotButton];
+        [self.caculatorButtons addObject:self.negativeButton];
+        [self.caculatorButtons addObject:self.clearButton];
+    }
+    
+    for (CaculatorButton* button in self.caculatorButtons)
+    {
+        button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        button.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
+        button.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
+        button.tintColor = [UIColor darkGrayColor];
+
+        [button setExclusiveTouch:TRUE];
+    }
+}
+
+-(void) decorateFunctionButtons
+{
+    if (nil == self.functionButtons)
+    {
+        self.functionButtons = [NSMutableArray arrayWithCapacity:4];
+        [self.functionButtons addObject:self.switchButton];
+        [self.functionButtons addObject:self.saveButton];
+        [self.functionButtons addObject:self.historyButton];
+        [self.functionButtons addObject:self.helpButton];
+    }
+    
+    for (CaculatorButton* button in self.functionButtons)
+    {
+        button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        button.layer.borderWidth = UI_FUNCTION_BUTTON_BORDERWIDTH;
+        button.layer.cornerRadius = UI_FUNCTION_BUTTON_CORNERRADIUS;
+        
+        [button setExclusiveTouch:TRUE];
+    }
 }
 
 - (CaculatorModel *) caculatorModel
@@ -64,8 +139,10 @@
     [self resetCaculatorStatus:FALSE];
     [self onClearButtonClicked:self.clearButton];
     
-    self.dbmValueLabel.adjustsFontSizeToFitWidth = YES;
-    self.mwValueLabel.adjustsFontSizeToFitWidth = YES;
+    [self decorateDbmValueLabel];
+    [self decorateMwValueLabel];
+    [self decorateFunctionButtons];
+    [self decorateCaculatorButtons];
 }
 
 - (void)didReceiveMemoryWarning
