@@ -13,8 +13,8 @@
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
-@property (nonatomic, strong) NSMutableArray* caculatorButtons;
-@property (nonatomic, strong) NSMutableArray* functionButtons;
+@property (nonatomic, weak) NSMutableArray* caculatorButtons;
+@property (nonatomic, weak) NSMutableArray* functionButtons;
 
 -(void) resetCaculatorStatus:(BOOL) status;
 -(void) enableNegativeButton:(BOOL) isEnabled;
@@ -31,7 +31,8 @@
 @synthesize isDbm2MwMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
-@synthesize caculatorButtons;
+@synthesize caculatorButtons = _caculatorButtons;
+@synthesize functionButtons = _functionButtons;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -68,9 +69,9 @@
     self.mwValueLabel.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
 }
 
--(void) decorateCaculatorButtons
+-(NSMutableArray *) caculatorButtons
 {
-    if (nil == self.caculatorButtons)
+    if (nil == _caculatorButtons)
     {
         self.caculatorButtons = [NSMutableArray arrayWithCapacity:13];
         [self.caculatorButtons addObject:self.digit0Button];
@@ -88,6 +89,11 @@
         [self.caculatorButtons addObject:self.clearButton];
     }
     
+    return _caculatorButtons;
+}
+
+-(void) decorateCaculatorButtons
+{
     for (CaculatorButton* button in self.caculatorButtons)
     {
         button.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -99,9 +105,9 @@
     }
 }
 
--(void) decorateFunctionButtons
+-(NSMutableArray *) functionButtons
 {
-    if (nil == self.functionButtons)
+    if (nil == _functionButtons)
     {
         self.functionButtons = [NSMutableArray arrayWithCapacity:4];
         [self.functionButtons addObject:self.switchButton];
@@ -110,6 +116,11 @@
         [self.functionButtons addObject:self.helpButton];
     }
     
+    return _functionButtons;
+}
+
+-(void) decorateFunctionButtons
+{    
     for (CaculatorButton* button in self.functionButtons)
     {
         button.layer.borderColor = [UIColor lightGrayColor].CGColor;
