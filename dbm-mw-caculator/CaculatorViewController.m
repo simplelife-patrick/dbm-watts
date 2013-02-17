@@ -55,18 +55,12 @@
 
 -(void) decorateDbmValueLabel
 {
-    self.dbmValueLabel.adjustsFontSizeToFitWidth = YES;
-    self.dbmValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.dbmValueLabel.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
-    self.dbmValueLabel.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+
 }
 
 -(void) decorateMwValueLabel
 {
-    self.mwValueLabel.adjustsFontSizeToFitWidth = YES;
-    self.mwValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.mwValueLabel.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
-    self.mwValueLabel.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+
 }
 
 -(NSMutableArray *) caculatorButtons
@@ -94,15 +88,7 @@
 
 -(void) decorateCaculatorButtons
 {
-    for (CaculatorButton* button in self.caculatorButtons)
-    {
-        button.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        button.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
-        button.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
-        button.tintColor = [UIColor darkGrayColor];
 
-        [button setExclusiveTouch:TRUE];
-    }
 }
 
 -(NSMutableArray *) functionButtons
@@ -121,14 +107,7 @@
 
 -(void) decorateFunctionButtons
 {    
-    for (CaculatorButton* button in self.functionButtons)
-    {
-        button.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        button.layer.borderWidth = UI_FUNCTION_BUTTON_BORDERWIDTH;
-        button.layer.cornerRadius = UI_FUNCTION_BUTTON_CORNERRADIUS;
-        
-        [button setExclusiveTouch:TRUE];
-    }
+
 }
 
 - (CaculatorModel *) caculatorModel

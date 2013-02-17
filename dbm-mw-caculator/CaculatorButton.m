@@ -23,10 +23,21 @@
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
+*/
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+    // Self drawing codes
+    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
+    self.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
+
+    self.layer.backgroundColor = [CaculatorUIStyle caculatorButtonBackgroundColor].CGColor;
+
+    [self setExclusiveTouch:TRUE];
+    
+    // Super class drawing codes
+    [super drawRect:rect];
 }
-*/
+//*/
 
 @end

@@ -25,16 +25,6 @@
 #define DIGIT_NEGATIVE_INFINITY @"-inf"
 #define NEGATIVE_CHAR @"-"
 
-#define UI_SCREEN_LABEL_CORNERRADIUS 8
-#define UI_SCREEN_LABEL_BORDERWIDTH 3
-
-#define UI_FUNCTION_BUTTON_CORNERRADIUS 8
-#define UI_FUNCTION_BUTTON_BORDERWIDTH 3
-
-#define UI_CACULATOR_BUTTON_CORNERRADIUS 8
-#define UI_CACULATOR_BUTTON_BORDERWIDTH 3
-
-
 @interface CaculatorViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet CaculatorScreenLabel *dbmValueLabel;
