@@ -17,7 +17,6 @@
 @interface CaculatorUIStyle : NSObject
 
 +(UIColor*) caculatorButtonBackgroundColor;
-+(UIColor*) functionButtonBackgroundColor;
 +(UIColor*) screenLabelBackgroundColor;
 
 @end
