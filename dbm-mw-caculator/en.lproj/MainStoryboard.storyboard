@@ -19,7 +19,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMV-wS-Ma3" userLabel="mwValueLabel" customClass="CaculatorScreenLabel">
-                                <rect key="frame" x="10" y="139.5" width="300" height="120"/>
+                                <rect key="frame" x="10" y="140" width="300" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,6 +49,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onSwitchButtonClicked:" destination="2" eventType="touchUpInside" id="Gme-aP-ONZ"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="Tpc-jR-WKY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pno-lS-dyB" userLabel="saveButton" customClass="CaculatorButton">
@@ -64,6 +65,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onSaveButtonClicked:" destination="2" eventType="touchUpInside" id="mIq-VZ-EM3"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="O0x-MR-I1t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
@@ -79,6 +81,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onHistoryButtonClicked:" destination="2" eventType="touchUpInside" id="fKc-nU-tV9"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="OJ1-dc-Omj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
@@ -94,6 +97,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onHelpButtonClicked:" destination="2" eventType="touchUpInside" id="mI6-ge-ISS"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8Ah-ou-Gqs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
@@ -109,6 +113,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="0Pi-5S-c0s"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="6L4-V9-iBz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u8l-me-a3Z" userLabel="digit8Button" customClass="CaculatorButton">
@@ -124,6 +129,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="aiS-aj-tft"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="eaT-kO-T3p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nmo-tk-yP3" userLabel="digit9Button" customClass="CaculatorButton">
@@ -139,6 +145,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="URK-em-0bn"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="x0o-Pf-9wd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsC-XE-70A" userLabel="digit0Button" customClass="CaculatorButton">
@@ -154,6 +161,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="kDA-8I-xrM"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="reS-pW-197"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yx2-hr-D9s" userLabel="digit4Button" customClass="CaculatorButton">
@@ -169,6 +177,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="tFa-5O-VA9"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="llL-kb-cAO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q3M-52-8lu" userLabel="digit5Button" customClass="CaculatorButton">
@@ -184,6 +193,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="Fp9-7Z-k0F"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="2Ix-rz-AxE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ssW-kk-4Cb" userLabel="digit1Button" customClass="CaculatorButton">
@@ -199,6 +209,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="8H4-xI-CNU"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="uWp-t1-ZLC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XZ1-fy-NBf" userLabel="digit2Button" customClass="CaculatorButton">
@@ -214,6 +225,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="C92-Gw-yOO"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="IQr-Xr-rb0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKF-if-aOW" userLabel="digit3Button" customClass="CaculatorButton">
@@ -229,6 +241,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="oXt-0t-LF5"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="b3f-UV-k1M"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="KZQ-NE-vk5" userLabel="clearButton" customClass="CaculatorButton">
@@ -245,6 +258,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onClearButtonClicked:" destination="2" eventType="touchUpInside" id="1VI-xU-fIR"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="O7z-fW-FnR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y3j-3e-0bN" userLabel="digit6Button" customClass="CaculatorButton">
@@ -260,6 +274,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDigitButtonClicked:" destination="2" eventType="touchUpInside" id="IiL-FI-Je5"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="vPx-ql-qr8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HkI-i8-3vh" userLabel="dotButton" customClass="CaculatorButton">
@@ -275,6 +290,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onDotButtonClicked:" destination="2" eventType="touchUpInside" id="5gv-tH-ZaW"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="mGV-ZG-8o1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N1R-Ag-Tdj" userLabel="negativeButton" customClass="CaculatorButton">
@@ -290,6 +306,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNegativeButtonClicked:" destination="2" eventType="touchUpInside" id="Ry0-qK-utQ"/>
+                                    <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8aG-pI-vu1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -340,6 +357,7 @@
                 <relationship kind="action" name="onNegativeButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onSaveButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onSwitchButtonClicked:" candidateClass="CaculatorButton"/>
+                <relationship kind="action" name="playButtonClickSound:" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="dbmValueLabel" candidateClass="CaculatorScreenLabel"/>
                 <relationship kind="outlet" name="digit0Button" candidateClass="CaculatorButton"/>

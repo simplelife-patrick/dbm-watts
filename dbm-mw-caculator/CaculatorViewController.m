@@ -110,6 +110,19 @@
 
 }
 
+-(void) playButtonClickSound
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"button" ofType:@"wav"];
+    
+    SystemSoundID soundID;
+    
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &soundID);
+    
+    AudioServicesPlaySystemSound(soundID);
+    
+    //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
 - (CaculatorModel *) caculatorModel
 {
     if (nil == _caculatorModel)
@@ -288,6 +301,11 @@
     
     [self resetCaculatorStatus:FALSE];
     self.isNegativeStatus = FALSE;
+}
+
+- (IBAction)playButtonClickSound:(CaculatorButton *)sender
+{
+    [CaculatorResource playButtonClickSound];
 }
 
 @end

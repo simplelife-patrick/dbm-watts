@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "CaculatorScreenLabel.h"
 #import "CaculatorButton.h"
 
 #import "CaculatorModel.h"
+
+#import "CaculatorResource.h"
 
 #define SWITCHMODE_DBM2MW @"dbm"
 #define SWITCHMODE_MW2DBM @"mw"
@@ -63,5 +65,7 @@
 - (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onDotButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onClearButtonClicked:(CaculatorButton *)sender;
+
+- (IBAction)playButtonClickSound:(CaculatorButton *)sender;
 
 @end
