@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,32 +12,45 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HoC-qu-vIG" userLabel="dbmValueLabel" customClass="CaculatorScreenLabel">
-                                <rect key="frame" x="10" y="10" width="300" height="120"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoC-qu-vIG" userLabel="dbmValueLabel" customClass="CaculatorScreenLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="hBN-TE-8uF"/>
+                                    <constraint firstAttribute="width" constant="300" id="haA-i0-iVm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="72"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMV-wS-Ma3" userLabel="mwValueLabel" customClass="CaculatorScreenLabel">
-                                <rect key="frame" x="10" y="140" width="300" height="120"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-wS-Ma3" userLabel="mwValueLabel" customClass="CaculatorScreenLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="PDa-ir-1yd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="dbm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ITu-O0-gIU" userLabel="dbmTextLabel">
-                                <rect key="frame" x="15" y="15" width="285" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="dbm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITu-O0-gIU" userLabel="dbmTextLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="S5x-be-go8"/>
+                                    <constraint firstAttribute="width" constant="285" id="UCP-lN-s62"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mw" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xLj-an-SWE" userLabel="mwTextLabel">
-                                <rect key="frame" x="15" y="144" width="285" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mw" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLj-an-SWE" userLabel="mwTextLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="jdl-Sz-QRW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="275" width="70" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="246-l8-01e"/>
+                                    <constraint firstAttribute="height" constant="40" id="BGB-AN-T2b"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="dbm">
@@ -52,8 +65,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="Tpc-jR-WKY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pno-lS-dyB" userLabel="saveButton" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="275" width="70" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pno-lS-dyB" userLabel="saveButton" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="ldE-py-4Ba"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Save">
@@ -68,8 +83,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="O0x-MR-I1t"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="275" width="70" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="WAn-ex-quk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="History">
@@ -84,8 +101,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="OJ1-dc-Omj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
-                                <rect key="frame" x="240" y="275" width="70" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="xg8-aI-UPb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Help">
@@ -100,8 +119,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8Ah-ou-Gqs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="320" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4TF-oR-tn9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="7">
@@ -116,8 +137,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="6L4-V9-iBz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u8l-me-a3Z" userLabel="digit8Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="320" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8l-me-a3Z" userLabel="digit8Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="8">
@@ -132,8 +152,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="eaT-kO-T3p"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nmo-tk-yP3" userLabel="digit9Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="320" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmo-tk-yP3" userLabel="digit9Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="9">
@@ -148,8 +167,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="x0o-Pf-9wd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsC-XE-70A" userLabel="digit0Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="485" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsC-XE-70A" userLabel="digit0Button" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="l2g-Ey-coj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="0">
@@ -164,8 +185,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="reS-pW-197"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yx2-hr-D9s" userLabel="digit4Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="375" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yx2-hr-D9s" userLabel="digit4Button" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rgX-gF-FMV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="4">
@@ -180,8 +203,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="llL-kb-cAO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q3M-52-8lu" userLabel="digit5Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="375" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3M-52-8lu" userLabel="digit5Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="5">
@@ -196,8 +218,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="2Ix-rz-AxE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ssW-kk-4Cb" userLabel="digit1Button" customClass="CaculatorButton">
-                                <rect key="frame" x="10" y="430" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssW-kk-4Cb" userLabel="digit1Button" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ekB-4w-XY7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="1">
@@ -212,8 +236,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="uWp-t1-ZLC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XZ1-fy-NBf" userLabel="digit2Button" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="430" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ1-fy-NBf" userLabel="digit2Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="2">
@@ -228,8 +251,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="IQr-Xr-rb0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKF-if-aOW" userLabel="digit3Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="430" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKF-if-aOW" userLabel="digit3Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="3">
@@ -244,9 +266,10 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="b3f-UV-k1M"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="KZQ-NE-vk5" userLabel="clearButton" customClass="CaculatorButton">
-                                <rect key="frame" x="240" y="320" width="70" height="216"/>
-                                <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZQ-NE-vk5" userLabel="clearButton" customClass="CaculatorButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="215" id="kk9-65-aPP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="C">
@@ -261,8 +284,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="O7z-fW-FnR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y3j-3e-0bN" userLabel="digit6Button" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="375" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3j-3e-0bN" userLabel="digit6Button" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="6">
@@ -277,8 +299,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="vPx-ql-qr8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HkI-i8-3vh" userLabel="dotButton" customClass="CaculatorButton">
-                                <rect key="frame" x="86" y="485" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkI-i8-3vh" userLabel="dotButton" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title=".">
@@ -293,8 +314,7 @@
                                     <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="mGV-ZG-8o1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N1R-Ag-Tdj" userLabel="negativeButton" customClass="CaculatorButton">
-                                <rect key="frame" x="163" y="485" width="70" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1R-Ag-Tdj" userLabel="negativeButton" customClass="CaculatorButton">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="±">
@@ -311,6 +331,92 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N1R-Ag-Tdj" firstAttribute="bottom" secondItem="HkI-i8-3vh" secondAttribute="bottom" type="default" id="0gs-5S-tQB"/>
+                            <constraint firstItem="u8l-me-a3Z" firstAttribute="top" secondItem="Nmo-tk-yP3" secondAttribute="top" type="default" id="0j8-eo-Tu2"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="baseline" secondItem="BKF-if-aOW" secondAttribute="baseline" type="default" id="2BH-hD-h8Y"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="top" secondItem="yx2-hr-D9s" secondAttribute="top" type="default" id="2Jj-tb-P07"/>
+                            <constraint firstItem="BKF-if-aOW" firstAttribute="trailing" secondItem="N1R-Ag-Tdj" secondAttribute="trailing" type="default" id="2u4-Jc-ylN"/>
+                            <constraint firstItem="9F1-3b-1ao" firstAttribute="baseline" secondItem="yGt-rZ-9ot" secondAttribute="baseline" type="default" id="39I-yL-gKw"/>
+                            <constraint firstItem="9F1-3b-1ao" firstAttribute="top" secondItem="yGt-rZ-9ot" secondAttribute="top" type="default" id="4B6-Ub-vIU"/>
+                            <constraint firstItem="XZ1-fy-NBf" firstAttribute="leading" secondItem="HkI-i8-3vh" secondAttribute="leading" type="default" id="4ut-ee-qOa"/>
+                            <constraint firstItem="sMV-wS-Ma3" firstAttribute="top" secondItem="3" secondAttribute="top" constant="140" id="5FR-Qk-y2y"/>
+                            <constraint firstItem="y3j-3e-0bN" firstAttribute="baseline" secondItem="yx2-hr-D9s" secondAttribute="baseline" type="default" id="6aG-Az-Kaf"/>
+                            <constraint firstItem="XZ1-fy-NBf" firstAttribute="bottom" secondItem="BKF-if-aOW" secondAttribute="bottom" type="default" id="7Gh-t7-tFr"/>
+                            <constraint firstAttribute="bottom" secondItem="wKe-fe-DSQ" secondAttribute="bottom" constant="233" id="9Ja-ly-uGE"/>
+                            <constraint firstAttribute="bottom" secondItem="bsC-XE-70A" secondAttribute="bottom" constant="13" id="9No-Ls-Kul"/>
+                            <constraint firstItem="HkI-i8-3vh" firstAttribute="trailing" secondItem="XZ1-fy-NBf" secondAttribute="trailing" type="default" id="B7R-Ez-z3L"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="trailing" secondItem="u8l-me-a3Z" secondAttribute="trailing" type="default" id="Bz5-hj-IoW"/>
+                            <constraint firstItem="yx2-hr-D9s" firstAttribute="leading" secondItem="dsa-m4-rFl" secondAttribute="leading" type="default" id="Do8-1i-KYg"/>
+                            <constraint firstItem="ITu-O0-gIU" firstAttribute="leading" secondItem="xLj-an-SWE" secondAttribute="leading" type="default" id="E4b-rB-bh3"/>
+                            <constraint firstItem="yGt-rZ-9ot" firstAttribute="bottom" secondItem="9F1-3b-1ao" secondAttribute="bottom" type="default" id="FR4-JF-LSx"/>
+                            <constraint firstItem="dsa-m4-rFl" firstAttribute="trailing" secondItem="yx2-hr-D9s" secondAttribute="trailing" type="default" id="Gie-Zs-Iac"/>
+                            <constraint firstItem="HoC-qu-vIG" firstAttribute="trailing" secondItem="sMV-wS-Ma3" secondAttribute="trailing" type="default" id="H0f-fO-qNX"/>
+                            <constraint firstAttribute="bottom" secondItem="yx2-hr-D9s" secondAttribute="bottom" constant="123" id="J9G-AP-KS3"/>
+                            <constraint firstItem="xLj-an-SWE" firstAttribute="top" secondItem="3" secondAttribute="top" constant="144" id="JFL-9p-AkG"/>
+                            <constraint firstAttribute="bottom" secondItem="ssW-kk-4Cb" secondAttribute="bottom" constant="68" id="KNc-I6-omD"/>
+                            <constraint firstItem="KZQ-NE-vk5" firstAttribute="top" secondItem="Nmo-tk-yP3" secondAttribute="top" type="default" id="Kxa-Zy-9ah"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="bottom" secondItem="y3j-3e-0bN" secondAttribute="bottom" type="default" id="L3a-0D-uuo"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="bottom" secondItem="yx2-hr-D9s" secondAttribute="bottom" type="default" id="LZo-Vr-j2H"/>
+                            <constraint firstItem="sMV-wS-Ma3" firstAttribute="leading" secondItem="HoC-qu-vIG" secondAttribute="leading" type="default" id="LcP-9Z-ryc"/>
+                            <constraint firstAttribute="trailing" secondItem="ITu-O0-gIU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LfL-NL-ZeI"/>
+                            <constraint firstItem="sMV-wS-Ma3" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="MCA-zb-5bI"/>
+                            <constraint firstItem="u8l-me-a3Z" firstAttribute="leading" secondItem="pno-lS-dyB" secondAttribute="leading" type="default" id="MDm-oz-bS3"/>
+                            <constraint firstItem="Nmo-tk-yP3" firstAttribute="leading" secondItem="y3j-3e-0bN" secondAttribute="leading" type="default" id="MP1-uJ-WzO"/>
+                            <constraint firstItem="wKe-fe-DSQ" firstAttribute="leading" secondItem="dsa-m4-rFl" secondAttribute="leading" type="default" id="N0k-fA-RZE"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="bottom" secondItem="wKe-fe-DSQ" secondAttribute="bottom" type="default" id="N8b-BF-vvg"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="86" id="Nbi-up-aJf"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="leading" secondItem="bsC-XE-70A" secondAttribute="leading" type="default" id="NoK-rH-GJX"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="trailing" secondItem="bsC-XE-70A" secondAttribute="trailing" type="default" id="PmF-1I-ZYO"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="baseline" secondItem="9F1-3b-1ao" secondAttribute="baseline" type="default" id="RhG-My-5rv"/>
+                            <constraint firstItem="bsC-XE-70A" firstAttribute="top" secondItem="HkI-i8-3vh" secondAttribute="top" type="default" id="SpX-uT-cuW"/>
+                            <constraint firstItem="u8l-me-a3Z" firstAttribute="baseline" secondItem="Nmo-tk-yP3" secondAttribute="baseline" type="default" id="T1n-jF-11F"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="baseline" secondItem="XZ1-fy-NBf" secondAttribute="baseline" type="default" id="U8b-wV-aNl"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="trailing" secondItem="yx2-hr-D9s" secondAttribute="trailing" type="default" id="UkY-oD-L8J"/>
+                            <constraint firstItem="XZ1-fy-NBf" firstAttribute="trailing" secondItem="q3M-52-8lu" secondAttribute="trailing" type="default" id="WW9-dt-T9U"/>
+                            <constraint firstItem="yGt-rZ-9ot" firstAttribute="trailing" secondItem="Nmo-tk-yP3" secondAttribute="trailing" type="default" id="XW3-Eh-mfS"/>
+                            <constraint firstItem="y3j-3e-0bN" firstAttribute="trailing" secondItem="BKF-if-aOW" secondAttribute="trailing" type="default" id="YRT-el-J2L"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="top" secondItem="yGt-rZ-9ot" secondAttribute="top" type="default" id="YY0-tO-kST"/>
+                            <constraint firstItem="bsC-XE-70A" firstAttribute="bottom" secondItem="HkI-i8-3vh" secondAttribute="bottom" type="default" id="Zps-fT-STO"/>
+                            <constraint firstItem="N1R-Ag-Tdj" firstAttribute="leading" secondItem="BKF-if-aOW" secondAttribute="leading" type="default" id="aFH-xe-8yh"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="leading" secondItem="XZ1-fy-NBf" secondAttribute="leading" type="default" id="blM-sH-BlP"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="trailing" secondItem="u8l-me-a3Z" secondAttribute="trailing" type="default" id="cby-hn-0BC"/>
+                            <constraint firstItem="y3j-3e-0bN" firstAttribute="top" secondItem="q3M-52-8lu" secondAttribute="top" type="default" id="eLW-QH-d00"/>
+                            <constraint firstItem="BKF-if-aOW" firstAttribute="top" secondItem="XZ1-fy-NBf" secondAttribute="top" type="default" id="f4r-3i-NmY"/>
+                            <constraint firstItem="wKe-fe-DSQ" firstAttribute="baseline" secondItem="yGt-rZ-9ot" secondAttribute="baseline" type="default" id="fyO-h6-ssE"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="baseline" secondItem="yx2-hr-D9s" secondAttribute="baseline" type="default" id="g0C-sF-tWc"/>
+                            <constraint firstItem="yGt-rZ-9ot" firstAttribute="baseline" secondItem="pno-lS-dyB" secondAttribute="baseline" type="default" id="gMQ-X1-YYy"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="baseline" secondItem="y3j-3e-0bN" secondAttribute="baseline" type="default" id="hHh-BG-Dx8"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="baseline" secondItem="wKe-fe-DSQ" secondAttribute="baseline" type="default" id="hP4-qq-Hi0"/>
+                            <constraint firstAttribute="trailing" secondItem="yGt-rZ-9ot" secondAttribute="trailing" constant="87" id="hwB-Mj-C6L"/>
+                            <constraint firstItem="sMV-wS-Ma3" firstAttribute="trailing" secondItem="9F1-3b-1ao" secondAttribute="trailing" type="default" id="i52-hn-3Oj"/>
+                            <constraint firstItem="dsa-m4-rFl" firstAttribute="baseline" secondItem="u8l-me-a3Z" secondAttribute="baseline" type="default" id="iOj-Ut-IAj"/>
+                            <constraint firstItem="KZQ-NE-vk5" firstAttribute="trailing" secondItem="9F1-3b-1ao" secondAttribute="trailing" type="default" id="iSr-W4-ZFE"/>
+                            <constraint firstItem="N1R-Ag-Tdj" firstAttribute="top" secondItem="HkI-i8-3vh" secondAttribute="top" type="default" id="kF7-5I-THE"/>
+                            <constraint firstItem="yGt-rZ-9ot" firstAttribute="leading" secondItem="Nmo-tk-yP3" secondAttribute="leading" type="default" id="lj7-8R-NAj"/>
+                            <constraint firstItem="dsa-m4-rFl" firstAttribute="bottom" secondItem="u8l-me-a3Z" secondAttribute="bottom" type="default" id="lyo-AI-7yi"/>
+                            <constraint firstItem="N1R-Ag-Tdj" firstAttribute="baseline" secondItem="HkI-i8-3vh" secondAttribute="baseline" type="default" id="nIb-aj-HZB"/>
+                            <constraint firstItem="HoC-qu-vIG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="10" id="nQJ-U8-5BI"/>
+                            <constraint firstItem="Nmo-tk-yP3" firstAttribute="bottom" secondItem="u8l-me-a3Z" secondAttribute="bottom" type="default" id="nS1-a4-rgu"/>
+                            <constraint firstAttribute="trailing" secondItem="xLj-an-SWE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oku-y2-kQT"/>
+                            <constraint firstItem="yx2-hr-D9s" firstAttribute="leading" secondItem="ssW-kk-4Cb" secondAttribute="leading" type="default" id="p0q-Po-xXz"/>
+                            <constraint firstItem="y3j-3e-0bN" firstAttribute="trailing" secondItem="Nmo-tk-yP3" secondAttribute="trailing" type="default" id="s1k-sm-uaY"/>
+                            <constraint firstItem="dsa-m4-rFl" firstAttribute="baseline" secondItem="Nmo-tk-yP3" secondAttribute="baseline" type="default" id="sAB-hm-z8y"/>
+                            <constraint firstItem="XZ1-fy-NBf" firstAttribute="bottom" secondItem="ssW-kk-4Cb" secondAttribute="bottom" type="default" id="sji-RQ-FtV"/>
+                            <constraint firstItem="XZ1-fy-NBf" firstAttribute="baseline" secondItem="BKF-if-aOW" secondAttribute="baseline" type="default" id="t2u-nc-7ap"/>
+                            <constraint firstItem="wKe-fe-DSQ" firstAttribute="top" secondItem="pno-lS-dyB" secondAttribute="top" type="default" id="uFy-Rd-vdN"/>
+                            <constraint firstItem="KZQ-NE-vk5" firstAttribute="leading" secondItem="9F1-3b-1ao" secondAttribute="leading" type="default" id="ukE-oQ-FPm"/>
+                            <constraint firstItem="q3M-52-8lu" firstAttribute="leading" secondItem="u8l-me-a3Z" secondAttribute="leading" type="default" id="vNf-gW-DPy"/>
+                            <constraint firstItem="KZQ-NE-vk5" firstAttribute="bottom" secondItem="N1R-Ag-Tdj" secondAttribute="bottom" type="default" id="vfr-MC-FU4"/>
+                            <constraint firstItem="ITu-O0-gIU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="15" id="vzv-SE-cSV"/>
+                            <constraint firstItem="y3j-3e-0bN" firstAttribute="leading" secondItem="BKF-if-aOW" secondAttribute="leading" type="default" id="w51-ZD-jcv"/>
+                            <constraint firstItem="ssW-kk-4Cb" firstAttribute="top" secondItem="XZ1-fy-NBf" secondAttribute="top" type="default" id="x4k-Dx-JKB"/>
+                            <constraint firstItem="pno-lS-dyB" firstAttribute="bottom" secondItem="yGt-rZ-9ot" secondAttribute="bottom" type="default" id="xsf-OF-hcy"/>
+                            <constraint firstItem="wKe-fe-DSQ" firstAttribute="trailing" secondItem="dsa-m4-rFl" secondAttribute="trailing" type="default" id="xxs-NG-GAc"/>
+                            <constraint firstItem="9F1-3b-1ao" firstAttribute="baseline" secondItem="wKe-fe-DSQ" secondAttribute="baseline" type="default" id="y7m-e6-MFq"/>
+                            <constraint firstItem="dsa-m4-rFl" firstAttribute="top" secondItem="u8l-me-a3Z" secondAttribute="top" type="default" id="zAd-xB-3KH"/>
+                            <constraint firstItem="sMV-wS-Ma3" firstAttribute="leading" secondItem="wKe-fe-DSQ" secondAttribute="leading" type="default" id="zYw-g1-17d"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="KZQ-NE-vk5" id="s6l-WH-ZHO"/>
@@ -378,6 +484,9 @@
                 <relationship kind="outlet" name="saveButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="switchButton" candidateClass="CaculatorButton"/>
             </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
