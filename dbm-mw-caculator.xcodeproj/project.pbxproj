@@ -30,34 +30,34 @@
 
 /* Begin PBXFileReference section */
 		C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C5D8A7E116D12515007C3C21 /* CaculatorUIStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorUIStyle.h; sourceTree = "<group>"; };
-		C5D8A7E216D12515007C3C21 /* CaculatorUIStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorUIStyle.m; sourceTree = "<group>"; };
+		C5D8A7E116D12515007C3C21 /* CaculatorUIStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorUIStyle.h; path = "dbm-mw-caculator/CaculatorUIStyle.h"; sourceTree = "<group>"; };
+		C5D8A7E216D12515007C3C21 /* CaculatorUIStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorUIStyle.m; path = "dbm-mw-caculator/CaculatorUIStyle.m"; sourceTree = "<group>"; };
 		C5D8A7E516D24359007C3C21 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = button.wav; path = ../../../../../Downloads/button.wav; sourceTree = "<group>"; };
 		C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C5D8A7E916D24E70007C3C21 /* CaculatorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorResource.h; path = ../CaculatorResource.h; sourceTree = "<group>"; };
-		C5D8A7EA16D24E71007C3C21 /* CaculatorResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorResource.m; path = ../CaculatorResource.m; sourceTree = "<group>"; };
-		C5DA80C916CA70F3001B9EC7 /* dbm-mw-caculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dbm-mw-caculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5D8A7E916D24E70007C3C21 /* CaculatorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorResource.h; sourceTree = "<group>"; };
+		C5D8A7EA16D24E71007C3C21 /* CaculatorResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorResource.m; sourceTree = "<group>"; };
+		C5DA80C916CA70F3001B9EC7 /* dbm-mw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dbm-mw.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C5DA80D416CA70F3001B9EC7 /* dbm-mw-caculator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dbm-mw-caculator-Info.plist"; sourceTree = "<group>"; };
+		C5DA80D416CA70F3001B9EC7 /* dbm-mW-caculator.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dbm-mW-caculator.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		C5DA80D616CA70F3001B9EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C5DA80D816CA70F3001B9EC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C5DA80DA16CA70F3001B9EC7 /* dbm-mw-caculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dbm-mw-caculator-Prefix.pch"; sourceTree = "<group>"; };
-		C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C5DA80DA16CA70F3001B9EC7 /* dbm-mW-caculator.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dbm-mW-caculator.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
+		C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "dbm-mw-caculator/AppDelegate.h"; sourceTree = "<group>"; };
+		C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "dbm-mw-caculator/AppDelegate.m"; sourceTree = "<group>"; };
 		C5DA80DE16CA70F3001B9EC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C5DA80E016CA70F3001B9EC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C5DA80E516CA70F3001B9EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaculatorViewController.h; sourceTree = "<group>"; };
-		C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaculatorViewController.m; sourceTree = "<group>"; };
-		C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorModel.h; sourceTree = "<group>"; };
-		C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorModel.m; sourceTree = "<group>"; };
-		C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorScreenLabel.h; sourceTree = "<group>"; };
-		C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorScreenLabel.m; sourceTree = "<group>"; };
-		C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorButton.h; sourceTree = "<group>"; };
-		C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorButton.m; sourceTree = "<group>"; };
+		C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CaculatorViewController.h; path = "dbm-mw-caculator/CaculatorViewController.h"; sourceTree = "<group>"; };
+		C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CaculatorViewController.m; path = "dbm-mw-caculator/CaculatorViewController.m"; sourceTree = "<group>"; };
+		C5DA80EF16CA7EF8001B9EC7 /* CaculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorModel.h; path = "dbm-mw-caculator/CaculatorModel.h"; sourceTree = "<group>"; };
+		C5DA80F016CA7EF8001B9EC7 /* CaculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorModel.m; path = "dbm-mw-caculator/CaculatorModel.m"; sourceTree = "<group>"; };
+		C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorScreenLabel.h; path = "dbm-mw-caculator/CaculatorScreenLabel.h"; sourceTree = "<group>"; };
+		C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorScreenLabel.m; path = "dbm-mw-caculator/CaculatorScreenLabel.m"; sourceTree = "<group>"; };
+		C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorButton.h; path = "dbm-mw-caculator/CaculatorButton.h"; sourceTree = "<group>"; };
+		C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorButton.m; path = "dbm-mw-caculator/CaculatorButton.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,36 +76,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5DA80C016CA70F3001B9EC7 = {
-			isa = PBXGroup;
-			children = (
-				C5DA80D216CA70F3001B9EC7 /* dbm-mw-caculator */,
-				C5DA80CB16CA70F3001B9EC7 /* Frameworks */,
-				C5DA80CA16CA70F3001B9EC7 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		C5DA80CA16CA70F3001B9EC7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C5DA80C916CA70F3001B9EC7 /* dbm-mw-caculator.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C5DA80CB16CA70F3001B9EC7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */,
-				C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */,
-				C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */,
-				C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */,
-				C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C5DA80D216CA70F3001B9EC7 /* dbm-mw-caculator */ = {
+		C5D8A7EC16D2734A007C3C21 /* dbm-mW-caculator */ = {
 			isa = PBXGroup;
 			children = (
 				C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */,
@@ -125,30 +96,60 @@
 				C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */,
 				C5DA80D316CA70F3001B9EC7 /* Supporting Files */,
 			);
-			path = "dbm-mw-caculator";
+			name = "dbm-mW-caculator";
+			sourceTree = "<group>";
+		};
+		C5DA80C016CA70F3001B9EC7 = {
+			isa = PBXGroup;
+			children = (
+				C5D8A7EC16D2734A007C3C21 /* dbm-mW-caculator */,
+				C5DA80CB16CA70F3001B9EC7 /* Frameworks */,
+				C5DA80CA16CA70F3001B9EC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C5DA80CA16CA70F3001B9EC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5DA80C916CA70F3001B9EC7 /* dbm-mw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5DA80CB16CA70F3001B9EC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */,
+				C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */,
+				C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */,
+				C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */,
+				C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C5DA80D316CA70F3001B9EC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				C5D8A7E516D24359007C3C21 /* button.wav */,
-				C5DA80D416CA70F3001B9EC7 /* dbm-mw-caculator-Info.plist */,
+				C5DA80D416CA70F3001B9EC7 /* dbm-mW-caculator.temp_caseinsensitive_rename-Info.plist */,
 				C5DA80D516CA70F3001B9EC7 /* InfoPlist.strings */,
 				C5DA80D816CA70F3001B9EC7 /* main.m */,
-				C5DA80DA16CA70F3001B9EC7 /* dbm-mw-caculator-Prefix.pch */,
+				C5DA80DA16CA70F3001B9EC7 /* dbm-mW-caculator.temp_caseinsensitive_rename-Prefix.pch */,
 				C5DA80DE16CA70F3001B9EC7 /* Default.png */,
 				C5DA80E016CA70F3001B9EC7 /* Default@2x.png */,
 				C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = "dbm-mw-caculator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5DA80C816CA70F3001B9EC7 /* dbm-mw-caculator */ = {
+		C5DA80C816CA70F3001B9EC7 /* dbm-mW */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mw-caculator" */;
+			buildConfigurationList = C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mW" */;
 			buildPhases = (
 				C5DA80C516CA70F3001B9EC7 /* Sources */,
 				C5DA80C616CA70F3001B9EC7 /* Frameworks */,
@@ -159,9 +160,9 @@
 			);
 			dependencies = (
 			);
-			name = "dbm-mw-caculator";
+			name = "dbm-mW";
 			productName = "dbm-mw-caculator";
-			productReference = C5DA80C916CA70F3001B9EC7 /* dbm-mw-caculator.app */;
+			productReference = C5DA80C916CA70F3001B9EC7 /* dbm-mw.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +174,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Code Animal";
 			};
-			buildConfigurationList = C5DA80C416CA70F3001B9EC7 /* Build configuration list for PBXProject "dbm-mw-caculator" */;
+			buildConfigurationList = C5DA80C416CA70F3001B9EC7 /* Build configuration list for PBXProject "dbm-mW-caculator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -185,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5DA80C816CA70F3001B9EC7 /* dbm-mw-caculator */,
+				C5DA80C816CA70F3001B9EC7 /* dbm-mW */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +256,7 @@
 				C5DA80E516CA70F3001B9EC7 /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			path = "dbm-mw-caculator";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,7 +287,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -309,7 +311,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -322,8 +324,8 @@
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mw-caculator-Prefix.pch";
-				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mw-caculator-Info.plist";
+				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mW-caculator.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mW-caculator.temp_caseinsensitive_rename-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -337,8 +339,8 @@
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mw-caculator-Prefix.pch";
-				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mw-caculator-Info.plist";
+				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-mW-caculator.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "dbm-mw-caculator/dbm-mW-caculator.temp_caseinsensitive_rename-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -349,7 +351,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C5DA80C416CA70F3001B9EC7 /* Build configuration list for PBXProject "dbm-mw-caculator" */ = {
+		C5DA80C416CA70F3001B9EC7 /* Build configuration list for PBXProject "dbm-mW-caculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5DA80EA16CA70F3001B9EC7 /* Debug */,
@@ -358,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mw-caculator" */ = {
+		C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mW" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5DA80ED16CA70F3001B9EC7 /* Debug */,

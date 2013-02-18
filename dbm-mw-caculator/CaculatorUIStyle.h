@@ -18,5 +18,6 @@
 
 +(UIColor*) caculatorButtonBackgroundColor;
 +(UIColor*) screenLabelBackgroundColor;
++(UIColor*) focusedScreenLabelBackgroundColor;
 
 @end

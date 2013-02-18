@@ -137,10 +137,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.isDbm2MwMode = TRUE;
+    self.isDbm2MwMode = FALSE;
     self.isNegativeStatus = FALSE;
     [self resetCaculatorStatus:FALSE];
-    [self onClearButtonClicked:self.clearButton];
+    
+    [self onSwitchButtonClicked:self.switchButton];
     
     [self decorateDbmValueLabel];
     [self decorateMwValueLabel];
@@ -162,6 +163,9 @@
         [sender setTitle:SWITCHMODE_MW2DBM forState:UIControlStateNormal];
         
         [self enableNegativeButton:FALSE];
+        
+        self.dbmValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
+        self.mwValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
     }
     else
     {
@@ -169,6 +173,9 @@
         [sender setTitle:SWITCHMODE_DBM2MW forState:UIControlStateNormal];
         
         [self enableNegativeButton:TRUE];
+
+        self.dbmValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
+        self.mwValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
     }
     
     [self onClearButtonClicked:self.clearButton];

@@ -10,6 +10,7 @@
 
 static UIColor* s_caculatorButtonBackgroundColor;
 static UIColor* s_screenLabelBackgroundColor;
+static UIColor* s_focusedScreenLabelBackgroundColor;
 
 @implementation CaculatorUIStyle
 
@@ -17,13 +18,17 @@ static UIColor* s_screenLabelBackgroundColor;
 {
     if (nil == s_caculatorButtonBackgroundColor)
     {
-        s_caculatorButtonBackgroundColor = [UIColor colorWithRed:0.839216 green:0.839216 blue:0.839216 alpha:1.0]; // Color name: Silver
+        s_caculatorButtonBackgroundColor = [UIColor colorWithRed:0.839216 green:0.839216 blue:0.839216 alpha:1.0];
     }
     
     if (nil == s_screenLabelBackgroundColor)
     {
-//        s_screenLabelBackgroundColor = [UIColor colorWithRed:0.125490 green:0.603922 blue:0.890196 alpha:1.0];
-        s_screenLabelBackgroundColor = [UIColor colorWithRed:0.572549 green:0.572549 blue:0.572549 alpha:1.0]; // Color name: Nickel
+        s_screenLabelBackgroundColor = [UIColor colorWithRed:0.125490 green:0.603922 blue:0.890196 alpha:1.0];
+    }
+    
+    if (nil == s_focusedScreenLabelBackgroundColor)
+    {
+        s_focusedScreenLabelBackgroundColor = [UIColor colorWithRed:1.000000 green:0.490196 blue:0.474510 alpha:1.0];
     }
 }
 
@@ -35,6 +40,11 @@ static UIColor* s_screenLabelBackgroundColor;
 +(UIColor*) screenLabelBackgroundColor
 {
     return s_screenLabelBackgroundColor;
+}
+
++(UIColor*) focusedScreenLabelBackgroundColor
+{
+    return s_focusedScreenLabelBackgroundColor;
 }
 
 @end
