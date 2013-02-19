@@ -185,7 +185,15 @@
     }
     else
     {
+        WattUnit oldUnit = self.currentWattUnit;
+        NSNumber* oldWatt = [NSNumber numberWithDouble:self.mwValueLabel.text.doubleValue];
+        double oldMWValue = [self.caculatorModel.class getMWValueFromWattValueWithUnit:oldWatt.doubleValue andUnit:oldUnit];
+        
         self.currentWattUnit = unit;
+        
+
+        double newWattValueWithUnit = [self.caculatorModel.class getWattValueFromMWValue:oldMWValue andUnit:self.currentWattUnit];
+        [self.mwValueLabel setText:[NSNumber numberWithDouble:newWattValueWithUnit].stringValue];
     }
     
     UILabel* selectedLabel = nil;
@@ -335,8 +343,8 @@
         }
 
         NSNumber* newDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
-        NSNumber* newMwValue = [NSNumber numberWithDouble:[self.caculatorModel getMwFromDbm:newDbmValue.doubleValue]];
-        [self.mwValueLabel setText:newMwValue.stringValue];
+        NSNumber* newWattValue = [NSNumber numberWithDouble:[self.caculatorModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit]];
+        [self.mwValueLabel setText:newWattValue.stringValue];
     }
     else
     {
@@ -354,8 +362,9 @@
             }
         }
         
-        NSNumber* newMwValue = [NSNumber numberWithDouble:self.mwValueLabel.text.doubleValue];
-        NSNumber* newDbmValue = [NSNumber numberWithDouble:[self.caculatorModel getDbmFromMw:newMwValue.doubleValue]];
+        NSNumber* newWattValue = [NSNumber numberWithDouble:self.mwValueLabel.text.doubleValue];
+        
+        NSNumber* newDbmValue = [NSNumber numberWithDouble:[self.caculatorModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit]];
         [self.dbmValueLabel setText:newDbmValue.stringValue];
     }
 }
@@ -384,8 +393,8 @@
         }
         
         NSNumber* currentDbmValue = [NSNumber numberWithDouble:self.dbmValueLabel.text.doubleValue];
-        NSNumber* newMwValue = [NSNumber numberWithDouble:[self.caculatorModel getMwFromDbm:currentDbmValue.doubleValue]];
-        [self.mwValueLabel setText:newMwValue.stringValue];
+        NSNumber* newWattValue = [NSNumber numberWithDouble:[self.caculatorModel getWattValueFromDbmValue:currentDbmValue.doubleValue andUnit:self.currentWattUnit]];
+        [self.mwValueLabel setText:newWattValue.stringValue];
     }
 }
 
