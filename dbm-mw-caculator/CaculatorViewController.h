@@ -27,7 +27,7 @@
 #define DIGIT_NEGATIVE_INFINITY @"-inf"
 #define NEGATIVE_CHAR @"-"
 
-@interface CaculatorViewController : UIViewController
+@interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet CaculatorScreenLabel *dbmValueLabel;
 @property (weak, nonatomic) IBOutlet CaculatorScreenLabel *mwValueLabel;
@@ -55,6 +55,10 @@
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
 @property (nonatomic) BOOL isDbm2MwMode;
+
+@property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
+@property (strong, nonatomic) UISwipeGestureRecognizer* leftSwipeGestureRecognizer;
+@property (strong, nonatomic) UISwipeGestureRecognizer* rightSwipeGestureRecognizer;
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender;

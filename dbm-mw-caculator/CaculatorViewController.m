@@ -22,6 +22,8 @@
 -(void) decorateMwValueLabel;
 -(void) decorateCaculatorButtons;
 -(void) decorateFunctionButtons;
+-(void) initTapGestureRecognizer;
+-(void) initSwipeGestureRecognizers;
 
 @end
 
@@ -33,6 +35,9 @@
 @synthesize isNegativeStatus;
 @synthesize caculatorButtons = _caculatorButtons;
 @synthesize functionButtons = _functionButtons;
+@synthesize tapGestureRecognizer = _tapGestureRecognizer;
+@synthesize leftSwipeGestureRecognizer = _leftSwipeGestureRecognizer;
+@synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -123,6 +128,30 @@
     //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
+- (void) initTapGestureRecognizer
+{
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureUpdated:)];
+    _tapGestureRecognizer.delegate = self;
+    _tapGestureRecognizer.numberOfTapsRequired = 1;
+    _tapGestureRecognizer.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:_tapGestureRecognizer];
+}
+
+- (void) initSwipeGestureRecognizers
+{
+    _leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipeGestureUpdated:)];
+    _leftSwipeGestureRecognizer.delegate = self;
+    _leftSwipeGestureRecognizer.numberOfTouchesRequired = 1;
+    _leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:_leftSwipeGestureRecognizer];
+
+    _rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeGestureUpdated:)];
+    _rightSwipeGestureRecognizer.delegate = self;
+    _rightSwipeGestureRecognizer.numberOfTouchesRequired = 1;
+    _rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:_rightSwipeGestureRecognizer];
+}
+
 - (CaculatorModel *) caculatorModel
 {
     if (nil == _caculatorModel)
@@ -147,6 +176,9 @@
     [self decorateMwValueLabel];
     [self decorateFunctionButtons];
     [self decorateCaculatorButtons];
+    
+    [self initTapGestureRecognizer];
+    [self initSwipeGestureRecognizers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -314,5 +346,48 @@
 {
     [CaculatorResource playButtonClickSound];
 }
+
+- (void)tapGestureUpdated:(UITapGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [self.tapGestureRecognizer locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+    {
+        NSLog(@"Tap DBM Label.");
+    }
+    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
+    {
+        NSLog(@"Tap MW Label.");
+    }
+}
+
+- (void)leftSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [recognizer locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+    {
+        NSLog(@"LeftSwipe DBM Label.");
+    }
+    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
+    {
+        NSLog(@"LeftSwipe MW Label.");        
+    }
+}
+
+- (void)rightSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [recognizer locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+    {
+        NSLog(@"RightSwipe DBM Label.");        
+    }
+    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
+    {
+        NSLog(@"RightSwipe MW Label.");        
+    }
+}
+
 
 @end
