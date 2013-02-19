@@ -18,7 +18,7 @@
 #import "CaculatorResource.h"
 
 #define SWITCHMODE_DBM2MW @"dbm"
-#define SWITCHMODE_MW2DBM @"mw"
+#define SWITCHMODE_MW2DBM @"mW"
 
 #define DIGIT_DOT @"."
 #define DIGIT_0 @"0"
@@ -52,9 +52,15 @@
 @property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *negativeButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *kwTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mwTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uwTextLabel;
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
 @property (nonatomic) BOOL isDbm2MwMode;
+
+@property (nonatomic) WattUnit currentWattUnit;
 
 @property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* leftSwipeGestureRecognizer;

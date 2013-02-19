@@ -27,17 +27,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="dbm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ITu-O0-gIU" userLabel="dbmTextLabel">
-                                <rect key="frame" x="10" y="10" width="300" height="20"/>
+                                <rect key="frame" x="10" y="10" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xLj-an-SWE" userLabel="mwTextLabel">
-                                <rect key="frame" x="10" y="150" width="300" height="29"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="kW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xLj-an-SWE" userLabel="kwTextLabel">
+                                <rect key="frame" x="10" y="150" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tbL-Ok-ttV" userLabel="wTextLabel">
+                                <rect key="frame" x="68" y="150" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kkm-s9-kAI" userLabel="mwTextLabel">
+                                <rect key="frame" x="126" y="150" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="uW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhI-FG-LB8" userLabel="uwTextLabel">
+                                <rect key="frame" x="184" y="150" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
@@ -348,10 +368,14 @@
                         <outlet property="dotButton" destination="HkI-i8-3vh" id="8ct-wZ-crP"/>
                         <outlet property="helpButton" destination="9F1-3b-1ao" id="vXa-KU-gmg"/>
                         <outlet property="historyButton" destination="yGt-rZ-9ot" id="Lop-Wm-7Z4"/>
+                        <outlet property="kwTextLabel" destination="xLj-an-SWE" id="Tnq-s2-qWj"/>
+                        <outlet property="mwTextLabel" destination="Kkm-s9-kAI" id="cZP-b4-TwG"/>
                         <outlet property="mwValueLabel" destination="sMV-wS-Ma3" id="Ubc-xU-7B9"/>
                         <outlet property="negativeButton" destination="N1R-Ag-Tdj" id="aFD-Hm-jTh"/>
                         <outlet property="saveButton" destination="pno-lS-dyB" id="mj7-7N-kMc"/>
                         <outlet property="switchButton" destination="wKe-fe-DSQ" id="tFD-4k-OXL"/>
+                        <outlet property="uwTextLabel" destination="lhI-FG-LB8" id="Qcs-qo-dlG"/>
+                        <outlet property="wTextLabel" destination="tbL-Ok-ttV" id="FWS-q7-jiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -393,10 +417,14 @@
                 <relationship kind="outlet" name="dotButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="helpButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="historyButton" candidateClass="CaculatorButton"/>
+                <relationship kind="outlet" name="kwTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mwTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mwValueLabel" candidateClass="CaculatorScreenLabel"/>
                 <relationship kind="outlet" name="negativeButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="switchButton" candidateClass="CaculatorButton"/>
+                <relationship kind="outlet" name="uwTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wTextLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

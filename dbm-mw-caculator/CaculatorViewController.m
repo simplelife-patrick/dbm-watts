@@ -13,8 +13,10 @@
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
-@property (nonatomic, weak) NSMutableArray* caculatorButtons;
-@property (nonatomic, weak) NSMutableArray* functionButtons;
+@property (nonatomic, strong) NSMutableArray* caculatorButtons;
+@property (nonatomic, strong) NSMutableArray* functionButtons;
+@property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
+
 
 -(void) resetCaculatorStatus:(BOOL) status;
 -(void) enableNegativeButton:(BOOL) isEnabled;
@@ -24,6 +26,8 @@
 -(void) decorateFunctionButtons;
 -(void) initTapGestureRecognizer;
 -(void) initSwipeGestureRecognizers;
+-(void) switchWattUnit:(WattUnit) unit andInitStatus:(BOOL) isInInit;
+-(void) switchWattUnit:(WattUnit) unit;
 
 @end
 
@@ -38,6 +42,8 @@
 @synthesize tapGestureRecognizer = _tapGestureRecognizer;
 @synthesize leftSwipeGestureRecognizer = _leftSwipeGestureRecognizer;
 @synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
+@synthesize currentWattUnit = _currentWattUnits;
+@synthesize wattUnitTextLabels = _wattUnitTextLabels;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -72,20 +78,20 @@
 {
     if (nil == _caculatorButtons)
     {
-        self.caculatorButtons = [NSMutableArray arrayWithCapacity:13];
-        [self.caculatorButtons addObject:self.digit0Button];
-        [self.caculatorButtons addObject:self.digit1Button];
-        [self.caculatorButtons addObject:self.digit2Button];
-        [self.caculatorButtons addObject:self.digit3Button];
-        [self.caculatorButtons addObject:self.digit4Button];
-        [self.caculatorButtons addObject:self.digit5Button];
-        [self.caculatorButtons addObject:self.digit6Button];
-        [self.caculatorButtons addObject:self.digit7Button];
-        [self.caculatorButtons addObject:self.digit8Button];
-        [self.caculatorButtons addObject:self.digit9Button];
-        [self.caculatorButtons addObject:self.dotButton];
-        [self.caculatorButtons addObject:self.negativeButton];
-        [self.caculatorButtons addObject:self.clearButton];
+        _caculatorButtons = [NSMutableArray arrayWithCapacity:13];
+        [_caculatorButtons addObject:self.digit0Button];
+        [_caculatorButtons addObject:self.digit1Button];
+        [_caculatorButtons addObject:self.digit2Button];
+        [_caculatorButtons addObject:self.digit3Button];
+        [_caculatorButtons addObject:self.digit4Button];
+        [_caculatorButtons addObject:self.digit5Button];
+        [_caculatorButtons addObject:self.digit6Button];
+        [_caculatorButtons addObject:self.digit7Button];
+        [_caculatorButtons addObject:self.digit8Button];
+        [_caculatorButtons addObject:self.digit9Button];
+        [_caculatorButtons addObject:self.dotButton];
+        [_caculatorButtons addObject:self.negativeButton];
+        [_caculatorButtons addObject:self.clearButton];
     }
     
     return _caculatorButtons;
@@ -100,11 +106,11 @@
 {
     if (nil == _functionButtons)
     {
-        self.functionButtons = [NSMutableArray arrayWithCapacity:4];
-        [self.functionButtons addObject:self.switchButton];
-        [self.functionButtons addObject:self.saveButton];
-        [self.functionButtons addObject:self.historyButton];
-        [self.functionButtons addObject:self.helpButton];
+        _functionButtons = [NSMutableArray arrayWithCapacity:4];
+        [_functionButtons addObject:self.switchButton];
+        [_functionButtons addObject:self.saveButton];
+        [_functionButtons addObject:self.historyButton];
+        [_functionButtons addObject:self.helpButton];
     }
     
     return _functionButtons;
@@ -113,6 +119,20 @@
 -(void) decorateFunctionButtons
 {    
 
+}
+
+-(NSMutableArray *) wattUnitTextLabels
+{
+    if (nil == _wattUnitTextLabels)
+    {
+        _wattUnitTextLabels = [NSMutableArray arrayWithCapacity:4];
+        [_wattUnitTextLabels addObject:self.kwTextLabel];
+        [_wattUnitTextLabels addObject:self.wTextLabel];
+        [_wattUnitTextLabels addObject:self.mwTextLabel];
+        [_wattUnitTextLabels addObject:self.uwTextLabel];
+    }
+    
+    return _wattUnitTextLabels;
 }
 
 -(void) playButtonClickSound
@@ -152,6 +172,70 @@
     [self.view addGestureRecognizer:_rightSwipeGestureRecognizer];
 }
 
+- (void) switchWattUnit:(WattUnit)unit andInitStatus:(BOOL)isInInit
+{
+    if (!isInInit)
+    {
+        [CaculatorResource playButtonClickSound];
+    }
+    
+    if (self.currentWattUnit == unit)
+    {
+        return;
+    }
+    else
+    {
+        self.currentWattUnit = unit;
+    }
+    
+    UILabel* selectedLabel = nil;
+    
+    switch (unit)
+    {
+        case kW:
+        {
+            selectedLabel = self.kwTextLabel;
+            break;
+        }
+        case W:
+        {
+            selectedLabel = self.wTextLabel;
+            break;
+        }
+        case mW:
+        {
+            selectedLabel = self.mwTextLabel;
+            break;
+        }
+        case uW:
+        {
+            selectedLabel = self.uwTextLabel;
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+    
+    for (UILabel* label in self.wattUnitTextLabels)
+    {
+        if (label == selectedLabel)
+        {
+            label.textColor = [UIColor blackColor];
+        }
+        else
+        {
+            label.textColor = [UIColor lightGrayColor];
+        }
+    }
+}
+
+-(void) switchWattUnit:(WattUnit)unit
+{
+    [self switchWattUnit:unit andInitStatus:FALSE];
+}
+
 - (CaculatorModel *) caculatorModel
 {
     if (nil == _caculatorModel)
@@ -179,6 +263,8 @@
     
     [self initTapGestureRecognizer];
     [self initSwipeGestureRecognizers];
+    
+    [self switchWattUnit:mW andInitStatus:TRUE];
 }
 
 - (void)didReceiveMemoryWarning
@@ -351,13 +437,31 @@
 {
     CGPoint locationTouch = [self.tapGestureRecognizer locationInView:self.view];
     
-    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+//    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+//    {
+//        NSLog(@"Tap DBM Value Label.");
+//    }
+//    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
+//    {
+//        NSLog(@"Tap MW Value Label.");
+//    }
+//    // User gesture will be captured by mwValueLabl firstly.
+//    else
+    if (CGRectContainsPoint(self.kwTextLabel.frame, locationTouch))
     {
-        NSLog(@"Tap DBM Label.");
+        [self switchWattUnit:kW];
     }
-    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
+    else if (CGRectContainsPoint(self.wTextLabel.frame, locationTouch))
     {
-        NSLog(@"Tap MW Label.");
+        [self switchWattUnit:W];
+    }
+    else if (CGRectContainsPoint(self.mwTextLabel.frame, locationTouch))
+    {
+        [self switchWattUnit:mW];
+    }
+    else if (CGRectContainsPoint(self.uwTextLabel.frame, locationTouch))
+    {
+        [self switchWattUnit:uW];
     }
 }
 
@@ -367,11 +471,18 @@
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
-        NSLog(@"LeftSwipe DBM Label.");
+
     }
     else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
     {
-        NSLog(@"LeftSwipe MW Label.");        
+        if (self.currentWattUnit != kW)
+        {
+            [self switchWattUnit:self.currentWattUnit * WATT_UNIT_INDENT_LENGTH];
+        }
+        else
+        {
+            [self switchWattUnit:uW];
+        }
     }
 }
 
@@ -381,13 +492,57 @@
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
-        NSLog(@"RightSwipe DBM Label.");        
+      
     }
     else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
     {
-        NSLog(@"RightSwipe MW Label.");        
+        if (self.currentWattUnit != uW)
+        {
+            [self switchWattUnit:self.currentWattUnit / WATT_UNIT_INDENT_LENGTH];
+        }
+        else
+        {
+            [self switchWattUnit:kW];
+        }
     }
 }
 
-
+- (void)viewDidUnload
+{
+    [self setDbmValueLabel:nil];
+    
+    [self setKwTextLabel:nil];
+    [self setWTextLabel:nil];
+    [self setMwTextLabel:nil];
+    [self setUwTextLabel:nil];
+    [self setMwValueLabel:nil];
+    
+    [self setSwitchButton:nil];
+    [self setSaveButton:nil];
+    [self setHistoryButton:nil];
+    [self setHelpButton:nil];
+    
+    [self setDigit0Button:nil];
+    [self setDigit1Button:nil];
+    [self setDigit2Button:nil];
+    [self setDigit3Button:nil];
+    [self setDigit4Button:nil];
+    [self setDigit5Button:nil];
+    [self setDigit6Button:nil];
+    [self setDigit7Button:nil];
+    [self setDigit8Button:nil];
+    [self setDigit9Button:nil];
+    
+    [self setDotButton:nil];
+    [self setNegativeButton:nil];
+    [self setClearButton:nil];
+    
+    [self setLeftSwipeGestureRecognizer:nil];
+    [self setRightSwipeGestureRecognizer:nil];
+    [self setTapGestureRecognizer:nil];
+    
+    [self setCaculatorModel:nil];
+    
+    [super viewDidUnload];
+}
 @end
