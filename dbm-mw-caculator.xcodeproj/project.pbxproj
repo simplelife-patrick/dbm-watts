@@ -147,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5DA80C816CA70F3001B9EC7 /* dbm-mW */ = {
+		C5DA80C816CA70F3001B9EC7 /* dbm-watt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mW" */;
+			buildConfigurationList = C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-watt" */;
 			buildPhases = (
 				C5DA80C516CA70F3001B9EC7 /* Sources */,
 				C5DA80C616CA70F3001B9EC7 /* Frameworks */,
@@ -160,7 +160,7 @@
 			);
 			dependencies = (
 			);
-			name = "dbm-mW";
+			name = "dbm-watt";
 			productName = "dbm-mw-caculator";
 			productReference = C5DA80C916CA70F3001B9EC7 /* dbm-mw.app */;
 			productType = "com.apple.product-type.application";
@@ -186,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5DA80C816CA70F3001B9EC7 /* dbm-mW */,
+				C5DA80C816CA70F3001B9EC7 /* dbm-watt */,
 			);
 		};
 /* End PBXProject section */
@@ -360,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-mW" */ = {
+		C5DA80EC16CA70F3001B9EC7 /* Build configuration list for PBXNativeTarget "dbm-watt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C5DA80ED16CA70F3001B9EC7 /* Debug */,
