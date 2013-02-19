@@ -19,7 +19,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMV-wS-Ma3" userLabel="mwValueLabel" customClass="CaculatorScreenLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMV-wS-Ma3" userLabel="wattValueLabel" customClass="CaculatorScreenLabel">
                                 <rect key="frame" x="5" y="145" width="310" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
@@ -370,12 +370,12 @@
                         <outlet property="historyButton" destination="yGt-rZ-9ot" id="Lop-Wm-7Z4"/>
                         <outlet property="kwTextLabel" destination="xLj-an-SWE" id="Tnq-s2-qWj"/>
                         <outlet property="mwTextLabel" destination="Kkm-s9-kAI" id="cZP-b4-TwG"/>
-                        <outlet property="mwValueLabel" destination="sMV-wS-Ma3" id="Ubc-xU-7B9"/>
                         <outlet property="negativeButton" destination="N1R-Ag-Tdj" id="aFD-Hm-jTh"/>
                         <outlet property="saveButton" destination="pno-lS-dyB" id="mj7-7N-kMc"/>
                         <outlet property="switchButton" destination="wKe-fe-DSQ" id="tFD-4k-OXL"/>
                         <outlet property="uwTextLabel" destination="lhI-FG-LB8" id="Qcs-qo-dlG"/>
                         <outlet property="wTextLabel" destination="tbL-Ok-ttV" id="FWS-q7-jiR"/>
+                        <outlet property="wattValueLabel" destination="sMV-wS-Ma3" id="FzF-BK-LUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
