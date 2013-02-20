@@ -259,7 +259,14 @@
             {
                 self.isDigitInDecimalPart = FALSE;
             }
-            self.isUserInMiddleOfEnteringDigit = FALSE;
+            if (0 != newWattValueWithUnit)
+            {
+                self.isUserInMiddleOfEnteringDigit = TRUE;
+            }
+            else
+            {
+                self.isUserInMiddleOfEnteringDigit = FALSE;
+            }
             [self.wattValueLabel setText:[NSNumber numberWithDouble:newWattValueWithUnit].stringValue];
         }
     }
