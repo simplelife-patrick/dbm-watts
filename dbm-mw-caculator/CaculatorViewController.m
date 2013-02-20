@@ -224,7 +224,7 @@
 {
     if (!isInInit)
     {
-        [CaculatorResource playButtonClickSound];
+        [self playButtonClickSound];
     }
     
     if (self.currentWattUnit == unit)
@@ -249,6 +249,12 @@
             
             self.currentWattUnit = unit;
             double newWattValueWithUnit = [self.caculatorModel.class getWattValueFromMWValue:oldMWValue andUnit:self.currentWattUnit];
+            
+            float tempWattValue = (int)newWattValueWithUnit;
+            if ((0 < (newWattValueWithUnit - tempWattValue)))
+            {
+                self.isDigitInDecimalPart = TRUE;
+            }
             [self.wattValueLabel setText:[NSNumber numberWithDouble:newWattValueWithUnit].stringValue];
         }
     }
@@ -507,16 +513,6 @@
 {
     CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
-//    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
-//    {
-//        NSLog(@"Tap DBM Value Label.");
-//    }
-//    else if (CGRectContainsPoint(self.mwValueLabel.frame, locationTouch))
-//    {
-//        NSLog(@"Tap MW Value Label.");
-//    }
-//    // User gesture will be captured by mwValueLabl firstly.
-//    else
     if (CGRectContainsPoint(self.kwTextLabel.frame, locationTouch))
     {
         [self switchWattUnit:kW];
@@ -543,7 +539,7 @@
     {
         if (!self.isDbm2MwMode)
         {
-            [CaculatorResource playButtonClickSound];
+            [self playButtonClickSound];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -551,7 +547,7 @@
     {
         if (self.isDbm2MwMode)
         {
-            [CaculatorResource playButtonClickSound];
+            [self playButtonClickSound];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -607,7 +603,7 @@
     {
         if (!self.isDbm2MwMode)
         {
-            [CaculatorResource playButtonClickSound];
+            [self playButtonClickSound];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -615,7 +611,7 @@
     {
         if (self.isDbm2MwMode)
         {
-            [CaculatorResource playButtonClickSound];            
+            [self playButtonClickSound];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
