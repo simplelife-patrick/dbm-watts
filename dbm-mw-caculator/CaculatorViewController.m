@@ -255,6 +255,11 @@
             {
                 self.isDigitInDecimalPart = TRUE;
             }
+            else
+            {
+                self.isDigitInDecimalPart = FALSE;
+            }
+            self.isUserInMiddleOfEnteringDigit = FALSE;
             [self.wattValueLabel setText:[NSNumber numberWithDouble:newWattValueWithUnit].stringValue];
         }
     }
