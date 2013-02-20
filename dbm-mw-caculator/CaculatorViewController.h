@@ -62,9 +62,11 @@
 
 @property (nonatomic) WattUnit currentWattUnit;
 
-@property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer* singleTapGestureRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer* doubleTapGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* leftSwipeGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* rightSwipeGestureRecognizer;
+@property (strong, nonatomic) UILongPressGestureRecognizer* longPressGestureRecognizer;
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender;

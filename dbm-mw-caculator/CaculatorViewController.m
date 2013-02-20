@@ -24,8 +24,10 @@
 -(void) decorateMwValueLabel;
 -(void) decorateCaculatorButtons;
 -(void) decorateFunctionButtons;
--(void) initTapGestureRecognizer;
+-(void) initSingleTapGestureRecognizer;
+-(void) initDoubleTapGestureRecognizer;
 -(void) initSwipeGestureRecognizers;
+-(void) initLongPressGestureRecognizer;
 -(void) switchWattUnit:(WattUnit) unit andInitStatus:(BOOL) isInInit;
 -(void) switchWattUnit:(WattUnit) unit;
 
@@ -39,9 +41,11 @@
 @synthesize isNegativeStatus;
 @synthesize caculatorButtons = _caculatorButtons;
 @synthesize functionButtons = _functionButtons;
-@synthesize tapGestureRecognizer = _tapGestureRecognizer;
+@synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
+@synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize leftSwipeGestureRecognizer = _leftSwipeGestureRecognizer;
 @synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
+@synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
 @synthesize currentWattUnit = _currentWattUnits;
 @synthesize wattUnitTextLabels = _wattUnitTextLabels;
 
@@ -148,13 +152,22 @@
     //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
-- (void) initTapGestureRecognizer
+- (void) initSingleTapGestureRecognizer
 {
-    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureUpdated:)];
-    _tapGestureRecognizer.delegate = self;
-    _tapGestureRecognizer.numberOfTapsRequired = 1;
-    _tapGestureRecognizer.numberOfTouchesRequired = 1;
-    [self.view addGestureRecognizer:_tapGestureRecognizer];
+    _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureUpdated:)];
+    _singleTapGestureRecognizer.delegate = self;
+    _singleTapGestureRecognizer.numberOfTapsRequired = 1;
+    _singleTapGestureRecognizer.numberOfTouchesRequired = 1;
+    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
+    [self.view addGestureRecognizer:_singleTapGestureRecognizer];
+}
+
+- (void) initDoubleTapGestureRecognizer
+{
+    _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapGestureUpdated:)];
+    _doubleTapGestureRecognizer.delegate = self;
+    _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:_doubleTapGestureRecognizer];
 }
 
 - (void) initSwipeGestureRecognizers
@@ -170,6 +183,14 @@
     _rightSwipeGestureRecognizer.numberOfTouchesRequired = 1;
     _rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:_rightSwipeGestureRecognizer];
+}
+
+- (void) initLongPressGestureRecognizer
+{
+    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureUpdated:)];
+    _longPressGestureRecognizer.delegate = self;
+    _longPressGestureRecognizer.minimumPressDuration = 0.5;
+    [self.view addGestureRecognizer:_longPressGestureRecognizer];
 }
 
 - (void) switchWattUnit:(WattUnit)unit andInitStatus:(BOOL)isInInit
@@ -277,10 +298,12 @@
     [self decorateMwValueLabel];
     [self decorateFunctionButtons];
     [self decorateCaculatorButtons];
-    
-    [self initTapGestureRecognizer];
+
+//    [self initLongPressGestureRecognizer];
+    [self initDoubleTapGestureRecognizer];
+    [self initSingleTapGestureRecognizer];
     [self initSwipeGestureRecognizers];
-    
+
     [self switchWattUnit:mW andInitStatus:TRUE];
 }
 
@@ -453,9 +476,9 @@
     [CaculatorResource playButtonClickSound];
 }
 
-- (void)tapGestureUpdated:(UITapGestureRecognizer *) recognizer
+- (void)singleTapGestureUpdated:(UITapGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [self.tapGestureRecognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.view];
     
 //    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
 //    {
@@ -482,6 +505,28 @@
     else if (CGRectContainsPoint(self.uwTextLabel.frame, locationTouch))
     {
         [self switchWattUnit:uW];
+    }
+}
+
+- (void)doubleTapGestureUpdated:(UITapGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [recognizer locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+    {
+        if (!self.isDbm2MwMode)
+        {
+            [CaculatorResource playButtonClickSound];
+            [self onSwitchButtonClicked:self.switchButton];
+        }
+    }
+    else if (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch))
+    {
+        if (self.isDbm2MwMode)
+        {
+            [CaculatorResource playButtonClickSound];
+            [self onSwitchButtonClicked:self.switchButton];
+        }
     }
 }
 
@@ -527,6 +572,28 @@
     }
 }
 
+- (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [recognizer locationInView:self.view];
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+    {
+        if (!self.isDbm2MwMode)
+        {
+            [CaculatorResource playButtonClickSound];
+            [self onSwitchButtonClicked:self.switchButton];
+        }
+    }
+    else if (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch))
+    {
+        if (self.isDbm2MwMode)
+        {
+            [CaculatorResource playButtonClickSound];            
+            [self onSwitchButtonClicked:self.switchButton];
+        }
+    }
+}
+
 - (void)viewDidUnload
 {
     [self setDbmValueLabel:nil];
@@ -557,9 +624,14 @@
     [self setNegativeButton:nil];
     [self setClearButton:nil];
     
+    [self.view removeGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self setLeftSwipeGestureRecognizer:nil];
+    [self.view removeGestureRecognizer:self.rightSwipeGestureRecognizer];
     [self setRightSwipeGestureRecognizer:nil];
-    [self setTapGestureRecognizer:nil];
+    [self.view removeGestureRecognizer:self.singleTapGestureRecognizer];
+    [self setSingleTapGestureRecognizer:nil];
+    [self.view removeGestureRecognizer:self.longPressGestureRecognizer];
+    [self setLongPressGestureRecognizer:nil];
     
     [self setCaculatorModel:nil];
     
