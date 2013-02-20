@@ -434,7 +434,9 @@
     if ([self isDbm2MwMode])
     {
         [self.dbmValueLabel setText:DIGIT_0];
-        [self.wattValueLabel setText:DIGIT_1];
+
+        double wattValue = [self.caculatorModel.class getWattValueFromMWValue:1 andUnit:self.currentWattUnit];
+        [self.wattValueLabel setText:[NSNumber numberWithDouble:wattValue].stringValue];
     }
     else
     {
