@@ -38,11 +38,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="Idr-q0-nUF" userLabel="wattUnitsView">
-                                <rect key="frame" x="0.0" y="152" width="320" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.54901963470000004" green="0.87843143940000001" blue="0.054901964960000001" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="kW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xLj-an-SWE" userLabel="kwTextLabel">
                                 <rect key="frame" x="8" y="152" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -392,7 +387,6 @@
                         <outlet property="switchButton" destination="wKe-fe-DSQ" id="tFD-4k-OXL"/>
                         <outlet property="uwTextLabel" destination="lhI-FG-LB8" id="Qcs-qo-dlG"/>
                         <outlet property="wTextLabel" destination="tbL-Ok-ttV" id="FWS-q7-jiR"/>
-                        <outlet property="wattUnitsView" destination="Idr-q0-nUF" id="kAC-CT-AQs"/>
                         <outlet property="wattValueLabel" destination="sMV-wS-Ma3" id="FzF-BK-LUs"/>
                     </connections>
                 </viewController>
@@ -444,6 +438,7 @@
                 <relationship kind="outlet" name="switchButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="uwTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="wTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wattUnitsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="wattValueLabel" candidateClass="CaculatorScreenLabel"/>
             </relationships>
         </class>

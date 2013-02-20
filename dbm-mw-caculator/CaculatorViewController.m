@@ -43,7 +43,6 @@
 
 @synthesize screenView = _screenView;
 @synthesize buttonsView = _buttonsView;
-@synthesize wattUnitsView = _wattUnitsView;
 @synthesize dbmValueLabel = _dbmValueLabel;
 @synthesize wattValueLabel = _wattValueLabel;
 
@@ -186,7 +185,7 @@
     _singleTapGestureRecognizer.delegate = self;
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
     _singleTapGestureRecognizer.numberOfTouchesRequired = 1;
-    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
+//    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
     [self.screenView addGestureRecognizer:_singleTapGestureRecognizer];
 }
 
@@ -631,8 +630,7 @@
     [self setWTextLabel:nil];
     [self setMwTextLabel:nil];
     [self setUwTextLabel:nil];
-    [self setWattUnitsView:nil];
-    
+
     [self setWattValueLabel:nil];
     
     [self setSwitchButton:nil];
