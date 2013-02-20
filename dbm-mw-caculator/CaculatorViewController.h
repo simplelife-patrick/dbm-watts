@@ -29,6 +29,10 @@
 
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *screenView;
+@property (weak, nonatomic) IBOutlet UIView *buttonsView;
+@property (weak, nonatomic) IBOutlet UIView *wattUnitsView;
+
 @property (weak, nonatomic) IBOutlet CaculatorScreenLabel *dbmValueLabel;
 @property (weak, nonatomic) IBOutlet CaculatorScreenLabel *wattValueLabel;
 

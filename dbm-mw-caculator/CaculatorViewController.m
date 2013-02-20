@@ -39,15 +39,43 @@
 @synthesize isDbm2MwMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
+@synthesize currentWattUnit = _currentWattUnits;
+
+@synthesize screenView = _screenView;
+@synthesize buttonsView = _buttonsView;
+@synthesize wattUnitsView = _wattUnitsView;
+@synthesize dbmValueLabel = _dbmValueLabel;
+@synthesize wattValueLabel = _wattValueLabel;
+
+@synthesize switchButton = _switchButton;
+@synthesize saveButton = _saveButton;
+@synthesize historyButton = _historyButton;
+@synthesize helpButton = _helpButton;
+
+@synthesize digit9Button = _digit9Button;
+@synthesize digit8Button = _digit8Button;
+@synthesize digit7Button = _digit7Button;
+@synthesize digit6Button = _digit6Button;
+@synthesize digit5Button = _digit5Button;
+@synthesize digit4Button = _digit4Button;
+@synthesize digit3Button = _digit3Button;
+@synthesize digit2Button = _digit2Button;
+@synthesize digit1Button = _digit1Button;
+@synthesize digit0Button = _digit0Button;
+
+@synthesize dotButton = _dotButton;
+@synthesize clearButton = _clearButton;
+@synthesize negativeButton = _negativeButton;
+
 @synthesize caculatorButtons = _caculatorButtons;
 @synthesize functionButtons = _functionButtons;
+@synthesize wattUnitTextLabels = _wattUnitTextLabels;
+
 @synthesize singleTapGestureRecognizer = _singleTapGestureRecognizer;
 @synthesize doubleTapGestureRecognizer = _doubleTapGestureRecognizer;
 @synthesize leftSwipeGestureRecognizer = _leftSwipeGestureRecognizer;
 @synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
 @synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
-@synthesize currentWattUnit = _currentWattUnits;
-@synthesize wattUnitTextLabels = _wattUnitTextLabels;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -158,8 +186,8 @@
     _singleTapGestureRecognizer.delegate = self;
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
     _singleTapGestureRecognizer.numberOfTouchesRequired = 1;
-//    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
-    [self.view addGestureRecognizer:_singleTapGestureRecognizer];
+    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
+    [self.screenView addGestureRecognizer:_singleTapGestureRecognizer];
 }
 
 - (void) initDoubleTapGestureRecognizer
@@ -167,7 +195,7 @@
     _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapGestureUpdated:)];
     _doubleTapGestureRecognizer.delegate = self;
     _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    [self.view addGestureRecognizer:_doubleTapGestureRecognizer];
+    [self.screenView addGestureRecognizer:_doubleTapGestureRecognizer];
 }
 
 - (void) initSwipeGestureRecognizers
@@ -176,13 +204,13 @@
     _leftSwipeGestureRecognizer.delegate = self;
     _leftSwipeGestureRecognizer.numberOfTouchesRequired = 1;
     _leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:_leftSwipeGestureRecognizer];
+    [self.screenView addGestureRecognizer:_leftSwipeGestureRecognizer];
 
     _rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeGestureUpdated:)];
     _rightSwipeGestureRecognizer.delegate = self;
     _rightSwipeGestureRecognizer.numberOfTouchesRequired = 1;
     _rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:_rightSwipeGestureRecognizer];
+    [self.screenView addGestureRecognizer:_rightSwipeGestureRecognizer];
 }
 
 - (void) initLongPressGestureRecognizer
@@ -190,7 +218,7 @@
     _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureUpdated:)];
     _longPressGestureRecognizer.delegate = self;
     _longPressGestureRecognizer.minimumPressDuration = 0.5;
-    [self.view addGestureRecognizer:_longPressGestureRecognizer];
+    [self.screenView addGestureRecognizer:_longPressGestureRecognizer];
 }
 
 - (void) switchWattUnit:(WattUnit)unit andInitStatus:(BOOL)isInInit
@@ -300,7 +328,7 @@
     [self decorateCaculatorButtons];
 
     [self initLongPressGestureRecognizer];
-//    [self initDoubleTapGestureRecognizer];
+    [self initDoubleTapGestureRecognizer];
     [self initSingleTapGestureRecognizer];
     [self initSwipeGestureRecognizers];
 
@@ -478,7 +506,7 @@
 
 - (void)singleTapGestureUpdated:(UITapGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [recognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
 //    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
 //    {
@@ -510,7 +538,7 @@
 
 - (void)doubleTapGestureUpdated:(UITapGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [recognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
@@ -532,7 +560,7 @@
 
 - (void)leftSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [recognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
@@ -553,7 +581,7 @@
 
 - (void)rightSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [recognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
@@ -574,7 +602,7 @@
 
 - (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
 {
-    CGPoint locationTouch = [recognizer locationInView:self.view];
+    CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
@@ -597,11 +625,14 @@
 - (void)viewDidUnload
 {
     [self setDbmValueLabel:nil];
+    [self setWattValueLabel:nil];
     
     [self setKwTextLabel:nil];
     [self setWTextLabel:nil];
     [self setMwTextLabel:nil];
     [self setUwTextLabel:nil];
+    [self setWattUnitsView:nil];
+    
     [self setWattValueLabel:nil];
     
     [self setSwitchButton:nil];
@@ -624,17 +655,19 @@
     [self setNegativeButton:nil];
     [self setClearButton:nil];
     
-    [self.view removeGestureRecognizer:self.leftSwipeGestureRecognizer];
+    [self.screenView removeGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self setLeftSwipeGestureRecognizer:nil];
-    [self.view removeGestureRecognizer:self.rightSwipeGestureRecognizer];
+    [self.screenView removeGestureRecognizer:self.rightSwipeGestureRecognizer];
     [self setRightSwipeGestureRecognizer:nil];
-    [self.view removeGestureRecognizer:self.singleTapGestureRecognizer];
+    [self.screenView removeGestureRecognizer:self.singleTapGestureRecognizer];
     [self setSingleTapGestureRecognizer:nil];
-    [self.view removeGestureRecognizer:self.longPressGestureRecognizer];
+    [self.screenView removeGestureRecognizer:self.longPressGestureRecognizer];
     [self setLongPressGestureRecognizer:nil];
     
     [self setCaculatorModel:nil];
     
+    [self setScreenView:nil];
+    [self setButtonsView:nil];
     [super viewDidUnload];
 }
 @end
