@@ -158,7 +158,7 @@
     _singleTapGestureRecognizer.delegate = self;
     _singleTapGestureRecognizer.numberOfTapsRequired = 1;
     _singleTapGestureRecognizer.numberOfTouchesRequired = 1;
-    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
+//    [_singleTapGestureRecognizer requireGestureRecognizerToFail:_doubleTapGestureRecognizer];
     [self.view addGestureRecognizer:_singleTapGestureRecognizer];
 }
 
@@ -299,8 +299,8 @@
     [self decorateFunctionButtons];
     [self decorateCaculatorButtons];
 
-//    [self initLongPressGestureRecognizer];
-    [self initDoubleTapGestureRecognizer];
+    [self initLongPressGestureRecognizer];
+//    [self initDoubleTapGestureRecognizer];
     [self initSingleTapGestureRecognizer];
     [self initSwipeGestureRecognizers];
 
