@@ -84,9 +84,22 @@
 #define DECIMAL_ROUND_LENGTH 10
 #define WATT_UNIT_INDENT_LENGTH 1000
 
+#define DIGIT_DOT @"."
+#define DIGIT_0 @"0"
+#define DIGIT_1 @"1"
+#define DIGIT_INFINITY @"inf"
+#define DIGIT_NEGATIVE_INFINITY @"-inf"
+#define NEGATIVE_CHAR @"-"
+#define EMPTY_STRING @""
+#define SCIENTIFIC_NOTIATION_CHAR @"e"
+#define SCIENTIFIC_NOTIATION_COMMA @","
+#define SCIENTIFIC_NOTIATION_LENGTH 3
+
 @interface CaculatorModel : NSObject
 
 typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;
+
++(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString;
 
 +(double) getRoundDoubleValue:(double) rawValue andRange:(int) rangeValue;
 +(double) getMWValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;

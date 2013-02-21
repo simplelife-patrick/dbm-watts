@@ -12,6 +12,41 @@
 
 @implementation CaculatorModel
 
++(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString
+{
+    NSMutableString* mutableString = [NSMutableString stringWithCapacity:rawString.length];
+    [mutableString setString:rawString];
+    
+    if (nil != mutableString && 0 < mutableString.length)
+    {
+        if ([mutableString isEqualToString:DIGIT_INFINITY] || [mutableString isEqualToString:DIGIT_NEGATIVE_INFINITY])
+        {
+            return mutableString;
+        }
+        
+        NSRange rangeOfE = [mutableString rangeOfString:SCIENTIFIC_NOTIATION_CHAR];
+        BOOL isScientificNotiationString = (NSNotFound != rangeOfE.location) ? TRUE : FALSE;
+        
+        if (!isScientificNotiationString)
+        {
+            NSRange rangeOfDot = [mutableString rangeOfString:DIGIT_DOT];
+            NSString* integerString = (NSNotFound != rangeOfDot.location) ? [mutableString substringToIndex:rangeOfDot.location] :
+            nil;
+            
+            NSString* processString = (nil != integerString) ? integerString : mutableString;
+            if (SCIENTIFIC_NOTIATION_LENGTH < processString.length)
+            {
+                for (int i = processString.length - SCIENTIFIC_NOTIATION_LENGTH; i > 0; i = i - SCIENTIFIC_NOTIATION_LENGTH)
+                {
+                    [mutableString insertString:SCIENTIFIC_NOTIATION_COMMA atIndex:i];
+                }
+            }
+        }
+    }
+    
+    return mutableString;
+}
+
 +(double) getRoundDoubleValue:(double)rawValue andRange:(int)rangeValue
 {
 //    int intVal = 1;

@@ -20,13 +20,6 @@
 #define SWITCHMODE_DBM2MW @"dbm"
 #define SWITCHMODE_MW2DBM @"mW"
 
-#define DIGIT_DOT @"."
-#define DIGIT_0 @"0"
-#define DIGIT_1 @"1"
-#define DIGIT_INFINITY @"inf"
-#define DIGIT_NEGATIVE_INFINITY @"-inf"
-#define NEGATIVE_CHAR @"-"
-
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *screenView;
@@ -64,6 +57,7 @@
 @property (nonatomic) BOOL isDbm2MwMode;
 
 @property (nonatomic) WattUnit currentWattUnit;
+@property (strong, nonatomic) NSMutableString* currentInputValueString;
 
 @property (strong, nonatomic) UITapGestureRecognizer* singleTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer* doubleTapGestureRecognizer;
