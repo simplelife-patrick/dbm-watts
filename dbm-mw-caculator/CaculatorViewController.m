@@ -243,31 +243,10 @@
         }
         else
         {
-            WattUnit oldUnit = self.currentWattUnit;
-            NSNumber* oldWatt = [NSNumber numberWithDouble:self.wattValueLabel.text.doubleValue];
-            double oldMWValue = [self.caculatorModel.class getMWValueFromWattValueWithUnit:oldWatt.doubleValue andUnit:oldUnit];
-            
             self.currentWattUnit = unit;
-            double newWattValueWithUnit = [self.caculatorModel.class getWattValueFromMWValue:oldMWValue andUnit:self.currentWattUnit];
-            
-            float tempWattValue = (int)newWattValueWithUnit;
-            if ((0 < (newWattValueWithUnit - tempWattValue)))
-            {
-                self.isDigitInDecimalPart = TRUE;
-            }
-            else
-            {
-                self.isDigitInDecimalPart = FALSE;
-            }
-            if (0 != newWattValueWithUnit)
-            {
-                self.isUserInMiddleOfEnteringDigit = TRUE;
-            }
-            else
-            {
-                self.isUserInMiddleOfEnteringDigit = FALSE;
-            }
-            [self.wattValueLabel setText:[NSNumber numberWithDouble:newWattValueWithUnit].stringValue];
+            NSNumber* wattValue = [NSNumber numberWithDouble:self.wattValueLabel.text.doubleValue];
+            double dbmValue = [self.caculatorModel getDbmValueFromWattValueWithUnit:wattValue.doubleValue andUnit:self.currentWattUnit];
+            [self.dbmValueLabel setText:[NSNumber numberWithDouble:dbmValue].stringValue];
         }
     }
     
