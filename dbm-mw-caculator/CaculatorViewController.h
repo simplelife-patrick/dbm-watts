@@ -69,6 +69,7 @@
 @property (strong, nonatomic) UITapGestureRecognizer* doubleTapGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* leftSwipeGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* rightSwipeGestureRecognizer;
+@property (strong, nonatomic) UISwipeGestureRecognizer* downSwipeGestureRecognizer;
 @property (strong, nonatomic) UILongPressGestureRecognizer* longPressGestureRecognizer;
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender;

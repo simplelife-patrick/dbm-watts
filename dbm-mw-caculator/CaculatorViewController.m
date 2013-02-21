@@ -75,6 +75,7 @@
 @synthesize leftSwipeGestureRecognizer = _leftSwipeGestureRecognizer;
 @synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
 @synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
+@synthesize downSwipeGestureRecognizer = _downSwipeGestureRecognizer;
 
 -(void) enableNegativeButton:(BOOL)isEnabled
 {
@@ -166,19 +167,6 @@
     return _wattUnitTextLabels;
 }
 
--(void) playButtonClickSound
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"button" ofType:@"wav"];
-    
-    SystemSoundID soundID;
-    
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &soundID);
-    
-    AudioServicesPlaySystemSound(soundID);
-    
-    //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-}
-
 - (void) initSingleTapGestureRecognizer
 {
     _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureUpdated:)];
@@ -210,6 +198,12 @@
     _rightSwipeGestureRecognizer.numberOfTouchesRequired = 1;
     _rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.screenView addGestureRecognizer:_rightSwipeGestureRecognizer];
+    
+    _downSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeGestureUpdated:)];
+    _downSwipeGestureRecognizer.delegate = self;
+    _downSwipeGestureRecognizer.numberOfTouchesRequired = 1;
+    _downSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.screenView addGestureRecognizer:_downSwipeGestureRecognizer];
 }
 
 - (void) initLongPressGestureRecognizer
@@ -224,7 +218,7 @@
 {
     if (!isInInit)
     {
-        [self playButtonClickSound];
+        [self playButtonClickSound:nil];
     }
     
     if (self.currentWattUnit == unit)
@@ -530,7 +524,7 @@
     {
         if (!self.isDbm2MwMode)
         {
-            [self playButtonClickSound];
+            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -538,7 +532,7 @@
     {
         if (self.isDbm2MwMode)
         {
-            [self playButtonClickSound];
+            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -586,6 +580,26 @@
     }
 }
 
+- (void)downSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
+{
+    CGPoint startLocation;
+    CGPoint stopLocation;
+    
+    if (recognizer.state == UIGestureRecognizerStatePossible)
+    {
+        startLocation = [recognizer locationInView:self.screenView];
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        stopLocation = [recognizer locationInView:self.screenView];
+    }
+    
+    if (CGRectContainsPoint(self.dbmValueLabel.frame, startLocation) && CGRectContainsPoint(self.wattValueLabel.frame, stopLocation))
+    {
+        // TODO:
+    }
+}
+
 - (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
 {
     CGPoint locationTouch = [recognizer locationInView:self.screenView];
@@ -594,7 +608,7 @@
     {
         if (!self.isDbm2MwMode)
         {
-            [self playButtonClickSound];
+            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -602,7 +616,7 @@
     {
         if (self.isDbm2MwMode)
         {
-            [self playButtonClickSound];
+            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -648,6 +662,8 @@
     [self setSingleTapGestureRecognizer:nil];
     [self.screenView removeGestureRecognizer:self.longPressGestureRecognizer];
     [self setLongPressGestureRecognizer:nil];
+    [self.screenView removeGestureRecognizer:self.downSwipeGestureRecognizer];
+    [self setDownSwipeGestureRecognizer:nil];
     
     [self setCaculatorModel:nil];
     
