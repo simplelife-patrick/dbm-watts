@@ -411,7 +411,15 @@
         {
             if (0 != digit.doubleValue)
             {
-                [self.currentInputValueString setString:digit.stringValue];
+                if (self.isNegativeStatus)
+                {
+                    [self.currentInputValueString replaceCharactersInRange:NSMakeRange(1, 1) withString:digit.stringValue];
+                }
+                else
+                {
+                    [self.currentInputValueString setString:digit.stringValue];                    
+                }
+                
                 [self updateDbmValueLabelText:self.currentInputValueString];
 
                 self.isUserInMiddleOfEnteringDigit = TRUE;
@@ -477,22 +485,8 @@
 {
     if (!self.isDigitInDecimalPart)
     {
-        if (self.isDbm2WattMode)
-        {
-            if ([NEGATIVE_CHAR isEqualToString:self.currentInputValueString])
-            {
-                [self.currentInputValueString appendString:DIGIT_0];
-                [self updateDbmValueLabelText:self.currentInputValueString];
-            }
-            
-            [self.currentInputValueString appendString:DIGIT_DOT];
-            [self updateDbmValueLabelText:self.currentInputValueString];
-        }
-        else
-        {
-            [self.currentInputValueString appendString:DIGIT_DOT];
-            [self updateWattValueLabelText:self.currentInputValueString];
-        }
+        [self.currentInputValueString appendString:DIGIT_DOT];
+        [self updateDbmValueLabelText:self.currentInputValueString];
 
         [self resetCaculatorStatus:TRUE];
     }

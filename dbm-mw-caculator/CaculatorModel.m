@@ -29,10 +29,17 @@
         
         if (!isScientificNotiationString)
         {
+            NSRange rangeOfNegativeChar = [mutableString rangeOfString:NEGATIVE_CHAR];
+            BOOL isNegative = (NSNotFound != rangeOfNegativeChar.location) ? TRUE : FALSE;
+            if (isNegative)
+            {
+                [mutableString deleteCharactersInRange:NSMakeRange(0, 1)];
+            }
+            
             NSRange rangeOfDot = [mutableString rangeOfString:DIGIT_DOT];
             NSString* integerString = (NSNotFound != rangeOfDot.location) ? [mutableString substringToIndex:rangeOfDot.location] :
             nil;
-            
+
             NSString* processString = (nil != integerString) ? integerString : mutableString;
             if (SCIENTIFIC_NOTIATION_LENGTH < processString.length)
             {
@@ -40,6 +47,11 @@
                 {
                     [mutableString insertString:SCIENTIFIC_NOTIATION_COMMA atIndex:i];
                 }
+            }
+            
+            if (isNegative)
+            {
+                [mutableString insertString:NEGATIVE_CHAR atIndex:0];
             }
         }
     }
