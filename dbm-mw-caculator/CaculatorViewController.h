@@ -17,8 +17,8 @@
 
 #import "CaculatorResource.h"
 
-#define SWITCHMODE_DBM2MW @"dbm"
-#define SWITCHMODE_MW2DBM @"mW"
+#define SWITCHMODE_DBM2WATT @"dbm"
+#define SWITCHMODE_WATT2DBM @"watt"
 
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
 
@@ -54,7 +54,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *uwTextLabel;
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
-@property (nonatomic) BOOL isDbm2MwMode;
+@property (nonatomic) BOOL isDbm2WattMode;
 
 @property (nonatomic) WattUnit currentWattUnit;
 @property (strong, nonatomic) NSMutableString* currentInputValueString;
@@ -64,6 +64,7 @@
 @property (strong, nonatomic) UISwipeGestureRecognizer* leftSwipeGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* rightSwipeGestureRecognizer;
 @property (strong, nonatomic) UISwipeGestureRecognizer* downSwipeGestureRecognizer;
+@property (strong, nonatomic) UISwipeGestureRecognizer* upSwipeGestureRecognizer;
 @property (strong, nonatomic) UILongPressGestureRecognizer* longPressGestureRecognizer;
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender;

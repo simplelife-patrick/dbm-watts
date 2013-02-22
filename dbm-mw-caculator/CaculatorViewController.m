@@ -38,7 +38,7 @@
 @implementation CaculatorViewController
 
 @synthesize caculatorModel = _caculatorModel;
-@synthesize isDbm2MwMode;
+@synthesize isDbm2WattMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
 @synthesize currentWattUnit = _currentWattUnits;
@@ -79,6 +79,7 @@
 @synthesize rightSwipeGestureRecognizer = _rightSwipeGestureRecognizer;
 @synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
 @synthesize downSwipeGestureRecognizer = _downSwipeGestureRecognizer;
+@synthesize upSwipeGestureRecognizer = _upSwipeGestureRecognizer;
 
 -(void) updateDbmValueLabelText:(NSString *)newString
 {
@@ -219,6 +220,12 @@
     _downSwipeGestureRecognizer.numberOfTouchesRequired = 1;
     _downSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
     [self.screenView addGestureRecognizer:_downSwipeGestureRecognizer];
+    
+    _upSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(upSwipeGestureUpdated:)];
+    _upSwipeGestureRecognizer.delegate = self;
+    _upSwipeGestureRecognizer.numberOfTouchesRequired = 1;
+    _upSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.screenView addGestureRecognizer:_upSwipeGestureRecognizer];
 }
 
 - (void) initLongPressGestureRecognizer
@@ -242,7 +249,7 @@
     }
     else
     {
-        if (self.isDbm2MwMode)
+        if (self.isDbm2WattMode)
         {
             self.currentWattUnit = unit;
             NSNumber* dbmValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
@@ -322,7 +329,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.isDbm2MwMode = FALSE;
+    self.isDbm2WattMode = FALSE;
     self.isNegativeStatus = FALSE;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueString = [NSMutableString stringWithCapacity:0];
@@ -350,10 +357,10 @@
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender
 {
-    if ([self isDbm2MwMode])
+    if ([self isDbm2WattMode])
     {
-        self.isDbm2MwMode = FALSE;
-        [sender setTitle:SWITCHMODE_MW2DBM forState:UIControlStateNormal];
+        self.isDbm2WattMode = FALSE;
+        [sender setTitle:SWITCHMODE_WATT2DBM forState:UIControlStateNormal];
         
         [self enableNegativeButton:FALSE];
         
@@ -362,8 +369,8 @@
     }
     else
     {
-        self.isDbm2MwMode = TRUE;
-        [sender setTitle:SWITCHMODE_DBM2MW forState:UIControlStateNormal];
+        self.isDbm2WattMode = TRUE;
+        [sender setTitle:SWITCHMODE_DBM2WATT forState:UIControlStateNormal];
         
         [self enableNegativeButton:TRUE];
 
@@ -393,7 +400,7 @@
 {
     NSNumber* digit = [NSNumber numberWithDouble:sender.currentTitle.doubleValue];
     
-    if (self.isDbm2MwMode)
+    if (self.isDbm2WattMode)
     {
         if (self.isUserInMiddleOfEnteringDigit)
         {
@@ -442,7 +449,7 @@
 
 - (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender
 {
-    if (self.isDbm2MwMode)
+    if (self.isDbm2WattMode)
     {
         if (self.isNegativeStatus)
         {
@@ -470,7 +477,7 @@
 {
     if (!self.isDigitInDecimalPart)
     {
-        if (self.isDbm2MwMode)
+        if (self.isDbm2WattMode)
         {
             if ([NEGATIVE_CHAR isEqualToString:self.currentInputValueString])
             {
@@ -486,27 +493,26 @@
             [self.currentInputValueString appendString:DIGIT_DOT];
             [self updateWattValueLabelText:self.currentInputValueString];
         }
-        
+
         [self resetCaculatorStatus:TRUE];
     }
 }
 
 - (IBAction)onClearButtonClicked:(CaculatorButton *)sender
 {
-    if ([self isDbm2MwMode])
+    if ([self isDbm2WattMode])
     {
         [self.currentInputValueString setString:DIGIT_0];
         [self updateDbmValueLabelText:self.currentInputValueString];
 
-        double wattValue = [self.caculatorModel.class getWattValueFromMWValue:1 andUnit:self.currentWattUnit];
+        double wattValue = [self.caculatorModel getWattValueFromDbmValue:0 andUnit:self.currentWattUnit];
         [self updateWattValueLabelText:[NSNumber numberWithDouble:wattValue].stringValue];
     }
     else
     {
-        [self.currentInputValueString setString:DIGIT_NEGATIVE_INFINITY];
-        [self updateDbmValueLabelText:self.currentInputValueString];
-        
-        [self updateWattValueLabelText:DIGIT_0];
+        [self.currentInputValueString setString:DIGIT_0];
+        [self updateDbmValueLabelText:DIGIT_NEGATIVE_INFINITY];
+        [self updateWattValueLabelText:self.currentInputValueString];
     }
     
     [self resetCaculatorStatus:FALSE];
@@ -546,7 +552,7 @@
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
-        if (!self.isDbm2MwMode)
+        if (!self.isDbm2WattMode)
         {
             [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
@@ -554,7 +560,7 @@
     }
     else if (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch))
     {
-        if (self.isDbm2MwMode)
+        if (self.isDbm2WattMode)
         {
             [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
@@ -609,7 +615,7 @@
     CGPoint startLocation;
     CGPoint stopLocation;
     
-    if (recognizer.state == UIGestureRecognizerStatePossible)
+    if (recognizer.state == UIGestureRecognizerStateChanged)
     {
         startLocation = [recognizer locationInView:self.screenView];
     }
@@ -624,13 +630,33 @@
     }
 }
 
+- (void)upSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
+{
+    CGPoint startLocation;
+    CGPoint stopLocation;
+    
+    if (recognizer.state == UIGestureRecognizerStateChanged)
+    {
+        startLocation = [recognizer locationInView:self.screenView];
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        stopLocation = [recognizer locationInView:self.screenView];
+    }
+    
+    if (CGRectContainsPoint(self.wattValueLabel.frame, startLocation) && CGRectContainsPoint(self.dbmValueLabel.frame, stopLocation))
+    {
+        // TODO:
+    }
+}
+
 - (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
 {
     CGPoint locationTouch = [recognizer locationInView:self.screenView];
     
     if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
     {
-        if (!self.isDbm2MwMode)
+        if (!self.isDbm2WattMode)
         {
             [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
@@ -638,7 +664,7 @@
     }
     else if (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch))
     {
-        if (self.isDbm2MwMode)
+        if (self.isDbm2WattMode)
         {
             [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
@@ -688,6 +714,8 @@
     [self setLongPressGestureRecognizer:nil];
     [self.screenView removeGestureRecognizer:self.downSwipeGestureRecognizer];
     [self setDownSwipeGestureRecognizer:nil];
+    [self.screenView removeGestureRecognizer:self.upSwipeGestureRecognizer];
+    [self setUpSwipeGestureRecognizer:nil];
     
     [self setCaculatorModel:nil];
     [self setCurrentInputValueString:nil];
