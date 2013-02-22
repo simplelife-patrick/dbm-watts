@@ -486,7 +486,14 @@
     if (!self.isDigitInDecimalPart)
     {
         [self.currentInputValueString appendString:DIGIT_DOT];
-        [self updateDbmValueLabelText:self.currentInputValueString];
+        if (self.isDbm2WattMode)
+        {
+            [self updateDbmValueLabelText:self.currentInputValueString];
+        }
+        else
+        {
+            [self updateWattValueLabelText:self.currentInputValueString];
+        }
 
         [self resetCaculatorStatus:TRUE];
     }
