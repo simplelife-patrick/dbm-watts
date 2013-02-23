@@ -12,6 +12,8 @@
 
 @implementation CaculatorModel
 
+@synthesize recordList = _recordList;
+
 +(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString
 {
     NSMutableString* mutableString = [NSMutableString stringWithCapacity:rawString.length];
@@ -138,6 +140,49 @@
     double wattValue = [self.class getWattValueFromMWValue:mWValue andUnit:unit];
     
     return [self.class getRoundDoubleValue:wattValue andRange:DECIMAL_ROUND_LENGTH];
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        // Initialization code here.
+        [self loadFromLocalStorage];
+    }
+    
+    return self;
+}
+
+-(void) addRecord:(CaculatorRecord*) record
+{
+    if (nil != record)
+    {
+        [record setSavedTime:[NSDate date]];
+        [self.recordList addObject:record];
+        [self saveToLocalStorage];
+    }
+}
+
+-(void) deleteRecord:(NSUInteger) index
+{
+    if (index < self.recordList.count)
+    {
+        [self.recordList removeObjectAtIndex:index];
+        [self saveToLocalStorage];
+    }
+}
+
+-(void) saveToLocalStorage
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    [configs setObject:self.recordList forKey:APP_CONFIG_RECORD_LIST];
+}
+
+-(void) loadFromLocalStorage
+{
+    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
+    self.recordList = [configs objectForKey:APP_CONFIG_RECORD_LIST];
 }
 
 @end

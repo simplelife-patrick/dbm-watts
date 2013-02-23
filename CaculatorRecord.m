@@ -14,5 +14,6 @@
 @synthesize wattValue;
 @synthesize wattUnit;
 @synthesize isDbm2Watt;
+@synthesize savedTime;
 
 @end

@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CaculatorModel.h"
-
 @interface CaculatorRecord : NSObject
 
 @property (strong, nonatomic) NSString* dbmValue;
 @property (strong, nonatomic) NSString* wattValue;
 @property (nonatomic) WattUnit wattUnit;
 @property (nonatomic) BOOL isDbm2Watt;
+@property (strong, nonatomic) NSDate* savedTime;
 
 @end

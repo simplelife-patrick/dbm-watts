@@ -9,6 +9,8 @@
 #ifndef dbm_watt_CaculatorTypeDefinitions_h
 #define dbm_watt_CaculatorTypeDefinitions_h
 
+#define APP_CONFIG_RECORD_LIST @"cfg_recordList"
+
 typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;
 
 #endif
