@@ -16,4 +16,19 @@
 @synthesize isDbm2Watt;
 @synthesize savedTime;
 
+-(id) initWithDbmValue:(NSString*) dbm wattValue:(NSString*)watt wattUnit:(WattUnit) unit isDbm2Watt:(BOOL) dbm2watt
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [self setDbmValue:dbm];
+        [self setWattValue:watt];
+        [self setWattUnit:unit];
+        [self setIsDbm2Watt:dbm2watt];
+    }
+    
+    return self;
+}
+
 @end

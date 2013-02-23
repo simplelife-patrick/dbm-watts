@@ -16,4 +16,6 @@
 @property (nonatomic) BOOL isDbm2Watt;
 @property (strong, nonatomic) NSDate* savedTime;
 
+-(id) initWithDbmValue:(NSString*) dbm wattValue:(NSString*)watt wattUnit:(WattUnit) unit isDbm2Watt:(BOOL) dbm2watt;
+
 @end
