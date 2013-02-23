@@ -122,7 +122,7 @@
     return wattValue;
 }
 
--(double) getDbmValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit
++(double) getDbmValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit
 {
     double mWValue = [self.class getMWValueFromWattValueWithUnit:wattValue andUnit:unit];
     
@@ -131,7 +131,7 @@
     return [self.class getRoundDoubleValue:dbmValue andRange:DECIMAL_ROUND_LENGTH];
 }
 
--(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit
++(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit
 {
     double mWValue = 1 * pow(10, dbmValue / 10);
     

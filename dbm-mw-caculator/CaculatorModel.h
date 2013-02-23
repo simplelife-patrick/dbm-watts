@@ -102,10 +102,10 @@ typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;
 +(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString;
 
 +(double) getRoundDoubleValue:(double) rawValue andRange:(int) rangeValue;
+
 +(double) getMWValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;
 +(double) getWattValueFromMWValue:(double) mWValue andUnit:(WattUnit) unit;
-
--(double) getDbmValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;
--(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit;
++(double) getDbmValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;
++(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit;
 
 @end
