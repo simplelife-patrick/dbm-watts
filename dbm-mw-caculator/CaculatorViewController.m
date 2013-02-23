@@ -500,11 +500,31 @@
 
 - (IBAction)onDelButtonClicked:(CaculatorButton *)sender
 {
-    NSUInteger length = self.currentInputValueString.length;
-    NSUInteger minimalLength = (self.isNegativeStatus) ? 2 : 1;
-    if (minimalLength < length)
+    NSUInteger lengthBeforeDel = self.currentInputValueString.length;
+    if (0 < lengthBeforeDel)
     {
-        [self.currentInputValueString deleteCharactersInRange:NSMakeRange(length - 1, 1)];
+        [self.currentInputValueString deleteCharactersInRange:NSMakeRange(lengthBeforeDel - 1, 1)];
+    }
+    NSUInteger lengthAfterDel = self.currentInputValueString.length;
+    if (0 == lengthAfterDel)
+    {
+        [self onClearButtonClicked:self.clearButton];
+        return;
+    }
+    else if (1 == lengthAfterDel)
+    {
+        if ([NEGATIVE_CHAR isEqualToString:self.currentInputValueString])
+        {
+            [self onClearButtonClicked:self.clearButton];
+            return;
+        }
+        
+        if (self.isNegativeStatus || 0 == self.currentInputValueString.intValue)
+        {
+            self.isUserInMiddleOfEnteringDigit = FALSE;
+        }
+        
+        self.isDigitInDecimalPart = FALSE;
     }
     
     if (self.isDbm2WattMode)
