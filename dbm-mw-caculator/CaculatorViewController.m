@@ -68,6 +68,7 @@
 @synthesize dotButton = _dotButton;
 @synthesize clearButton = _clearButton;
 @synthesize negativeButton = _negativeButton;
+@synthesize delButton = _delButton;
 
 @synthesize caculatorButtons = _caculatorButtons;
 @synthesize functionButtons = _functionButtons;
@@ -126,7 +127,7 @@
 {
     if (nil == _caculatorButtons)
     {
-        _caculatorButtons = [NSMutableArray arrayWithCapacity:13];
+        _caculatorButtons = [NSMutableArray arrayWithCapacity:14];
         [_caculatorButtons addObject:self.digit0Button];
         [_caculatorButtons addObject:self.digit1Button];
         [_caculatorButtons addObject:self.digit2Button];
@@ -139,6 +140,7 @@
         [_caculatorButtons addObject:self.digit9Button];
         [_caculatorButtons addObject:self.dotButton];
         [_caculatorButtons addObject:self.negativeButton];
+        [_caculatorButtons addObject:self.delButton];
         [_caculatorButtons addObject:self.clearButton];
     }
     
@@ -499,6 +501,11 @@
     }
 }
 
+- (IBAction)onDelButtonClicked:(CaculatorButton *)sender
+{
+    
+}
+
 - (IBAction)onClearButtonClicked:(CaculatorButton *)sender
 {
     if ([self isDbm2WattMode])
@@ -703,6 +710,7 @@
     
     [self setDotButton:nil];
     [self setNegativeButton:nil];
+    [self setDelButton:nil];
     [self setClearButton:nil];
     
     [self.screenView removeGestureRecognizer:self.leftSwipeGestureRecognizer];
@@ -723,6 +731,8 @@
     
     [self setScreenView:nil];
     [self setButtonsView:nil];
+    [self setDelButton:nil];
     [super viewDidUnload];
 }
+
 @end

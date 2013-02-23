@@ -47,6 +47,7 @@
 @property (weak, nonatomic) IBOutlet CaculatorButton *dotButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *negativeButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *delButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *kwTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wTextLabel;
@@ -75,6 +76,7 @@
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onDotButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onDelButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onClearButtonClicked:(CaculatorButton *)sender;
 
 - (IBAction)playButtonClickSound:(CaculatorButton *)sender;

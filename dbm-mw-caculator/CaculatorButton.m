@@ -17,8 +17,6 @@
     {
         // Initialization code
         //   [notes addTarget:self action:@selector(sb) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self addTarget:self action:@selector(playButtonSound) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
