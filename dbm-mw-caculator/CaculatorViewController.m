@@ -13,7 +13,7 @@
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
-@property (nonatomic) BOOL isSaveButtonEnabled;
+@property (nonatomic) BOOL isSaveEnabled;
 @property (nonatomic, strong) NSMutableArray* caculatorButtons;
 @property (nonatomic, strong) NSMutableArray* functionButtons;
 @property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
@@ -43,7 +43,7 @@
 @synthesize isDbm2WattMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
-@synthesize isSaveButtonEnabled;
+@synthesize isSaveEnabled;
 
 @synthesize currentWattUnit = _currentWattUnits;
 @synthesize currentInputValueString = _currentInputValueString;
@@ -337,7 +337,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.isDbm2WattMode = FALSE;
     self.isNegativeStatus = FALSE;
-    self.isSaveButtonEnabled = FALSE;
+    self.isSaveEnabled = FALSE;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueString = [NSMutableString stringWithCapacity:0];
     
