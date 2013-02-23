@@ -513,7 +513,7 @@
     }
     else if (1 == lengthAfterDel)
     {
-        if ([NEGATIVE_CHAR isEqualToString:self.currentInputValueString])
+        if (self.isNegativeStatus)
         {
             [self onClearButtonClicked:self.clearButton];
             return;
@@ -525,6 +525,14 @@
         }
         
         self.isDigitInDecimalPart = FALSE;
+    }
+    else if (2 == lengthAfterDel)
+    {
+        if (self.isNegativeStatus)
+        {
+            self.isDigitInDecimalPart = FALSE;
+            self.isUserInMiddleOfEnteringDigit = FALSE;            
+        }
     }
     
     if (self.isDbm2WattMode)
