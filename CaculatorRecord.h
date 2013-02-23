@@ -12,8 +12,8 @@
 
 @interface CaculatorRecord : NSObject
 
-@property (nonatomic) double dbmValue;
-@property (nonatomic) double wattValue;
+@property (strong, nonatomic) NSString* dbmValue;
+@property (strong, nonatomic) NSString* wattValue;
 @property (nonatomic) WattUnit wattUnit;
 @property (nonatomic) BOOL isDbm2Watt;
 
