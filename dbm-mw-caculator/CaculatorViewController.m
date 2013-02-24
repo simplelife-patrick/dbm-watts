@@ -242,6 +242,11 @@
 
 - (void) switchWattUnit:(WattUnit)unit andInitStatus:(BOOL)isInInit
 {
+    if (!isInInit)
+    {
+        [self playButtonClickSound:self.switchButton];
+    }
+    
     if (self.currentWattUnit == unit)
     {
         return;
