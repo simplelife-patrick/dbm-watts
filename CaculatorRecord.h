@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CaculatorUIStyle.h"
+
 @interface CaculatorRecord : NSObject
 
 @property (strong, nonatomic) NSString* dbmValue;
@@ -17,5 +19,7 @@
 @property (strong, nonatomic) NSDate* savedTime;
 
 -(id) initWithDbmValue:(NSString*) dbm wattValue:(NSString*)watt wattUnit:(WattUnit) unit isDbm2Watt:(BOOL) dbm2watt;
+
+-(NSString*) toString;
 
 @end

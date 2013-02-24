@@ -31,4 +31,28 @@
     return self;
 }
 
+-(NSString*) toString
+{
+    NSMutableString* string = [NSMutableString stringWithCapacity:0];
+    
+    if (self.isDbm2Watt)
+    {
+        [string appendString:self.dbmValue];
+        [string appendString:DBM];
+        [string appendString:EQUAL_CHAR];
+        [string appendString:self.wattValue];
+        [string appendString:[CaculatorUIStyle wattUnitString:self.wattUnit]];
+    }
+    else
+    {
+        [string appendString:self.wattValue];
+        [string appendString:[CaculatorUIStyle wattUnitString:self.wattUnit]];
+        [string appendString:EQUAL_CHAR];
+        [string appendString:self.dbmValue];
+        [string appendString:DBM];
+    }
+    
+    return string;
+}
+
 @end

@@ -14,6 +14,29 @@
 
 @synthesize recordList = _recordList;
 
++(NSString*) derenderValueStringWithThousandSeparator:(NSString *)rawString
+{
+    NSMutableString* mutableString = [NSMutableString stringWithCapacity:rawString.length];
+    [mutableString setString:rawString];
+    
+    if (nil != mutableString && 0 < mutableString.length)
+    {
+        while (TRUE)
+        {
+            NSRange rangeOfComma = [mutableString rangeOfString:SCIENTIFIC_NOTIATION_COMMA];
+            if (NSNotFound != rangeOfComma.location)
+            {
+                [mutableString deleteCharactersInRange:rangeOfComma];
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    return mutableString;
+}
+
 +(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString
 {
     NSMutableString* mutableString = [NSMutableString stringWithCapacity:rawString.length];

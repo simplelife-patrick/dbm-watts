@@ -47,4 +47,21 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
     return s_focusedScreenLabelBackgroundColor;
 }
 
++(NSString*) wattUnitString:(WattUnit)unit
+{
+    switch (unit)
+    {
+        case kW:
+            return WATT_UNIT_KW;
+        case W:
+            return WATT_UNIT_W;
+        case mW:
+            return WATT_UNIT_MW;
+        case uW:
+            return WATT_UNIT_UW;
+        default:
+            return EMPTY_STRING;
+    }
+}
+
 @end

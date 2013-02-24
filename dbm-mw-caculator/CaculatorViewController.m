@@ -371,19 +371,25 @@
 
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
 {
+    [self playButtonClickSound:sender];
+    
     CaculatorRecord* record = nil;
     
     if (self.isDbm2WattMode)
     {
         NSString* dbm = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
-        record = [[CaculatorRecord alloc] initWithDbmValue:dbm wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+        NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:dbm];
+        record = [[CaculatorRecord alloc] initWithDbmValue:renderredString wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
     else
     {
         NSString* watt = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
-        record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:watt wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+        NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:watt];
+        record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:renderredString wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
-    
+
+    UIPasteboard *pboard = [UIPasteboard generalPasteboard];
+    pboard.string = [record toString];
 
     [self.caculatorModel addRecord:record];
 }
@@ -738,21 +744,14 @@
 }
 
 - (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
-{
-    CGPoint locationTouch = [recognizer locationInView:self.screenView];
-    
-    if (CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch))
+{    
+    if (recognizer.state == UIGestureRecognizerStateBegan)
     {
-        if (!self.isDbm2WattMode)
+        CGPoint locationTouch = [recognizer locationInView:self.screenView];
+        
+        if ((CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch)) || (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch)))
         {
-            [self onSwitchButtonClicked:self.switchButton];
-        }
-    }
-    else if (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch))
-    {
-        if (self.isDbm2WattMode)
-        {
-            [self onSwitchButtonClicked:self.switchButton];
+            [self onSaveButtonClicked:self.saveButton];
         }
     }
 }

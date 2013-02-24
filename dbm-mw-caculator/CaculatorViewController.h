@@ -17,9 +17,6 @@
 
 #import "CaculatorResource.h"
 
-#define SWITCHMODE_DBM2WATT @"dbm"
-#define SWITCHMODE_WATT2DBM @"watt"
-
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *screenView;
