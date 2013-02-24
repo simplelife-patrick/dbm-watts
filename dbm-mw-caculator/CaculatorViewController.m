@@ -19,7 +19,6 @@
 
 
 -(void) resetCaculatorStatus:(BOOL) status;
--(void) enableNegativeButton:(BOOL) isEnabled;
 -(void) decorateDbmValueLabel;
 -(void) decorateWattValueLabel;
 -(void) decorateCaculatorButtons;
@@ -94,19 +93,6 @@
 {
     NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:newString];
     [self.wattValueLabel setText:renderredString];
-}
-
--(void) enableNegativeButton:(BOOL)isEnabled
-{
-    [self.negativeButton setEnabled:isEnabled];
-    if (isEnabled)
-    {
-        [self.negativeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    else
-    {
-        [self.negativeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    }
 }
 
 -(void) resetCaculatorStatus:(BOOL) status
@@ -368,8 +354,6 @@
         self.isDbm2WattMode = FALSE;
         [sender setTitle:SWITCHMODE_WATT2DBM forState:UIControlStateNormal];
         
-        [self enableNegativeButton:FALSE];
-        
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
     }
@@ -377,8 +361,6 @@
     {
         self.isDbm2WattMode = TRUE;
         [sender setTitle:SWITCHMODE_DBM2WATT forState:UIControlStateNormal];
-        
-        [self enableNegativeButton:TRUE];
 
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
