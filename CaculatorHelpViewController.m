@@ -1,26 +1,23 @@
 //
-//  CaculatorRecordTableViewController.m
+//  CaculatorHelpViewController.m
 //  dbm-watt
 //
 //  Created by Patrick Deng on 13-2-24.
 //  Copyright (c) 2013年 Code Animal. All rights reserved.
 //
 
-#import "CaculatorRecordTableViewController.h"
+#import "CaculatorHelpViewController.h"
 
-@interface CaculatorRecordTableViewController ()
+@interface CaculatorHelpViewController ()
 
 @end
 
-@implementation CaculatorRecordTableViewController
-
-@synthesize caculatorModel;
+@implementation CaculatorHelpViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self)
-    {
+    if (self) {
         // Custom initialization
     }
     return self;
@@ -35,7 +32,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    
     [self.navigationController setNavigationBarHidden:FALSE];
 }
 
@@ -49,34 +46,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.caculatorModel.recordList.count;
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
-}
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    CaculatorRecord* record = [self.caculatorModel.recordList objectAtIndex:indexPath.item];
-    
-    cell.textLabel.text = [record description];
 }
 
 /*
@@ -129,14 +118,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.destinationViewController isKindOfClass:[CaculatorViewController class]])
-    {
-        
-    }
 }
 
 @end

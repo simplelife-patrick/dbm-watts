@@ -44,6 +44,14 @@
 #define DBM @"dbm"
 #define WATT @"watt"
 
+#define CODING_KEY_DBM @"dbm"
+#define CODING_KEY_WATT @"watt"
+#define CODING_KEY_WATTUNIT @"wattUnit"
+#define CODING_KEY_ISDBM2WATT @"isDbm2Watt"
+#define CODING_KEY_SAVEDTIME @"savedTime"
+
+#define LOCAL_STORE_FILE @"caculator_record_list.rl"
+
 #define SEGUE_ID_TO_NAVIGATION_CONTROLLER @"toNavigationController"
 
 typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;

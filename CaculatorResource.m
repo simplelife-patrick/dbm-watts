@@ -14,6 +14,8 @@ static SystemSoundID s_switchButtonClickSoundID;
 static SystemSoundID s_historyButtonClickSoundID;
 static SystemSoundID s_helpButtonClickSoundID;
 
+static NSString* s_localStoredFileFullName;
+
 @implementation CaculatorResource
 
 +(void) initialize
@@ -32,6 +34,14 @@ static SystemSoundID s_helpButtonClickSoundID;
     
     NSString* switchWavPath = [[NSBundle mainBundle] pathForResource:@"switch" ofType:@"wav"];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:switchWavPath], &s_switchButtonClickSoundID);
+
+    NSString *Path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    s_localStoredFileFullName = [Path stringByAppendingPathComponent:LOCAL_STORE_FILE];
+}
+
++(NSString*) localStoreFileFullName
+{
+    return s_localStoredFileFullName;
 }
 
 +(void) playCaculatorButtonClickSound

@@ -12,6 +12,8 @@
 
 #import "CaculatorScreenLabel.h"
 #import "CaculatorButton.h"
+#import "CaculatorRecordTableViewController.h"
+#import "CaculatorHelpViewController.h"
 
 #import "CaculatorModel.h"
 

@@ -315,6 +315,11 @@
     return _caculatorModel;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:TRUE];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -385,7 +390,7 @@
     }
 
     UIPasteboard *pboard = [UIPasteboard generalPasteboard];
-    pboard.string = [record toString];
+    pboard.string = [record description];
 
     [self.caculatorModel addRecord:record];
 }
@@ -752,6 +757,19 @@
             [self playButtonClickSound:self.saveButton];
             [self onSaveButtonClicked:self.saveButton];
         }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[CaculatorRecordTableViewController class]])
+    {
+        CaculatorRecordTableViewController* recordTableViewController = segue.destinationViewController;
+        [recordTableViewController setCaculatorModel:self.caculatorModel];
+    }
+    else if ([segue.destinationViewController isKindOfClass:[CaculatorHelpViewController class]])
+    {
+        
     }
 }
 

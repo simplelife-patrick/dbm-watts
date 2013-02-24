@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CaculatorModel.h"
+
+#import "CaculatorViewController.h"
+
 @interface CaculatorRecordTableViewController : UITableViewController
+
+@property (strong, nonatomic) CaculatorModel* caculatorModel;
 
 @end

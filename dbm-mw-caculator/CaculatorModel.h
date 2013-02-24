@@ -82,6 +82,7 @@
 #import <Foundation/Foundation.h>
 
 #import "CaculatorRecord.h"
+#import "CaculatorResource.h"
 
 @interface CaculatorModel : NSObject
 

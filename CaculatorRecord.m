@@ -16,6 +16,28 @@
 @synthesize isDbm2Watt;
 @synthesize savedTime;
 
+-(void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.dbmValue forKey:CODING_KEY_DBM];
+    [aCoder encodeObject:self.wattValue forKey:CODING_KEY_WATT];
+    [aCoder encodeInt:self.wattUnit forKey:CODING_KEY_WATTUNIT];
+    [aCoder encodeBool:self.isDbm2Watt forKey:CODING_KEY_ISDBM2WATT];
+    [aCoder encodeObject:self.savedTime forKey:CODING_KEY_SAVEDTIME];
+}
+
+-(id) initWithCoder:(NSCoder *)aDecoder
+{
+    if (self=[super init])
+    {
+        self.dbmValue = [aDecoder decodeObjectForKey:CODING_KEY_DBM];
+        self.wattValue = [aDecoder decodeObjectForKey:CODING_KEY_WATT];
+        self.wattUnit = [aDecoder decodeIntForKey:CODING_KEY_WATTUNIT];
+        self.isDbm2Watt = [aDecoder decodeBoolForKey:CODING_KEY_ISDBM2WATT];
+        self.savedTime = [aDecoder decodeObjectForKey:CODING_KEY_SAVEDTIME];
+    }
+    return self;
+}
+
 -(id) initWithDbmValue:(NSString*) dbm wattValue:(NSString*)watt wattUnit:(WattUnit) unit isDbm2Watt:(BOOL) dbm2watt
 {
     self = [super init];
@@ -31,7 +53,7 @@
     return self;
 }
 
--(NSString*) toString
+-(NSString*) description
 {
     NSMutableString* string = [NSMutableString stringWithCapacity:0];
     

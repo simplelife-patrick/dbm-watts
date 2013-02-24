@@ -198,14 +198,23 @@
 
 -(void) saveToLocalStorage
 {
-    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
-    [configs setObject:self.recordList forKey:APP_CONFIG_RECORD_LIST];
+    NSArray* array = [NSArray arrayWithArray:self.recordList];
+
+    [NSKeyedArchiver archiveRootObject:array toFile:[CaculatorResource localStoreFileFullName]];
 }
 
 -(void) loadFromLocalStorage
 {
-    NSUserDefaults *configs = [NSUserDefaults standardUserDefaults];
-    self.recordList = [configs objectForKey:APP_CONFIG_RECORD_LIST];
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile: [CaculatorResource localStoreFileFullName]];
+    
+    if (nil == array || ![array isKindOfClass:[NSArray class]])
+    {
+        _recordList = [NSMutableArray arrayWithCapacity:0];
+    }
+    else
+    {
+        _recordList = [NSMutableArray arrayWithArray:array];
+    }
 }
 
 @end

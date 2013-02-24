@@ -16,5 +16,6 @@
 +(void) playHistoryButtonClickSound;
 +(void) playSaveButtonClickSound;
 +(void) playSwitchButtonClickSound;
++(NSString*) localStoreFileFullName;
 
 @end
