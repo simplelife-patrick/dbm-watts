@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TWK-kM-egC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -103,10 +103,11 @@
                                         <connections>
                                             <action selector="onHistoryButtonClicked:" destination="2" eventType="touchUpInside" id="fKc-nU-tV9"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="OJ1-dc-Omj"/>
+                                            <segue destination="yaM-Fp-V7G" kind="push" id="TIO-bi-EfF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Da3-Bp-zG7" userLabel="saveButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="83.5" y="3" width="73" height="41"/>
+                                        <rect key="frame" x="83" y="3" width="73" height="41"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,6 +138,7 @@
                                         <connections>
                                             <action selector="onHelpButtonClicked:" destination="2" eventType="touchUpInside" id="mI6-ge-ISS"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8Ah-ou-Gqs"/>
+                                            <segue destination="pbP-ni-jeE" kind="push" id="rsw-S8-04M"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
@@ -383,6 +385,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="K5Q-XZ-FCn"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="buttonsView" destination="Fdy-cD-QqD" id="nVL-E5-hv8"/>
                         <outlet property="clearButton" destination="KZQ-NE-vk5" id="s6l-WH-ZHO"/>
@@ -414,7 +418,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-227" y="100"/>
+            <point key="canvasLocation" x="-951" y="410"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2pr-19-V5C">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="TWK-kM-egC" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w4V-l6-WaY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="uBf-9A-p66"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8f-ai-CwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1489" y="410"/>
+        </scene>
+        <!--Record Table View Controller-->
+        <scene sceneID="xdo-In-Afu">
+            <objects>
+                <tableViewController id="yaM-Fp-V7G" userLabel="Record Table View Controller" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rqa-BI-3Mw" userLabel="recordTableView">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Oyf-mN-cPq" userLabel="recordTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yaM-Fp-V7G" id="qAK-yD-lr8"/>
+                            <outlet property="delegate" destination="yaM-Fp-V7G" id="PYa-Pi-DPd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3Z9-Fg-6dS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVz-K8-WS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-407" y="0.0"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="9ba-R1-Jkv">
+            <objects>
+                <viewController id="pbP-ni-jeE" userLabel="Help View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YqC-dz-cfR" userLabel="helpView">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x29-Iq-Dad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyr-yt-o34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-407" y="798"/>
         </scene>
     </scenes>
     <classes>
