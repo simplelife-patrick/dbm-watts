@@ -13,7 +13,6 @@
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
-@property (nonatomic) BOOL isSaveEnabled;
 @property (nonatomic, strong) NSMutableArray* caculatorButtons;
 @property (nonatomic, strong) NSMutableArray* functionButtons;
 @property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
@@ -43,7 +42,6 @@
 @synthesize isDbm2WattMode;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
-@synthesize isSaveEnabled;
 
 @synthesize currentWattUnit = _currentWattUnits;
 @synthesize currentInputValueString = _currentInputValueString;
@@ -244,17 +242,12 @@
 
 - (void) switchWattUnit:(WattUnit)unit andInitStatus:(BOOL)isInInit
 {
-    if (!isInInit)
-    {
-        [self playButtonClickSound:nil];
-    }
-    
     if (self.currentWattUnit == unit)
     {
         return;
     }
     else
-    {
+    {        
         if (self.isDbm2WattMode)
         {
             self.currentWattUnit = unit;
@@ -337,11 +330,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.isDbm2WattMode = FALSE;
     self.isNegativeStatus = FALSE;
-    self.isSaveEnabled = FALSE;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueString = [NSMutableString stringWithCapacity:0];
     
-    [self onSwitchButtonClicked:self.switchButton];
+    [self onSwitchButtonClicked:nil];
     
     [self decorateDbmValueLabel];
     [self decorateWattValueLabel];
@@ -364,6 +356,8 @@
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender
 {
+    [self playButtonClickSound:sender];
+    
     if ([self isDbm2WattMode])
     {
         self.isDbm2WattMode = FALSE;
@@ -385,7 +379,7 @@
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
     }
     
-    [self onClearButtonClicked:self.clearButton];
+    [self onClearButtonClicked:nil];
 }
 
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
@@ -593,25 +587,29 @@
 
 - (IBAction)playButtonClickSound:(CaculatorButton *)sender
 {
-    if (sender == self.switchButton)
+    if (nil == sender)
     {
-        
+        return;
+    }
+    else if (sender == self.switchButton)
+    {
+        [CaculatorResource playSwitchButtonClickSound];
     }
     else if (sender == self.saveButton)
     {
-        
+        [CaculatorResource playSaveButtonClickSound];
     }
     else if (sender == self.historyButton)
     {
-        
+        [CaculatorResource playHistoryButtonClickSound];
     }
     else if (sender == self.helpButton)
     {
-        
+        [CaculatorResource playHelpButtonClickSound];
     }
     else
     {
-        [CaculatorResource playButtonClickSound];
+        [CaculatorResource playCaculatorButtonClickSound];
     }
 }
 
@@ -645,7 +643,6 @@
     {
         if (!self.isDbm2WattMode)
         {
-            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -653,7 +650,6 @@
     {
         if (self.isDbm2WattMode)
         {
-            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -749,7 +745,6 @@
     {
         if (!self.isDbm2WattMode)
         {
-            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -757,7 +752,6 @@
     {
         if (self.isDbm2WattMode)
         {
-            [self playButtonClickSound:nil];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }

@@ -8,23 +8,55 @@
 
 #import "CaculatorResource.h"
 
-static SystemSoundID s_buttonClickSoundID;
-static NSString* s_buttonClickSoundFilePath;
+static SystemSoundID s_caculatorButtonClickSoundID;
+static SystemSoundID s_saveButtonClickSoundID;
+static SystemSoundID s_switchButtonClickSoundID;
+static SystemSoundID s_historyButtonClickSoundID;
+static SystemSoundID s_helpButtonClickSoundID;
 
 @implementation CaculatorResource
 
 +(void) initialize
 {
-    s_buttonClickSoundFilePath = [[NSBundle mainBundle] pathForResource:@"button" ofType:@"wav"];
+    NSString* buttonWavPath = [[NSBundle mainBundle] pathForResource:@"button" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:buttonWavPath], &s_caculatorButtonClickSoundID);
     
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:s_buttonClickSoundFilePath], &s_buttonClickSoundID);
+    NSString* helpWavPath = [[NSBundle mainBundle] pathForResource:@"help" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:helpWavPath], &s_helpButtonClickSoundID);
+    
+    NSString* historyWavPath = [[NSBundle mainBundle] pathForResource:@"history" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:historyWavPath], &s_historyButtonClickSoundID);
+    
+    NSString* saveWavPath = [[NSBundle mainBundle] pathForResource:@"save" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:saveWavPath], &s_saveButtonClickSoundID);
+    
+    NSString* switchWavPath = [[NSBundle mainBundle] pathForResource:@"switch" ofType:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:switchWavPath], &s_switchButtonClickSoundID);
 }
 
-+(void) playButtonClickSound
++(void) playCaculatorButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_buttonClickSoundID);
-    
-    //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
+}
+
++(void) playHelpButtonClickSound
+{
+    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+}
+
++(void) playHistoryButtonClickSound
+{
+    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+}
+
++(void) playSaveButtonClickSound
+{
+    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+}
+
++(void) playSwitchButtonClickSound
+{
+    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
 }
 
 @end

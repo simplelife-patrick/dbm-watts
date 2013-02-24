@@ -11,6 +11,10 @@
 
 @interface CaculatorResource : NSObject
 
-+(void) playButtonClickSound;
++(void) playCaculatorButtonClickSound;
++(void) playHelpButtonClickSound;
++(void) playHistoryButtonClickSound;
++(void) playSaveButtonClickSound;
++(void) playSwitchButtonClickSound;
 
 @end
