@@ -347,8 +347,6 @@
 
 - (IBAction)onSwitchButtonClicked:(CaculatorButton *)sender
 {
-    [self playButtonClickSound:sender];
-    
     if ([self isDbm2WattMode])
     {
         self.isDbm2WattMode = FALSE;
@@ -371,8 +369,6 @@
 
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
 {
-    [self playButtonClickSound:sender];
-    
     CaculatorRecord* record = nil;
     
     if (self.isDbm2WattMode)
@@ -649,6 +645,7 @@
     {
         if (!self.isDbm2WattMode)
         {
+            [self playButtonClickSound:self.switchButton];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -656,6 +653,7 @@
     {
         if (self.isDbm2WattMode)
         {
+            [self playButtonClickSound:self.switchButton];
             [self onSwitchButtonClicked:self.switchButton];
         }
     }
@@ -751,6 +749,7 @@
         
         if ((CGRectContainsPoint(self.dbmValueLabel.frame, locationTouch)) || (CGRectContainsPoint(self.wattValueLabel.frame, locationTouch)))
         {
+            [self playButtonClickSound:self.saveButton];
             [self onSaveButtonClicked:self.saveButton];
         }
     }
