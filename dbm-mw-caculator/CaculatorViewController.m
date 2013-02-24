@@ -503,48 +503,55 @@
     NSUInteger lengthBeforeDel = self.currentInputValueString.length;
     if (0 < lengthBeforeDel)
     {
+        NSString* stringToBeDel = [self.currentInputValueString substringFromIndex:lengthBeforeDel - 1];
+        if ([DIGIT_DOT isEqualToString: stringToBeDel])
+        {
+            self.isDigitInDecimalPart = FALSE;
+        }
+        
         [self.currentInputValueString deleteCharactersInRange:NSMakeRange(lengthBeforeDel - 1, 1)];
-    }
-    NSUInteger lengthAfterDel = self.currentInputValueString.length;
-    if (0 == lengthAfterDel)
-    {
-        [self onClearButtonClicked:self.clearButton];
-        return;
-    }
-    else if (1 == lengthAfterDel)
-    {
-        if (self.isNegativeStatus)
+
+        NSUInteger lengthAfterDel = self.currentInputValueString.length;
+        if (0 == lengthAfterDel)
         {
             [self onClearButtonClicked:self.clearButton];
             return;
         }
-        
-        if (self.isNegativeStatus || 0 == self.currentInputValueString.intValue)
+        else if (1 == lengthAfterDel)
         {
-            self.isUserInMiddleOfEnteringDigit = FALSE;
-        }
-        
-        self.isDigitInDecimalPart = FALSE;
-    }
-    else if (2 == lengthAfterDel)
-    {
-        if (self.isNegativeStatus)
-        {
+            if (self.isNegativeStatus)
+            {
+                [self onClearButtonClicked:self.clearButton];
+                return;
+            }
+            
+            if (self.isNegativeStatus || 0 == self.currentInputValueString.intValue)
+            {
+                self.isUserInMiddleOfEnteringDigit = FALSE;
+            }
+            
             self.isDigitInDecimalPart = FALSE;
-            self.isUserInMiddleOfEnteringDigit = FALSE;            
         }
+        else if (2 == lengthAfterDel)
+        {
+            if (self.isNegativeStatus)
+            {
+                self.isDigitInDecimalPart = FALSE;
+                self.isUserInMiddleOfEnteringDigit = FALSE;
+            }
+        }
+        
+        if (self.isDbm2WattMode)
+        {
+            [self updateDbmValueLabelText:self.currentInputValueString];
+        }
+        else
+        {
+            [self updateWattValueLabelText:self.currentInputValueString];
+        }
+        
+        [self caculateDbmAndWattPlusUpdateScreenLabels];
     }
-    
-    if (self.isDbm2WattMode)
-    {
-        [self updateDbmValueLabelText:self.currentInputValueString];
-    }
-    else
-    {
-        [self updateWattValueLabelText:self.currentInputValueString];
-    }
-    
-    [self caculateDbmAndWattPlusUpdateScreenLabels];
 }
 
 - (void) caculateDbmAndWattPlusUpdateScreenLabels
