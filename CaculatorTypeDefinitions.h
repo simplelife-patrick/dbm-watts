@@ -44,6 +44,8 @@
 #define DBM @"dbm"
 #define WATT @"watt"
 
+#define SEGUE_ID_TO_NAVIGATION_CONTROLLER @"toNavigationController"
+
 typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;
 
 #endif
