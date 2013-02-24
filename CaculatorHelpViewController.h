@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CaculatorHelpViewController : UITableViewController
+@interface CaculatorHelpViewController : UIViewController
 
 @end

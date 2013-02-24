@@ -53,6 +53,8 @@
 #define LOCAL_STORE_FILE @"caculator_record_list.rl"
 
 #define SEGUE_ID_TO_NAVIGATION_CONTROLLER @"toNavigationController"
+#define SEGUE_ID_TO_TABLEVIEW_CONTROLLER @"toCaculatorRecordViewController"
+#define SEGUE_ID_TO_HELPVIEW_CONTROLLER @"toCaculatorHelpViewController"
 
 typedef enum {kW=1000000000, W=1000000, mW=1000, uW=1} WattUnit;
 
