@@ -389,7 +389,20 @@
 
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
 {
-    CaculatorRecord* record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+    CaculatorRecord* record = nil;
+    
+    if (self.isDbm2WattMode)
+    {
+        NSString* dbm = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
+        record = [[CaculatorRecord alloc] initWithDbmValue:dbm wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+    }
+    else
+    {
+        NSString* watt = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
+        record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:watt wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+    }
+    
+
     [self.caculatorModel addRecord:record];
 }
 
