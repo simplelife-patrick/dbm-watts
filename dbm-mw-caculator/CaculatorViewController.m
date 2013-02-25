@@ -244,7 +244,7 @@
             self.currentWattUnit = unit;
             NSNumber* dbmValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
             double newWattValue = [CaculatorModel getWattValueFromDbmValue:dbmValue.doubleValue andUnit:self.currentWattUnit];
-            NSString* rawString = [NSNumber numberWithDouble:newWattValue].stringValue;
+            NSString* rawString = [CaculatorUIStyle formatDoubleToString:newWattValue];
             [self updateWattValueLabelText:rawString];
         }
         else
@@ -252,7 +252,7 @@
             self.currentWattUnit = unit;
             NSNumber* wattValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
             double dbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:wattValue.doubleValue andUnit:self.currentWattUnit];
-            NSString* rawString = [NSNumber numberWithDouble:dbmValue].stringValue;
+            NSString* rawString = [CaculatorUIStyle formatDoubleToString:dbmValue];
             [self updateDbmValueLabelText:rawString];
         }
     }
@@ -378,13 +378,15 @@
     
     if (self.isDbm2WattMode)
     {
-        NSString* dbm = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
+        NSString* str = self.currentInputValueString;
+        NSString* dbm = [CaculatorUIStyle formatDoubleToString:str.doubleValue];
+        
         NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:dbm];
         record = [[CaculatorRecord alloc] initWithDbmValue:renderredString wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
     else
     {
-        NSString* watt = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue].stringValue;
+        NSString* watt = self.currentInputValueString;
         NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:watt];
         record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:renderredString wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
@@ -407,7 +409,7 @@
 
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender
 {
-    NSNumber* digit = [NSNumber numberWithDouble:sender.currentTitle.doubleValue];
+    NSNumber* digit = [NSNumber numberWithDouble:sender.currentTitle.intValue];
     
     if (self.isDbm2WattMode)
     {
@@ -560,14 +562,14 @@
     if (self.isDbm2WattMode)
     {
         NSNumber* newDbmValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
-        NSNumber* newWattValue = [NSNumber numberWithDouble:[CaculatorModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit]];
-        [self updateWattValueLabelText:newWattValue.stringValue];
+        double newWattValue = [CaculatorModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit];
+        [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:newWattValue]];
     }
     else
     {
         NSNumber* newWattValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
-        NSNumber* newDbmValue = [NSNumber numberWithDouble:[CaculatorModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit]];
-        [self updateDbmValueLabelText:newDbmValue.stringValue];
+        double newDbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit];
+        [self updateDbmValueLabelText:[CaculatorUIStyle formatDoubleToString:newDbmValue]];
     }
 }
 
@@ -579,7 +581,7 @@
         [self updateDbmValueLabelText:self.currentInputValueString];
 
         double wattValue = [CaculatorModel getWattValueFromDbmValue:0 andUnit:self.currentWattUnit];
-        [self updateWattValueLabelText:[NSNumber numberWithDouble:wattValue].stringValue];
+        [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:wattValue]];
     }
     else
     {

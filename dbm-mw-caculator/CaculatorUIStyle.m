@@ -64,4 +64,16 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
     }
 }
 
++(NSString*) formatDoubleToString:(double)value
+{
+    NSString* string = [NSString stringWithFormat:@"%g", value];
+    return string;
+}
+
++(NSString*) formatIntToString:(int)value
+{
+    NSString* string = [NSString stringWithFormat:@"%d", value];
+    return string;
+}
+
 @end

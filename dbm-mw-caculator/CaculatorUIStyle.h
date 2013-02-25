@@ -16,4 +16,7 @@
 
 +(NSString*) wattUnitString:(WattUnit) unit;
 
++(NSString*) formatDoubleToString:(double) value;
++(NSString*) formatIntToString:(int) value;
+
 @end
