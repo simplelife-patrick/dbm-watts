@@ -154,9 +154,10 @@
     [left setTitle:@"Back" forState:UIControlStateNormal];
     [left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [left setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [left.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
     
-    left.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    left.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
+//    left.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    left.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
     left.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
