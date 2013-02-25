@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface CaculatorUIStyle : NSObject
 
@@ -18,5 +19,7 @@
 
 +(NSString*) formatDoubleToString:(double) value;
 +(NSString*) formatIntToString:(int) value;
+
++(UINavigationBar*) createCustomNavigationBar;
 
 @end

@@ -76,4 +76,44 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
     return string;
 }
 
++(UINavigationBar*) createCustomNavigationBar
+{
+    UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    bar.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    bar.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
+    bar.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+    bar.frame = CGRectMake(5, 5, 310, 44);
+    
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbar.png"] forBarMetrics:UIBarMetricsDefault];
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:nil];
+    
+    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
+    [left setFrame:CGRectMake(0, 2, 60, 28)];
+    [left setBackgroundImage:[UIImage imageNamed:@"barbuttonitem.png"] forState:UIControlStateNormal];
+    [left setBackgroundImage:[UIImage imageNamed:@"barbuttonitem.png"] forState:UIControlStateHighlighted];
+    [left addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [left setTitle:@"Back" forState:UIControlStateNormal];
+    [left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [left setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    left.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    left.layer.borderWidth = UI_SCREEN_LABEL_BORDERWIDTH;
+    left.layer.cornerRadius = UI_SCREEN_LABEL_CORNERRADIUS;
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
+    
+    
+    [item setLeftBarButtonItem:leftButton];
+    [bar pushNavigationItem:item animated:NO];
+//    [self.view addSubview:bar];
+    
+    return bar;
+}
+
+//+ (void)backToNavigationController
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+
+
 @end

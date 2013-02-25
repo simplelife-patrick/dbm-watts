@@ -36,7 +36,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    [self.navigationController setNavigationBarHidden:FALSE];
+//    [self.navigationController setNavigationBarHidden:FALSE];
+    
+    [self initCustomNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,12 +133,44 @@
      */
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)initCustomNavigationBar
 {
-    if ([segue.destinationViewController isKindOfClass:[CaculatorViewController class]])
-    {
-        
-    }
+    [self.navigationController setNavigationBarHidden:YES];
+    UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    bar.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    bar.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
+    bar.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
+    bar.frame = CGRectMake(5, 5, 310, 44);
+    
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbar.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:nil];
+    
+    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
+    [left setFrame:CGRectMake(0, 2, 60, 28)];
+    [left setBackgroundImage:[UIImage imageNamed:@"barbuttonitem.png"] forState:UIControlStateNormal];
+    [left setBackgroundImage:[UIImage imageNamed:@"barbuttonitem.png"] forState:UIControlStateHighlighted];
+    [left addTarget:self action:@selector(backToNavigationController) forControlEvents:UIControlEventTouchUpInside];
+    [left setTitle:@"Back" forState:UIControlStateNormal];
+    [left setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [left setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    left.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    left.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
+    left.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
+    
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:left];
+    
+    
+    [item setLeftBarButtonItem:leftButton];
+    [bar pushNavigationItem:item animated:NO];
+    [self.view addSubview:bar];
 }
+
+- (void)backToNavigationController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
