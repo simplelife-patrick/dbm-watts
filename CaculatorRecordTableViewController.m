@@ -277,13 +277,16 @@
     if (self.tableView.editing)
     {
         NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
-        for (NSInteger index = selectedRows.count - 1; index >= 0 ; index--)
+        for (NSInteger index = 0; index < selectedRows.count ; index++)
         {
             NSIndexPath* indexPath = [selectedRows objectAtIndex:index];
+            NSLog(@"selected table row is %d", indexPath.row);
             NSUInteger recordIndex = [self recordIndexInModel:indexPath];
-            [self.caculatorModel deleteRecord:recordIndex];
+            NSLog(@"got record index is %d", recordIndex);
+            [self.caculatorModel deleteRecord:recordIndex compressList:FALSE];
         }
         
+        [self.caculatorModel compressList];
         [self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
         
         [self.tableView setEditing:FALSE animated:TRUE];

@@ -99,7 +99,9 @@
 -(NSUInteger) recordsCount;
 -(CaculatorRecord*) recordAtIndex:(NSUInteger) index;
 -(void) addRecord:(CaculatorRecord*) record;
+-(void) deleteRecord:(NSUInteger) index compressList:(BOOL) needCompress;
 -(void) deleteRecord:(NSUInteger) index;
+-(void) compressList;
 -(void) deleteAllRecords;
 -(void) saveToLocalStorage;
 -(void) loadFromLocalStorage;

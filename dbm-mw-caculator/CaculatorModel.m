@@ -210,12 +210,36 @@
     }
 }
 
+-(void) compressList
+{
+    NSInteger index = self.recordList.count;
+    while (0 < index)
+    {
+        if ([[self.recordList objectAtIndex:index - 1] isKindOfClass:[NSString class]])
+        {
+            [self.recordList removeObjectAtIndex:index - 1];
+        }
+        index = index - 1;
+    }
+    [self saveToLocalStorage];
+}
+
 -(void) deleteRecord:(NSUInteger) index
+{
+    [self deleteRecord:index compressList:TRUE];
+}
+
+-(void) deleteRecord:(NSUInteger)index compressList:(BOOL) needCompress
 {
     if (index < self.recordList.count)
     {
-        [self.recordList removeObjectAtIndex:index];
-        [self saveToLocalStorage];
+        //        [self.recordList removeObjectAtIndex:index];
+        [self.recordList setObject:EMPTY_STRING atIndexedSubscript:index];
+
+        if (needCompress)
+        {
+            [self compressList];
+        }
     }
 }
 

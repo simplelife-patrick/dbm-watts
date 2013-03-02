@@ -13,7 +13,7 @@
 #import "CaculatorViewController.h"
 #import "CaculatorRecordTableViewCell.h"
 
-@interface CaculatorRecordTableViewController : UITableViewController <UITableViewDelegate>
+@interface CaculatorRecordTableViewController : UITableViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) CaculatorModel* caculatorModel;
 
