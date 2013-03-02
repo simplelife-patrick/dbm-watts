@@ -105,15 +105,13 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
     
     [item setLeftBarButtonItem:leftButton];
     [bar pushNavigationItem:item animated:NO];
-//    [self.view addSubview:bar];
     
     return bar;
 }
 
-//+ (void)backToNavigationController
-//{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
-
++(void) globalUIStyleSetup
+{
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbar.png"] forBarMetrics:UIBarMetricsDefault];
+}
 
 @end

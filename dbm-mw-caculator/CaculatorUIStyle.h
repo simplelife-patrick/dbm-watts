@@ -22,4 +22,6 @@
 
 +(UINavigationBar*) createCustomNavigationBar;
 
++(void) globalUIStyleSetup;
+
 @end

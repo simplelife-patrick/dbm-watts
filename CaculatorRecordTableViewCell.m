@@ -32,7 +32,9 @@
         // Initialization code
 
         _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 50)];
+        _dbmValueLabel.textAlignment = NSTextAlignmentLeft;
         _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 55, 310, 50)];
+        _wattValueLabel.textAlignment = NSTextAlignmentRight;
         
         _dbmValueLabel.font = [UIFont boldSystemFontOfSize:26];
         _wattValueLabel.font = [UIFont boldSystemFontOfSize:26];
@@ -59,13 +61,13 @@
 {
     [super setSelected:selected animated:animated];
     UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
-    [view setBackgroundColor:[UIColor whiteColor]];
+    [view setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
     [self setSelectedBackgroundView:view];
     
     if (selected)
     {
-        [self.dbmValueLabel setBackgroundColor:[UIColor grayColor]];
-        [self.wattValueLabel setBackgroundColor:[UIColor grayColor]];
+        [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
+        [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
     }
 }
 
@@ -86,25 +88,22 @@
             [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];
             [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
         }
-        
-//        [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
-//        [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
     }
 }
 
 -(void) updateDbmValue:(NSString*) dbm
 {
-    NSMutableString* text = [NSMutableString stringWithString:DBM];
-    [text appendString:COLON_CHAR];
-    [text appendString:dbm];
+    NSMutableString* text = [NSMutableString stringWithString:dbm];
+    [text appendString:SPACE_CHAR];
+    [text appendString:DBM];
     [self.dbmValueLabel setText:text];
 }
 
 -(void) updateWattValue:(NSString*) watt andWattUnit:(WattUnit) unit
 {
-    NSMutableString* text = [NSMutableString stringWithString:[CaculatorUIStyle wattUnitString:unit]];
-    [text appendString:COLON_CHAR];
-    [text appendString:watt];
+    NSMutableString* text = [NSMutableString stringWithString:watt];
+    [text appendString:SPACE_CHAR];
+    [text appendString:[CaculatorUIStyle wattUnitString:unit]];
     [self.wattValueLabel setText:text];
 }
 

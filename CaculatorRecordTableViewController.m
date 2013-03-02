@@ -52,17 +52,18 @@
     [super viewDidLoad];
 
     [self.navigationController setNavigationBarHidden:FALSE];
-//    [self initCustomNavigationBar];
+    //    [self initCustomNavigationBar];
     _selectAllBarButton = [[UIBarButtonItem alloc] initWithTitle:@"SelectAll" style:UIBarButtonItemStylePlain target:self action:@selector(onSelectAllBarButtonClicked)];
     _editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditBarButtonClicked)];
+//    [_editBarButton setBackgroundImage:[UIImage imageNamed:@"barbuttonitem.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     _deleteBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(onDeleteBarButtonClicked)];
     _cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelBarButtonClicked)];
     self.navigationItem.rightBarButtonItems = @[_editBarButton];
-
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsMultipleSelectionDuringEditing = TRUE;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
-
+    
     _isSelectedAll = FALSE;
 }
 
@@ -123,7 +124,7 @@
     }
     else
     {
-        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+//        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
     }
 }
 
@@ -153,7 +154,7 @@
     }
     else
     {
-        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+//        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
     }
 }
 
