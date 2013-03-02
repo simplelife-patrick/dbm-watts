@@ -10,6 +10,12 @@
 
 #import "CaculatorModel.h"
 
+@interface CaculatorModel ()
+
+@property (strong, nonatomic) NSMutableArray* recordList;
+
+@end
+
 @implementation CaculatorModel
 
 @synthesize recordList = _recordList;
@@ -177,6 +183,23 @@
     return self;
 }
 
+-(NSUInteger) recordsCount
+{
+    return self.recordList.count;
+}
+
+-(CaculatorRecord*) recordAtIndex:(NSUInteger) index
+{
+    CaculatorRecord* record = nil;
+    
+    if (index < self.recordList.count)
+    {
+        record = [self.recordList objectAtIndex:index];
+    }
+    
+    return record;
+}
+
 -(void) addRecord:(CaculatorRecord*) record
 {
     if (nil != record)
@@ -194,6 +217,12 @@
         [self.recordList removeObjectAtIndex:index];
         [self saveToLocalStorage];
     }
+}
+
+-(void) deleteAllRecords
+{
+    [self.recordList removeAllObjects];
+    [self saveToLocalStorage];
 }
 
 -(void) saveToLocalStorage

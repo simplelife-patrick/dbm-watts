@@ -96,10 +96,11 @@
 +(double) getDbmValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;
 +(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit;
 
-@property (strong, nonatomic) NSMutableArray* recordList;
-
+-(NSUInteger) recordsCount;
+-(CaculatorRecord*) recordAtIndex:(NSUInteger) index;
 -(void) addRecord:(CaculatorRecord*) record;
 -(void) deleteRecord:(NSUInteger) index;
+-(void) deleteAllRecords;
 -(void) saveToLocalStorage;
 -(void) loadFromLocalStorage;
 

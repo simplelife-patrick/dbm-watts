@@ -16,6 +16,11 @@
 
 @synthesize caculatorModel;
 
+@synthesize deleteEnabled;
+@synthesize multiselectEnabled;
+@synthesize deletingRecords = _deletingRecords;
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -40,6 +45,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
 //    [self initCustomNavigationBar];
+    
+    _deletingRecords = [NSMutableArray arrayWithCapacity:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.caculatorModel.recordList.count;
+    return [self.caculatorModel recordsCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,8 +83,9 @@
 
 - (void)configureCell:(CaculatorRecordTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    CaculatorRecord* record = [self.caculatorModel.recordList objectAtIndex:indexPath.item];
-    
+    NSInteger index = indexPath.item;
+    NSUInteger reversedIndex = [self.caculatorModel recordsCount] - 1 - index;
+    CaculatorRecord* record = [self.caculatorModel recordAtIndex:reversedIndex];
     [cell updateCellWithRecord:record];
 }
 
