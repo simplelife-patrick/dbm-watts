@@ -15,6 +15,8 @@
 @property UIBarButtonItem* deleteBarButton;
 @property UIBarButtonItem* cancelBarButton;
 
+@property UILongPressGestureRecognizer* longPressGestureRecognizer;
+
 @property BOOL isSelectedAll;
 
 @end
@@ -28,11 +30,13 @@
 @synthesize deleteBarButton = _deleteBarButton;
 @synthesize cancelBarButton = _cancelBarButton;
 
+@synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
+
 @synthesize isSelectedAll = _isSelectedAll;
 
 - (NSUInteger) recordIndexInModel:(NSIndexPath*) indexPathInTable
 {
-    NSInteger index = indexPathInTable.item;
+    NSInteger index = indexPathInTable.row;
     NSUInteger reversedIndex = [self.caculatorModel recordsCount] - 1 - index;
     return reversedIndex;
 }
@@ -65,6 +69,34 @@
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
     
     _isSelectedAll = FALSE;
+    
+    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureUpdated:)];
+    _longPressGestureRecognizer.delegate = self;
+    _longPressGestureRecognizer.minimumPressDuration = 0.5;
+    [self.tableView addGestureRecognizer:_longPressGestureRecognizer];
+}
+
+-(void) longPressGestureUpdated:(UITapGestureRecognizer *) recognizer
+{
+    CGPoint locationTouch = [recognizer locationInView:self.tableView];
+
+    if (recognizer.state == UIGestureRecognizerStateBegan)
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:locationTouch];
+        if (nil != indexPath)
+        {
+            NSUInteger recordIndex = [self recordIndexInModel:indexPath];
+            CaculatorRecord* record = [self.caculatorModel recordAtIndex:recordIndex];
+            if (nil != record)
+            {
+                UIPasteboard *pboard = [UIPasteboard generalPasteboard];
+                pboard.string = [record description];
+                
+                [CaculatorResource playSaveButtonClickSound];
+            }
+        }
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
