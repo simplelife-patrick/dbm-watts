@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
 
     #import "CaculatorTypeDefinitions.h"
+    #import "CaculatorUIStyle.h"
 #endif

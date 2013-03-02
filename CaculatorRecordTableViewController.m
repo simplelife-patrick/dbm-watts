@@ -36,9 +36,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-//    [self.navigationController setNavigationBarHidden:FALSE];
-    
-    [self initCustomNavigationBar];
+    [self.navigationController setNavigationBarHidden:FALSE];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
+//    [self initCustomNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,24 +62,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"CaculatorRecordTableViewCell";
+    CaculatorRecordTableViewCell *cell = (CaculatorRecordTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CaculatorRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(CaculatorRecordTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     CaculatorRecord* record = [self.caculatorModel.recordList objectAtIndex:indexPath.item];
     
-    cell.textLabel.text = [record description];
+    [cell updateCellWithRecord:record];
 }
 
 /*
@@ -173,5 +173,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
+}
 
 @end

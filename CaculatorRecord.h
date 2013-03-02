@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CaculatorUIStyle.h"
-
 @interface CaculatorRecord : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString* dbmValue;

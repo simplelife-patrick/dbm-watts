@@ -43,6 +43,7 @@
 
 #define DBM @"dbm"
 #define WATT @"watt"
+#define COLON_CHAR @":"
 
 #define CODING_KEY_DBM @"dbm"
 #define CODING_KEY_WATT @"watt"

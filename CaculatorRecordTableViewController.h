@@ -11,8 +11,9 @@
 #import "CaculatorModel.h"
 
 #import "CaculatorViewController.h"
+#import "CaculatorRecordTableViewCell.h"
 
-@interface CaculatorRecordTableViewController : UITableViewController
+@interface CaculatorRecordTableViewController : UITableViewController <UITableViewDelegate>
 
 @property (strong, nonatomic) CaculatorModel* caculatorModel;
 

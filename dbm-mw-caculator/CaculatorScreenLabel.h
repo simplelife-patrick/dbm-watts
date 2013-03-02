@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "CaculatorUIStyle.h"
-
 @interface CaculatorScreenLabel : UILabel
 
 @end
