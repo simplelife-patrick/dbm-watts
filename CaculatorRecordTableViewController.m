@@ -57,7 +57,7 @@
     _editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditBarButtonClicked)];
     _deleteBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(onDeleteBarButtonClicked)];
     _cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelBarButtonClicked)];
-    self.navigationItem.rightBarButtonItem = _editBarButton;
+    self.navigationItem.rightBarButtonItems = @[_editBarButton];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.allowsMultipleSelectionDuringEditing = TRUE;
