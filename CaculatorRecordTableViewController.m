@@ -266,7 +266,7 @@
     {
         [self setIsSelectedAll:FALSE];
         [self.tableView setEditing:FALSE animated:TRUE];
-        self.navigationItem.rightBarButtonItem = _editBarButton;
+        self.navigationItem.rightBarButtonItems = @[_editBarButton];
     }
 }
 
