@@ -31,8 +31,8 @@
     {
         // Initialization code
 
-        _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, 310, 50)];
-        _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 50, 310, 50)];
+        _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 50)];
+        _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 55, 310, 50)];
         
         _dbmValueLabel.font = [UIFont boldSystemFontOfSize:26];
         _wattValueLabel.font = [UIFont boldSystemFontOfSize:26];
@@ -58,9 +58,15 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-//
-//    // Configure the view for the selected state
-    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
+    [view setBackgroundColor:[UIColor whiteColor]];
+    [self setSelectedBackgroundView:view];
+    
+    if (selected)
+    {
+        [self.dbmValueLabel setBackgroundColor:[UIColor grayColor]];
+        [self.wattValueLabel setBackgroundColor:[UIColor grayColor]];
+    }
 }
 
 -(void) updateCellWithRecord:(CaculatorRecord *)record
@@ -70,19 +76,19 @@
         [self updateDbmValue:record.dbmValue];
         [self updateWattValue:record.wattValue andWattUnit:record.wattUnit];
         
-//        if (record.isDbm2Watt)
-//        {
-//            [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
-//            [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];
-//        }
-//        else
-//        {
-//            [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];
-//            [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
-//        }
+        if (record.isDbm2Watt)
+        {
+            [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
+            [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];
+        }
+        else
+        {
+            [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];
+            [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
+        }
         
-        [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
-        [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
+//        [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
+//        [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
     }
 }
 

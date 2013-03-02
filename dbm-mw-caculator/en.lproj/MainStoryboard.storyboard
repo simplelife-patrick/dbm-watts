@@ -505,7 +505,7 @@
                             <outlet property="delegate" destination="yaM-Fp-V7G" id="PYa-Pi-DPd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3Z9-Fg-6dS"/>
+                    <navigationItem key="navigationItem" id="3Z9-Fg-6dS" userLabel="navigationItem"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVz-K8-WS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -521,6 +521,10 @@
         </class>
         <class className="CaculatorRecordTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorRecordTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteRecords:"/>
+                <relationship kind="action" name="selectRecords:"/>
+            </relationships>
         </class>
         <class className="CaculatorScreenLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorScreenLabel.h"/>

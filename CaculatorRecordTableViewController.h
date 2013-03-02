@@ -17,8 +17,4 @@
 
 @property (strong, nonatomic) CaculatorModel* caculatorModel;
 
-@property (nonatomic) BOOL deleteEnabled;
-@property (nonatomic) BOOL multiselectEnabled;
-@property (strong, nonatomic, readonly) NSMutableDictionary *deletingRecords;
-
 @end

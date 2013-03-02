@@ -10,16 +10,32 @@
 
 @interface CaculatorRecordTableViewController ()
 
+@property UIBarButtonItem* editBarButton;
+@property UIBarButtonItem* selectAllBarButton;
+@property UIBarButtonItem* deleteBarButton;
+@property UIBarButtonItem* cancelBarButton;
+
+@property BOOL isSelectedAll;
+
 @end
 
 @implementation CaculatorRecordTableViewController
 
 @synthesize caculatorModel;
 
-@synthesize deleteEnabled;
-@synthesize multiselectEnabled;
-@synthesize deletingRecords = _deletingRecords;
+@synthesize editBarButton = _editBarButton;
+@synthesize selectAllBarButton = _selectAllBarButton;
+@synthesize deleteBarButton = _deleteBarButton;
+@synthesize cancelBarButton = _cancelBarButton;
 
+@synthesize isSelectedAll = _isSelectedAll;
+
+- (NSUInteger) recordIndexInModel:(NSIndexPath*) indexPathInTable
+{
+    NSInteger index = indexPathInTable.item;
+    NSUInteger reversedIndex = [self.caculatorModel recordsCount] - 1 - index;
+    return reversedIndex;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,18 +51,19 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
     [self.navigationController setNavigationBarHidden:FALSE];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
 //    [self initCustomNavigationBar];
-    
-    _deletingRecords = [NSMutableArray arrayWithCapacity:0];
+    _selectAllBarButton = [[UIBarButtonItem alloc] initWithTitle:@"SelectAll" style:UIBarButtonItemStylePlain target:self action:@selector(onSelectAllBarButtonClicked)];
+    _editBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditBarButtonClicked)];
+    _deleteBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(onDeleteBarButtonClicked)];
+    _cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelBarButtonClicked)];
+    self.navigationItem.rightBarButtonItem = _editBarButton;
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.allowsMultipleSelectionDuringEditing = TRUE;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,5)];
+
+    _isSelectedAll = FALSE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,62 +100,61 @@
 
 - (void)configureCell:(CaculatorRecordTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger index = indexPath.item;
-    NSUInteger reversedIndex = [self.caculatorModel recordsCount] - 1 - index;
-    CaculatorRecord* record = [self.caculatorModel recordAtIndex:reversedIndex];
+    NSUInteger index = [self recordIndexInModel:indexPath];
+    CaculatorRecord* record = [self.caculatorModel recordAtIndex:index];
     [cell updateCellWithRecord:record];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (self.tableView.isEditing)
+    {
+        [self setIsSelectedAll:FALSE];
+        
+        NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+        if (0 < selectedRows.count)
+        {
+            self.navigationItem.rightBarButtonItems = @[_deleteBarButton, _selectAllBarButton];
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
+        }
+    }
+    else
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+	if (self.tableView.isEditing)
+    {
+        NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+        
+        if (0 < selectedRows.count)
+        {
+            self.navigationItem.rightBarButtonItems = @[_deleteBarButton, _selectAllBarButton];
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
+        }
+        
+        if ([self.caculatorModel recordsCount] == selectedRows.count)
+        {
+            [self setIsSelectedAll:TRUE];
+        }
+        else
+        {
+            [self setIsSelectedAll:FALSE];
+        }
+    }
+    else
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+    }
 }
 
 - (void)initCustomNavigationBar
@@ -184,6 +200,74 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 110;
+}
+
+-(void) onSelectAllBarButtonClicked
+{
+    if (self.isSelectedAll)
+    {
+        NSUInteger rowCount = [self.caculatorModel recordsCount];
+        for (NSInteger integer = 0; integer < rowCount; integer++)
+        {
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+        }
+        
+        self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
+        [self setIsSelectedAll:FALSE];
+    }
+    else
+    {
+        NSUInteger rowCount = [self.caculatorModel recordsCount];
+        for (NSInteger integer = 0; integer < rowCount; integer++)
+        {
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:TRUE scrollPosition:UITableViewScrollPositionNone];
+        }
+
+        self.navigationItem.rightBarButtonItems = @[_deleteBarButton, _selectAllBarButton];
+        [self setIsSelectedAll:TRUE];
+    }
+}
+
+-(void) onEditBarButtonClicked
+{
+    if (!self.tableView.editing)
+    {
+        self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
+        [self.tableView setEditing:TRUE animated:TRUE];
+    }
+}
+
+-(void) onDeleteBarButtonClicked
+{
+    if (self.tableView.editing)
+    {
+        NSArray* selectedRows = [self.tableView indexPathsForSelectedRows];
+        for (NSInteger index = selectedRows.count - 1; index >= 0 ; index--)
+        {
+            NSIndexPath* indexPath = [selectedRows objectAtIndex:index];
+            NSUInteger recordIndex = [self recordIndexInModel:indexPath];
+            [self.caculatorModel deleteRecord:recordIndex];
+        }
+        
+        [self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.tableView setEditing:FALSE animated:TRUE];
+        self.navigationItem.rightBarButtonItems = @[_editBarButton];
+        
+        [self setIsSelectedAll:FALSE];
+    }
+}
+
+-(void) onCancelBarButtonClicked
+{
+    if (self.tableView.editing)
+    {
+        [self setIsSelectedAll:FALSE];
+        [self.tableView setEditing:FALSE animated:TRUE];
+        self.navigationItem.rightBarButtonItem = _editBarButton;
+    }
 }
 
 @end
