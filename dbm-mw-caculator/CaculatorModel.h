@@ -89,6 +89,11 @@
 +(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString;
 +(NSString*) derenderValueStringWithThousandSeparator:(NSString *)rawString;
 
++(NSString*) hexStringFromDecValue:(NSInteger) integer;
++(NSInteger) decValueFromHexString:(NSString*) hexString;
++(NSString*) binStringFromDecValue:(NSInteger) integer;
++(NSInteger) decValueFromBinString:(NSString*) binString ifSigned:(BOOL) ifSigned;
+
 +(double) getRoundDoubleValue:(double) rawValue andRange:(int) rangeValue;
 
 +(double) getMWValueFromWattValueWithUnit:(double) wattValue andUnit:(WattUnit) unit;

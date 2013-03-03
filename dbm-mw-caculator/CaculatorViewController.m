@@ -32,6 +32,7 @@
 -(void) updateDbmValueLabelText:(NSString*) newString;
 -(void) updateWattValueLabelText:(NSString*) newString;
 -(void) caculateDbmAndWattPlusUpdateScreenLabels;
+-(BOOL) appendCurrentInputString:(NSString*) string;
 
 @end
 
@@ -39,6 +40,7 @@
 
 @synthesize caculatorModel = _caculatorModel;
 @synthesize isDbm2WattMode;
+@synthesize isDecFormat;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
 
@@ -66,10 +68,18 @@
 @synthesize digit1Button = _digit1Button;
 @synthesize digit0Button = _digit0Button;
 
+@synthesize aButton = _aButton;
+@synthesize bButton = _bButton;
+@synthesize cButton = _cButton;
+@synthesize dButton = _dButton;
+@synthesize eButton = _eButton;
+@synthesize fButton = _fButton;
+
 @synthesize dotButton = _dotButton;
 @synthesize clearButton = _clearButton;
 @synthesize negativeButton = _negativeButton;
 @synthesize delButton = _delButton;
+@synthesize formatButton = _formatButton;
 
 @synthesize caculatorButtons = _caculatorButtons;
 @synthesize functionButtons = _functionButtons;
@@ -82,6 +92,33 @@
 @synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
 @synthesize downSwipeGestureRecognizer = _downSwipeGestureRecognizer;
 @synthesize upSwipeGestureRecognizer = _upSwipeGestureRecognizer;
+
+-(BOOL) appendCurrentInputString:(NSString *)string
+{
+    BOOL appendSuccess = FALSE;
+    
+    if (nil != string && string.length > 0)
+    {
+        NSInteger limit = 0;
+
+        if (self.isDecFormat)
+        {
+            limit = (self.isNegativeStatus) ? 20 : 19;
+        }
+        else
+        {
+            limit = 16;
+        }
+        
+        if (limit > self.currentInputValueString.length)
+        {
+            [self.currentInputValueString appendString:string];
+            appendSuccess = TRUE;
+        }
+    }
+    
+    return appendSuccess;
+}
 
 -(void) updateDbmValueLabelText:(NSString *)newString
 {
@@ -115,7 +152,7 @@
 {
     if (nil == _caculatorButtons)
     {
-        _caculatorButtons = [NSMutableArray arrayWithCapacity:14];
+        _caculatorButtons = [NSMutableArray arrayWithCapacity:20];
         [_caculatorButtons addObject:self.digit0Button];
         [_caculatorButtons addObject:self.digit1Button];
         [_caculatorButtons addObject:self.digit2Button];
@@ -126,6 +163,14 @@
         [_caculatorButtons addObject:self.digit7Button];
         [_caculatorButtons addObject:self.digit8Button];
         [_caculatorButtons addObject:self.digit9Button];
+        
+        [_caculatorButtons addObject:self.aButton];
+        [_caculatorButtons addObject:self.bButton];
+        [_caculatorButtons addObject:self.cButton];
+        [_caculatorButtons addObject:self.dButton];
+        [_caculatorButtons addObject:self.eButton];
+        [_caculatorButtons addObject:self.fButton];
+        
         [_caculatorButtons addObject:self.dotButton];
         [_caculatorButtons addObject:self.negativeButton];
         [_caculatorButtons addObject:self.delButton];
@@ -144,8 +189,9 @@
 {
     if (nil == _functionButtons)
     {
-        _functionButtons = [NSMutableArray arrayWithCapacity:4];
+        _functionButtons = [NSMutableArray arrayWithCapacity:5];
         [_functionButtons addObject:self.switchButton];
+        [_functionButtons addObject:self.formatButton];
         [_functionButtons addObject:self.saveButton];
         [_functionButtons addObject:self.historyButton];
         [_functionButtons addObject:self.helpButton];
@@ -325,6 +371,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.isDbm2WattMode = FALSE;
+    self.isDecFormat = TRUE;
     self.isNegativeStatus = FALSE;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueString = [NSMutableString stringWithCapacity:0];
@@ -407,6 +454,20 @@
     
 }
 
+- (IBAction)onFormatButtonClicked:(CaculatorButton *)sender
+{
+    if (self.isDecFormat)
+    {
+        [self.formatButton setTitle:FORMAT_HEX forState:UIControlStateNormal];
+        [self setIsDecFormat:FALSE];
+    }
+    else
+    {
+        [self.formatButton setTitle:FORMAT_DEC forState:UIControlStateNormal];
+        [self setIsDecFormat:TRUE];
+    }
+}
+
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender
 {
     NSNumber* digit = [NSNumber numberWithDouble:sender.currentTitle.intValue];
@@ -415,8 +476,11 @@
     {
         if (self.isUserInMiddleOfEnteringDigit)
         {
-            [self.currentInputValueString appendString:digit.stringValue];
-            [self updateDbmValueLabelText:self.currentInputValueString];
+            BOOL appendSuccess = [self appendCurrentInputString:digit.stringValue];
+            if (appendSuccess)
+            {
+                [self updateDbmValueLabelText:self.currentInputValueString];
+            }
         }
         else
         {
@@ -441,8 +505,11 @@
     {
         if (self.isUserInMiddleOfEnteringDigit)
         {
-            [self.currentInputValueString appendString:digit.stringValue];
-            [self updateWattValueLabelText:self.currentInputValueString];
+            BOOL appendSuccess = [self appendCurrentInputString:digit.stringValue];
+            if (appendSuccess)
+            {
+                [self updateWattValueLabelText:self.currentInputValueString];
+            }
         }
         else
         {
@@ -487,7 +554,7 @@
 {
     if (!self.isDigitInDecimalPart)
     {
-        [self.currentInputValueString appendString:DIGIT_DOT];
+        BOOL appendSuccess = [self appendCurrentInputString:DIGIT_DOT];
         if (self.isDbm2WattMode)
         {
             [self updateDbmValueLabelText:self.currentInputValueString];
@@ -496,8 +563,8 @@
         {
             [self updateWattValueLabelText:self.currentInputValueString];
         }
-
-        [self resetCaculatorStatus:TRUE];
+        
+        [self resetCaculatorStatus:appendSuccess];
     }
 }
 
@@ -603,6 +670,10 @@
     else if (sender == self.switchButton)
     {
         [CaculatorResource playSwitchButtonClickSound];
+    }
+    else if (sender == self.formatButton)
+    {
+        [CaculatorResource playFormatButtonClickSound];
     }
     else if (sender == self.saveButton)
     {
@@ -827,6 +898,13 @@
     [self setScreenView:nil];
     [self setButtonsView:nil];
     [self setDelButton:nil];
+    [self setFormatButton:nil];
+    [self setAButton:nil];
+    [self setBButton:nil];
+    [self setCButton:nil];
+    [self setDButton:nil];
+    [self setEButton:nil];
+    [self setFButton:nil];
     [super viewDidUnload];
 }
 

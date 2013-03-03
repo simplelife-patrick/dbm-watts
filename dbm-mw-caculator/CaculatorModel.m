@@ -10,6 +10,8 @@
 
 #import "CaculatorModel.h"
 
+static NSArray* s_hexCharArray;
+
 @interface CaculatorModel ()
 
 @property (strong, nonatomic) NSMutableArray* recordList;
@@ -19,6 +21,158 @@
 @implementation CaculatorModel
 
 @synthesize recordList = _recordList;
+
++(void) initialize
+{
+    s_hexCharArray = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"A", @"B", @"C", @"D", @"E", @"F", nil];
+}
+
++(NSString*) hexStringFromDecValue:(NSInteger)integer
+{
+    if (0 < integer)
+    {
+        
+    }
+    else if (0 > integer)
+    {
+        
+    }
+    else
+    {
+        
+    }
+    
+    return nil;
+}
+
++(NSInteger) decValueFromHexString:(NSString*) hexString
+{
+    return 0;
+}
+
++(NSString*) binStringFromDecValue:(NSInteger) integer
+{
+    NSMutableString* binString = [NSMutableString stringWithCapacity:0];
+    
+    if (0 != integer)
+    {
+        NSInteger tempInteger = (0 < integer) ? integer : -integer;
+        
+        NSInteger quotient = tempInteger / 2;
+        NSInteger remainder = tempInteger % 2;
+        NSMutableArray* filoStack = [NSMutableArray arrayWithCapacity:0];
+        
+        while (0 < quotient)
+        {
+            [filoStack addObject:[NSNumber numberWithInteger:remainder]];
+            remainder = quotient % 2;
+            quotient = quotient / 2;
+        }
+        [filoStack addObject:[NSNumber numberWithInteger:remainder]];
+        
+        for (NSInteger indexA = filoStack.count - 1; indexA >= 0; indexA--)
+        {
+            NSNumber* binNumber = (NSNumber*)[filoStack objectAtIndex:indexA];
+            [binString appendString: binNumber.stringValue];
+        }
+        if (0 > integer)
+        {
+            // reverse 0/1 bit by bit
+            for (NSInteger indexB = 0; indexB < binString.length; indexB++)
+            {
+                unichar c = [binString characterAtIndex:indexB];
+                c = (c == '0') ? '1' : '0';
+                NSString* str = [NSString stringWithCharacters:&c length:1];
+                
+                [binString deleteCharactersInRange:NSMakeRange(indexB, 1)];
+                [binString insertString:str atIndex:indexB];
+            }
+            // + 1
+            NSInteger indexC = binString.length - 1;
+            while (indexC >= 0)
+            {
+                unichar c = [binString characterAtIndex:indexC];
+                if (c == '0')
+                {
+                    c = '1';
+                    NSString* str = [NSString stringWithCharacters:&c length:1];
+                    [binString deleteCharactersInRange:NSMakeRange(indexC, 1)];
+                    [binString insertString:str atIndex:indexC];
+                    break;
+                }
+                else
+                {
+                    c = '0';
+                }
+                
+                indexC--;
+            }
+            // fill '1' in header (Byte:8, Word:16, DWord:32, QWord:64)
+            NSInteger fillLength = 0;
+            if (binString.length < 8)
+            {
+                fillLength = 8 - binString.length;
+            }
+            else if (binString.length < 16)
+            {
+                fillLength = 16 - binString.length;
+            }
+            else if (binString.length < 32)
+            {
+                fillLength = 32 - binString.length;
+            }
+            else if (binString.length < 64)
+            {
+                fillLength = 64 - binString.length;
+            }
+            else
+            {
+                //TODO:
+                fillLength = 1;
+            }
+            
+            for (NSInteger indexD = 0; indexD < fillLength; indexD++)
+            {
+                [binString insertString:@"1" atIndex:0];
+            }
+        }
+    }
+    else
+    {
+        [binString appendString:@"0"];
+    }
+    
+    return binString;
+}
+
++(NSInteger) decValueFromBinString:(NSString*) binString ifSigned:(BOOL)ifSigned
+{
+    NSInteger decValue = 0;
+
+    if (nil != binString && binString.length > 0)
+    {
+        unichar firstChar = [binString characterAtIndex:0];
+        BOOL isNegativeValue = (firstChar == '1' && ifSigned) ? TRUE: FALSE;
+        
+        for (NSInteger index = binString.length - 1; index >= 0; index--)
+        {
+            unichar c = [binString characterAtIndex:index];
+            
+            if (index == 0 && isNegativeValue)
+            {
+                break;
+            }
+            
+            if (c == '1')
+            {
+                NSInteger powVal = binString.length - 1 - index;
+                decValue += 1 * pow(2, powVal);
+            }
+        }
+    }
+    
+    return decValue;
+}
 
 +(NSString*) derenderValueStringWithThousandSeparator:(NSString *)rawString
 {

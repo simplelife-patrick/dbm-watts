@@ -31,6 +31,9 @@
 #define SWITCHMODE_DBM2WATT @"dbm"
 #define SWITCHMODE_WATT2DBM @"watt"
 
+#define FORMAT_DEC @"dec"
+#define FORMAT_HEX @"hex"
+
 #define UI_SCREEN_LABEL_CORNERRADIUS 8
 #define UI_SCREEN_LABEL_BORDERWIDTH 3
 

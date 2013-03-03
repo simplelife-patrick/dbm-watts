@@ -69,4 +69,9 @@ static NSString* s_localStoredFileFullName;
     AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
 }
 
++(void) playFormatButtonClickSound
+{
+    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+}
+
 @end
