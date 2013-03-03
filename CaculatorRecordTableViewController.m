@@ -280,9 +280,7 @@
         for (NSInteger index = 0; index < selectedRows.count ; index++)
         {
             NSIndexPath* indexPath = [selectedRows objectAtIndex:index];
-            NSLog(@"selected table row is %d", indexPath.row);
             NSUInteger recordIndex = [self recordIndexInModel:indexPath];
-            NSLog(@"got record index is %d", recordIndex);
             [self.caculatorModel deleteRecord:recordIndex compressList:FALSE];
         }
         
