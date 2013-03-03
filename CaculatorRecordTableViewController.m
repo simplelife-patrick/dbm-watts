@@ -265,7 +265,7 @@
 
 -(void) onEditBarButtonClicked
 {
-    if (!self.tableView.editing)
+    if (!self.tableView.editing && (0 < [self.caculatorModel recordsCount]))
     {
         self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
         [self.tableView setEditing:TRUE animated:TRUE];
