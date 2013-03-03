@@ -438,6 +438,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ozJ-2L-4cO" userLabel="navigationItem"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="webView" destination="oJw-Cc-XgM" id="hir-xm-eDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjY-uO-Z6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -521,10 +524,6 @@
         </class>
         <class className="CaculatorRecordTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorRecordTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteRecords:"/>
-                <relationship kind="action" name="selectRecords:"/>
-            </relationships>
         </class>
         <class className="CaculatorScreenLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorScreenLabel.h"/>

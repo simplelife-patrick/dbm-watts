@@ -14,6 +14,8 @@
 
 @implementation CaculatorHelpViewController
 
+@synthesize webView = _webView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +31,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:FALSE];
+    
+    NSString *webpage = [NSBundle pathForResource:@"help" ofType:@"html" inDirectory:[[NSBundle mainBundle] bundlePath]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:webpage]]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,4 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setWebView:nil];
+    [super viewDidUnload];
+}
 @end
