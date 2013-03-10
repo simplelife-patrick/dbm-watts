@@ -103,7 +103,7 @@
 
         if (self.isDecFormat)
         {
-            limit = (self.isNegativeStatus) ? 20 : 19;
+            limit = (self.isNegativeStatus) ? 20 : 19; //TODO:
         }
         else
         {

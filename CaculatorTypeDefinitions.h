@@ -23,6 +23,8 @@
 #define EMPTY_STRING @""
 #define EQUAL_CHAR @"="
 #define SPACE_CHAR @" "
+#define ZERO_CHAR @"0"
+#define ONE_CHAR @"1"
 #define SCIENTIFIC_NOTIATION_CHAR @"e"
 #define SCIENTIFIC_NOTIATION_COMMA @","
 #define SCIENTIFIC_NOTIATION_LENGTH 3

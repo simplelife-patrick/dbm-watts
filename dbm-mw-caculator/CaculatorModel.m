@@ -77,7 +77,7 @@ static NSArray* s_hexCharArray;
         }
         if (0 > integer)
         {
-            // reverse 0/1 bit by bit
+            // step 1: reverse 0/1 bit by bit
             for (NSInteger indexB = 0; indexB < binString.length; indexB++)
             {
                 unichar c = [binString characterAtIndex:indexB];
@@ -87,7 +87,8 @@ static NSArray* s_hexCharArray;
                 [binString deleteCharactersInRange:NSMakeRange(indexB, 1)];
                 [binString insertString:str atIndex:indexB];
             }
-            // + 1
+            
+            // step 2: + 1
             NSInteger indexC = binString.length - 1;
             while (indexC >= 0)
             {
@@ -107,7 +108,8 @@ static NSArray* s_hexCharArray;
                 
                 indexC--;
             }
-            // fill '1' in header (Byte:8, Word:16, DWord:32, QWord:64)
+            
+            // step 3: fill '1' in header (byte:8, word:16, dword:32, qword:64)
             NSInteger fillLength = 0;
             if (binString.length < 8)
             {
@@ -151,12 +153,77 @@ static NSArray* s_hexCharArray;
 
     if (nil != binString && binString.length > 0)
     {
-        unichar firstChar = [binString characterAtIndex:0];
+        NSMutableString* mutableString = [NSMutableString stringWithString:binString];
+        
+        unichar firstChar = [mutableString characterAtIndex:0];
         BOOL isNegativeValue = (firstChar == '1' && ifSigned) ? TRUE: FALSE;
         
-        for (NSInteger index = binString.length - 1; index >= 0; index--)
+        if (isNegativeValue)
         {
-            unichar c = [binString characterAtIndex:index];
+            // step 1: reverse '1' to '0' in header (Byte:8, Word:16, DWord:32, QWord:64)
+            NSInteger reverseLength = 0;
+            if (mutableString.length == 8)
+            {
+                reverseLength = 8 - binString.length;
+            }
+            else if (mutableString.length == 16)
+            {
+                reverseLength = 16 - binString.length;
+            }
+            else if (mutableString.length == 32)
+            {
+                reverseLength = 32 - binString.length;
+            }
+            else if (mutableString.length == 64)
+            {
+                reverseLength = 64 - binString.length;
+            }
+            else
+            {
+                //TODO:
+                reverseLength = 0;
+            }
+            for (NSInteger indexD = 0; indexD < reverseLength; indexD++)
+            {
+                [mutableString insertString:@"0" atIndex:0];
+            }
+            
+            // step 2: -1
+            NSInteger indexA = binString.length - 1;
+            while (indexA >= 0)
+            {
+                unichar c = [mutableString characterAtIndex:indexA];
+                if (c == '0')
+                {
+                    c = '1';
+                    NSString* str = [NSString stringWithCharacters:&c length:1];
+                    [mutableString deleteCharactersInRange:NSMakeRange(indexA, 1)];
+                    [mutableString insertString:str atIndex:indexA];
+                }
+                else
+                {
+                    c = '0';
+                    break;
+                }
+                
+                indexA--;
+            }
+            
+            // step 3: reverse 0/1 by bit
+            for (NSInteger indexB = 0; indexB < binString.length; indexB++)
+            {
+                unichar c = [binString characterAtIndex:indexB];
+                c = (c == '0') ? '1' : '0';
+                NSString* str = [NSString stringWithCharacters:&c length:1];
+                
+                [mutableString deleteCharactersInRange:NSMakeRange(indexB, 1)];
+                [mutableString insertString:str atIndex:indexB];
+            }
+        }
+        
+        for (NSInteger index = mutableString.length - 1; index >= 0; index--)
+        {
+            unichar c = [mutableString characterAtIndex:index];
             
             if (index == 0 && isNegativeValue)
             {
@@ -165,10 +232,13 @@ static NSArray* s_hexCharArray;
             
             if (c == '1')
             {
-                NSInteger powVal = binString.length - 1 - index;
+                NSInteger powVal = mutableString.length - 1 - index;
                 decValue += 1 * pow(2, powVal);
             }
         }
+        
+        // step 4: reverse whole value
+        decValue = (isNegativeValue) ? -decValue : decValue;
     }
     
     return decValue;
