@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {BinNotation, OctNotation, DecNotation, HexNotation} Notation;
-typedef enum {BinByteBitsLength=8, BinWordBitsLength=16, BinDWordBitsLength=32, BinQWordBitsLength=64, OctByteBitsLength=3, OctWordBitsLength=6, OctDwordBitsLength=12, OctQwordBitsLength=24, DecBitsLength=19, HexByteBitsLength=2, HexWordBitsLength=4, HexDWordBitsLength=8, HexQWordBitsLength=16} BitsLength;
+typedef enum {BinByteBitsLength=8, BinWordBitsLength=16, BinDWordBitsLength=32, BinQWordBitsLength=64, DecBitsLength=19, HexByteBitsLength=2, HexWordBitsLength=4, HexDWordBitsLength=8, HexQWordBitsLength=16} BitsLength;
+typedef enum {DecByteValueMin=-128, DecWordValueMin, DecDWordValueMin, DecQWordValueMin} DecNotationValueMinEdge;
+typedef enum {DecByteValueMax=127, DecWordValueMax, DecDWordValueMax, DecQWordValueMax} DecNotationValueMaxEdge;
 
 @interface CaculatorValue : NSObject
 
