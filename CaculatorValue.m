@@ -36,7 +36,7 @@
     {
         _currentInputString = [NSMutableString stringWithCapacity:0];
         _notation = DecNotation;
-        _bitsLength = Dec;
+        _bitsLength = DecBitsLength;
         _complementLength = 0;
         _isNegative = FALSE;
         [self appendString:ZERO_CHAR];
@@ -57,6 +57,13 @@
     {
         _valueString = _currentInputString;
     }
+
+    if (_isNegative && _notation == DecNotation)
+    {
+        NSMutableString* mutableString = [NSMutableString stringWithString:NEGATIVE_CHAR];
+        [mutableString appendString:_currentInputString];
+        _valueString = mutableString;
+    }
     
     return _valueString;
 }
@@ -66,6 +73,28 @@
     if (nil == _reversedObject)
     {
         _reversedObject = [[CaculatorValue alloc] init];
+        _reversedObject.reversedObject = self;
+        _reversedObject.notation = _notation;
+        _reversedObject.bitsLength = _bitsLength;
+        _reversedObject.isNegative = -_isNegative;
+    }
+
+    switch (_notation)
+    {
+        case DecNotation:
+        {
+            break;
+        }
+        case BinNotation:
+        case OctNotation:
+        case HexNotation:
+        {
+            break;
+        }
+        default:
+        {
+            break;
+        }
     }
     
     return _reversedObject;
@@ -181,7 +210,32 @@
 
 -(void) reCaculate
 {
-    
+    switch (_notation)
+    {
+        case DecNotation:
+        {
+            break;
+        }
+        case BinNotation:
+        case OctNotation:
+        case HexNotation:
+        {
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+
+    if (_isNegative)
+    {
+        
+    }
+    else
+    {
+        _complementLength = 0;
+    }
 }
 
 @end

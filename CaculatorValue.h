@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {BinNotation, OctNotation, DecNotation, HexNotation} Notation;
-typedef enum {BinByte=8, BinWord=16, BinDWord=32, BinQWord=64, OctByte=3, OctWord=6, OctDword=12, OctQword=24, Dec=19, HexByte=2, HexWord=4, HexDWord=8, HexQWord=16} BitsLength;
+typedef enum {BinByteBitsLength=8, BinWordBitsLength=16, BinDWordBitsLength=32, BinQWordBitsLength=64, OctByteBitsLength=3, OctWordBitsLength=6, OctDwordBitsLength=12, OctQwordBitsLength=24, DecBitsLength=19, HexByteBitsLength=2, HexWordBitsLength=4, HexDWordBitsLength=8, HexQWordBitsLength=16} BitsLength;
 
 @interface CaculatorValue : NSObject
 
@@ -17,7 +17,7 @@ typedef enum {BinByte=8, BinWord=16, BinDWord=32, BinQWord=64, OctByte=3, OctWor
 @property (nonatomic) BitsLength bitsLength;
 @property (nonatomic, readonly) BOOL isNegative;
 @property (strong, nonatomic, readonly) NSString* valueString;
-@property (strong, nonatomic, readonly) CaculatorValue* reversedObject;
+@property (strong, nonatomic) CaculatorValue* reversedObject;
 
 -(NSInteger) length;
 -(void) appendString:(NSString*) string;

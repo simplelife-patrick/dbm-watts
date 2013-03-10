@@ -45,7 +45,7 @@
 @synthesize isNegativeStatus;
 
 @synthesize currentWattUnit = _currentWattUnits;
-@synthesize currentInputValueString = _currentInputValueString;
+@synthesize currentInputValueObject = _currentInputValueObject;
 
 @synthesize screenView = _screenView;
 @synthesize buttonsView = _buttonsView;
@@ -103,16 +103,16 @@
 
         if (self.isDecFormat)
         {
-            limit = (self.isNegativeStatus) ? 20 : 19; //TODO:
+            limit = (self.isNegativeStatus) ? DecBitsLength + 1 : DecBitsLength; //TODO:
         }
         else
         {
             limit = 16;
         }
         
-        if (limit > self.currentInputValueString.length)
+        if (limit > self.currentInputValueObject.length)
         {
-            [self.currentInputValueString appendString:string];
+            [self.currentInputValueObject appendString:string];
             appendSuccess = TRUE;
         }
     }
@@ -288,7 +288,7 @@
         if (self.isDbm2WattMode)
         {
             self.currentWattUnit = unit;
-            NSNumber* dbmValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
+            NSNumber* dbmValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
             double newWattValue = [CaculatorModel getWattValueFromDbmValue:dbmValue.doubleValue andUnit:self.currentWattUnit];
             NSString* rawString = [CaculatorUIStyle formatDoubleToString:newWattValue];
             [self updateWattValueLabelText:rawString];
@@ -296,7 +296,7 @@
         else
         {
             self.currentWattUnit = unit;
-            NSNumber* wattValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
+            NSNumber* wattValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
             double dbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:wattValue.doubleValue andUnit:self.currentWattUnit];
             NSString* rawString = [CaculatorUIStyle formatDoubleToString:dbmValue];
             [self updateDbmValueLabelText:rawString];
@@ -374,7 +374,7 @@
     self.isDecFormat = TRUE;
     self.isNegativeStatus = FALSE;
     [self resetCaculatorStatus:FALSE];
-    self.currentInputValueString = [NSMutableString stringWithCapacity:0];
+    self.currentInputValueObject = [[CaculatorValue alloc] init];
     
     [self onSwitchButtonClicked:nil];
     
@@ -425,7 +425,7 @@
     
     if (self.isDbm2WattMode)
     {
-        NSString* str = self.currentInputValueString;
+        NSString* str = self.currentInputValueObject.valueString;
         NSString* dbm = [CaculatorUIStyle formatDoubleToString:str.doubleValue];
         
         NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:dbm];
@@ -433,7 +433,7 @@
     }
     else
     {
-        NSString* watt = self.currentInputValueString;
+        NSString* watt = self.currentInputValueObject.valueString;
         NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:watt];
         record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:renderredString wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
@@ -479,7 +479,7 @@
             BOOL appendSuccess = [self appendCurrentInputString:digit.stringValue];
             if (appendSuccess)
             {
-                [self updateDbmValueLabelText:self.currentInputValueString];
+                [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
             }
         }
         else
@@ -488,15 +488,13 @@
             {
                 if (self.isNegativeStatus)
                 {
-                    [self.currentInputValueString replaceCharactersInRange:NSMakeRange(1, 1) withString:digit.stringValue];
+                    [self.currentInputValueObject replaceStringInRange:NSMakeRange(1, 1) withString:digit.stringValue];
                 }
                 else
                 {
-                    [self.currentInputValueString setString:digit.stringValue];                    
+                    [self.currentInputValueObject setString:digit.stringValue];
                 }
-                
-                [self updateDbmValueLabelText:self.currentInputValueString];
-
+                [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
                 self.isUserInMiddleOfEnteringDigit = TRUE;
             }
         }
@@ -508,13 +506,13 @@
             BOOL appendSuccess = [self appendCurrentInputString:digit.stringValue];
             if (appendSuccess)
             {
-                [self updateWattValueLabelText:self.currentInputValueString];
+                [self updateWattValueLabelText:self.currentInputValueObject.valueString];
             }
         }
         else
         {
-            [self.currentInputValueString setString:digit.stringValue];
-            [self updateWattValueLabelText:self.currentInputValueString];
+            [self.currentInputValueObject setString:digit.stringValue];
+            [self updateWattValueLabelText:self.currentInputValueObject.valueString];
             
             if (0 != digit.intValue)
             {
@@ -533,15 +531,15 @@
         if (self.isNegativeStatus)
         {
             NSRange deleteRange = NSMakeRange(0, 1);
-            [self.currentInputValueString deleteCharactersInRange:deleteRange];
-            [self updateDbmValueLabelText:self.currentInputValueString];
+            [self.currentInputValueObject deleteStringInRange:deleteRange];
+            [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
             
             self.isNegativeStatus = FALSE;
         }
         else
         {
-            [self.currentInputValueString insertString:NEGATIVE_CHAR atIndex:0];
-            [self updateDbmValueLabelText:self.currentInputValueString];
+            [self.currentInputValueObject insertString:NEGATIVE_CHAR atIndex:0];
+            [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
             
             self.isNegativeStatus = TRUE;
         }
@@ -557,11 +555,11 @@
         BOOL appendSuccess = [self appendCurrentInputString:DIGIT_DOT];
         if (self.isDbm2WattMode)
         {
-            [self updateDbmValueLabelText:self.currentInputValueString];
+            [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
         }
         else
         {
-            [self updateWattValueLabelText:self.currentInputValueString];
+            [self updateWattValueLabelText:self.currentInputValueObject.valueString];
         }
         
         [self resetCaculatorStatus:appendSuccess];
@@ -570,18 +568,18 @@
 
 - (IBAction)onDelButtonClicked:(CaculatorButton *)sender
 {
-    NSUInteger lengthBeforeDel = self.currentInputValueString.length;
+    NSUInteger lengthBeforeDel = self.currentInputValueObject.length;
     if (0 < lengthBeforeDel)
     {
-        NSString* stringToBeDel = [self.currentInputValueString substringFromIndex:lengthBeforeDel - 1];
+        NSString* stringToBeDel = [self.currentInputValueObject substringFromIndex:lengthBeforeDel - 1];
         if ([DIGIT_DOT isEqualToString: stringToBeDel])
         {
             self.isDigitInDecimalPart = FALSE;
         }
         
-        [self.currentInputValueString deleteCharactersInRange:NSMakeRange(lengthBeforeDel - 1, 1)];
-
-        NSUInteger lengthAfterDel = self.currentInputValueString.length;
+        [_currentInputValueObject deleteStringInRange:NSMakeRange(lengthBeforeDel - 1, 1)];
+        
+        NSUInteger lengthAfterDel = self.currentInputValueObject.length;
         if (0 == lengthAfterDel)
         {
             [self onClearButtonClicked:self.clearButton];
@@ -594,12 +592,10 @@
                 [self onClearButtonClicked:self.clearButton];
                 return;
             }
-            
-            if (self.isNegativeStatus || 0 == self.currentInputValueString.intValue)
+            if (self.isNegativeStatus || 0 == self.currentInputValueObject.intValue)
             {
                 self.isUserInMiddleOfEnteringDigit = FALSE;
             }
-            
             self.isDigitInDecimalPart = FALSE;
         }
         else if (2 == lengthAfterDel)
@@ -613,11 +609,11 @@
         
         if (self.isDbm2WattMode)
         {
-            [self updateDbmValueLabelText:self.currentInputValueString];
+            [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
         }
         else
         {
-            [self updateWattValueLabelText:self.currentInputValueString];
+            [self updateWattValueLabelText:self.currentInputValueObject.valueString];
         }
         
         [self caculateDbmAndWattPlusUpdateScreenLabels];
@@ -628,13 +624,13 @@
 {
     if (self.isDbm2WattMode)
     {
-        NSNumber* newDbmValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
+        NSNumber* newDbmValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
         double newWattValue = [CaculatorModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit];
         [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:newWattValue]];
     }
     else
     {
-        NSNumber* newWattValue = [NSNumber numberWithDouble:self.currentInputValueString.doubleValue];
+        NSNumber* newWattValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
         double newDbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit];
         [self updateDbmValueLabelText:[CaculatorUIStyle formatDoubleToString:newDbmValue]];
     }
@@ -644,17 +640,17 @@
 {
     if ([self isDbm2WattMode])
     {
-        [self.currentInputValueString setString:DIGIT_0];
-        [self updateDbmValueLabelText:self.currentInputValueString];
-
+        [self.currentInputValueObject setString:DIGIT_0];
+        [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
+        
         double wattValue = [CaculatorModel getWattValueFromDbmValue:0 andUnit:self.currentWattUnit];
         [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:wattValue]];
     }
     else
     {
-        [self.currentInputValueString setString:DIGIT_0];
+        [self.currentInputValueObject setString:DIGIT_0];
         [self updateDbmValueLabelText:DIGIT_NEGATIVE_INFINITY];
-        [self updateWattValueLabelText:self.currentInputValueString];
+        [self updateWattValueLabelText:self.currentInputValueObject.valueString];
     }
     
     [self resetCaculatorStatus:FALSE];
@@ -893,7 +889,7 @@
     [self setUpSwipeGestureRecognizer:nil];
     
     [self setCaculatorModel:nil];
-    [self setCurrentInputValueString:nil];
+    [self setCurrentInputValueObject:nil];
     
     [self setScreenView:nil];
     [self setButtonsView:nil];

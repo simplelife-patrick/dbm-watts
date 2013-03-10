@@ -16,7 +16,6 @@
 #import "CaculatorHelpViewController.h"
 
 #import "CaculatorModel.h"
-
 #import "CaculatorResource.h"
 
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
@@ -66,7 +65,7 @@
 @property (nonatomic) BOOL isDecFormat;
 
 @property (nonatomic) WattUnit currentWattUnit;
-@property (strong, nonatomic) NSMutableString* currentInputValueString;
+@property (strong, nonatomic) CaculatorValue* currentInputValueObject;
 
 @property (strong, nonatomic) UITapGestureRecognizer* singleTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer* doubleTapGestureRecognizer;
