@@ -51,27 +51,27 @@ static NSString* s_localStoredFileFullName;
 
 +(void) playHelpButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
 }
 
 +(void) playHistoryButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
 }
 
 +(void) playSaveButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
 }
 
 +(void) playSwitchButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
 }
 
 +(void) playFormatButtonClickSound
 {
-    AudioServicesPlaySystemSound(s_switchButtonClickSoundID);
+    AudioServicesPlaySystemSound(s_caculatorButtonClickSoundID);
 }
 
 @end
