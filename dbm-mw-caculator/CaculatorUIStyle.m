@@ -8,7 +8,8 @@
 
 #import "CaculatorUIStyle.h"
 
-static UIColor* s_caculatorButtonBackgroundColor;
+static UIColor* s_caculatorButtonNormalBackgroundColor;
+static UIColor* s_caculatorButtonHighlightedBackgroundColor;
 static UIColor* s_screenLabelBackgroundColor;
 static UIColor* s_focusedScreenLabelBackgroundColor;
 
@@ -16,9 +17,14 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
 
 +(void)initialize
 {
-    if (nil == s_caculatorButtonBackgroundColor)
+    if (nil == s_caculatorButtonNormalBackgroundColor)
     {
-        s_caculatorButtonBackgroundColor = [UIColor colorWithRed:0.839216 green:0.839216 blue:0.839216 alpha:1.0];
+        s_caculatorButtonNormalBackgroundColor = [UIColor colorWithRed:0.839216 green:0.839216 blue:0.839216 alpha:1.0];
+    }
+    
+    if (nil == s_caculatorButtonHighlightedBackgroundColor)
+    {
+        s_caculatorButtonHighlightedBackgroundColor = [UIColor darkGrayColor];
     }
     
     if (nil == s_screenLabelBackgroundColor)
@@ -32,9 +38,14 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
     }
 }
 
-+(UIColor*) caculatorButtonBackgroundColor
++(UIColor*) caculatorButtonNormalBackgroundColor
 {
-    return s_caculatorButtonBackgroundColor;
+    return s_caculatorButtonNormalBackgroundColor;
+}
+
++(UIColor*) caculatorButtonHighlightedBackgroundColor
+{
+    return s_caculatorButtonHighlightedBackgroundColor;
 }
 
 +(UIColor*) screenLabelBackgroundColor

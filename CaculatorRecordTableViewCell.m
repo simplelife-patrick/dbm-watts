@@ -62,7 +62,7 @@
     [super setSelected:selected animated:animated];
     
     UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
-            [view setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
+            [view setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
             [self setSelectedBackgroundView:view];
 }
 

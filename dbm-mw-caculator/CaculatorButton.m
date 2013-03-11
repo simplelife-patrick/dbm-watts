@@ -32,7 +32,7 @@
     self.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
     self.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
 
-    self.layer.backgroundColor = [CaculatorUIStyle caculatorButtonBackgroundColor].CGColor;
+    self.layer.backgroundColor = [CaculatorUIStyle caculatorButtonNormalBackgroundColor].CGColor;
 
     [self setExclusiveTouch:TRUE];
     
@@ -51,6 +51,20 @@
 {
     self.userInteractionEnabled = TRUE;
     self.titleLabel.textColor = [UIColor blackColor];
+}
+
+-(void) setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    
+    if (highlighted)
+    {
+            [self setBackgroundColor:[UIColor darkGrayColor]];
+    }
+    else
+    {
+        [self setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
+    }
 }
 
 @end
