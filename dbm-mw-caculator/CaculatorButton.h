@@ -11,4 +11,7 @@
 
 @interface CaculatorButton : UIButton
 
+-(void) disableButton;
+-(void) enableButton;
+
 @end

@@ -41,4 +41,16 @@
 }
 //*/
 
+-(void) disableButton
+{
+    self.userInteractionEnabled = FALSE;
+    self.titleLabel.textColor = [UIColor grayColor];
+}
+
+-(void) enableButton
+{
+    self.userInteractionEnabled = TRUE;
+    self.titleLabel.textColor = [UIColor blackColor];
+}
+
 @end

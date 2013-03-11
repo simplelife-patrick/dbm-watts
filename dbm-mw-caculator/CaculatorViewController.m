@@ -14,9 +14,11 @@
 @property (nonatomic) BOOL isDigitInDecimalPart;
 @property (nonatomic) BOOL isNegativeStatus;
 @property (nonatomic, strong) NSMutableArray* caculatorButtons;
+@property (nonatomic, strong) NSMutableArray* hexCaculatorButtons;
+@property (nonatomic, strong) NSMutableArray* decCaculatorButtons;
+@property (nonatomic, strong) NSMutableArray* specialCaculatorButtons;
 @property (nonatomic, strong) NSMutableArray* functionButtons;
 @property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
-
 
 -(void) resetCaculatorStatus:(BOOL) status;
 -(void) decorateDbmValueLabel;
@@ -40,7 +42,7 @@
 
 @synthesize caculatorModel = _caculatorModel;
 @synthesize isDbm2WattMode;
-@synthesize isDecFormat;
+@synthesize currentNotation = _currentNotation;
 @synthesize isUserInMiddleOfEnteringDigit;
 @synthesize isNegativeStatus;
 
@@ -79,9 +81,12 @@
 @synthesize clearButton = _clearButton;
 @synthesize negativeButton = _negativeButton;
 @synthesize delButton = _delButton;
-@synthesize formatButton = _formatButton;
+@synthesize notationButton = _formatButton;
 
 @synthesize caculatorButtons = _caculatorButtons;
+@synthesize hexCaculatorButtons = _hexCaculatorButtons;
+@synthesize decCaculatorButtons = _decCaculatorButtons;
+@synthesize specialCaculatorButtons = _specialCaculatorButtons;
 @synthesize functionButtons = _functionButtons;
 @synthesize wattUnitTextLabels = _wattUnitTextLabels;
 
@@ -101,7 +106,7 @@
     {
         NSInteger limit = 0;
 
-        if (self.isDecFormat)
+        if (self.currentNotation == DecNotation)
         {
             limit = (self.isNegativeStatus) ? DecBitsLength + 1 : DecBitsLength; //TODO:
         }
@@ -148,33 +153,65 @@
 
 }
 
+-(NSMutableArray *) specialCaculatorButtons
+{
+    if (nil == _specialCaculatorButtons)
+    {
+        _specialCaculatorButtons = [NSMutableArray arrayWithCapacity:4];
+        [_specialCaculatorButtons addObject:self.dotButton];
+        [_specialCaculatorButtons addObject:self.negativeButton];
+        [_specialCaculatorButtons addObject:self.delButton];
+        [_specialCaculatorButtons addObject:self.clearButton];
+    }
+    
+    return _specialCaculatorButtons;
+}
+
+-(NSMutableArray *) decCaculatorButtons
+{
+    if (nil == _decCaculatorButtons)
+    {
+        _decCaculatorButtons = [NSMutableArray arrayWithCapacity:10];
+        [_decCaculatorButtons addObject:self.digit0Button];
+        [_decCaculatorButtons addObject:self.digit1Button];
+        [_decCaculatorButtons addObject:self.digit2Button];
+        [_decCaculatorButtons addObject:self.digit3Button];
+        [_decCaculatorButtons addObject:self.digit4Button];
+        [_decCaculatorButtons addObject:self.digit5Button];
+        [_decCaculatorButtons addObject:self.digit6Button];
+        [_decCaculatorButtons addObject:self.digit7Button];
+        [_decCaculatorButtons addObject:self.digit8Button];
+        [_decCaculatorButtons addObject:self.digit9Button];
+    }
+    
+    return _decCaculatorButtons;
+}
+
+-(NSMutableArray *) hexCaculatorButtons
+{
+    if (nil == _hexCaculatorButtons)
+    {
+        _hexCaculatorButtons = [NSMutableArray arrayWithCapacity:6];
+        [_hexCaculatorButtons addObject:self.aButton];
+        [_hexCaculatorButtons addObject:self.bButton];
+        [_hexCaculatorButtons addObject:self.cButton];
+        [_hexCaculatorButtons addObject:self.dButton];
+        [_hexCaculatorButtons addObject:self.eButton];
+        [_hexCaculatorButtons addObject:self.fButton];
+    }
+    
+    return _hexCaculatorButtons;
+}
+
 -(NSMutableArray *) caculatorButtons
 {
     if (nil == _caculatorButtons)
     {
         _caculatorButtons = [NSMutableArray arrayWithCapacity:20];
-        [_caculatorButtons addObject:self.digit0Button];
-        [_caculatorButtons addObject:self.digit1Button];
-        [_caculatorButtons addObject:self.digit2Button];
-        [_caculatorButtons addObject:self.digit3Button];
-        [_caculatorButtons addObject:self.digit4Button];
-        [_caculatorButtons addObject:self.digit5Button];
-        [_caculatorButtons addObject:self.digit6Button];
-        [_caculatorButtons addObject:self.digit7Button];
-        [_caculatorButtons addObject:self.digit8Button];
-        [_caculatorButtons addObject:self.digit9Button];
         
-        [_caculatorButtons addObject:self.aButton];
-        [_caculatorButtons addObject:self.bButton];
-        [_caculatorButtons addObject:self.cButton];
-        [_caculatorButtons addObject:self.dButton];
-        [_caculatorButtons addObject:self.eButton];
-        [_caculatorButtons addObject:self.fButton];
-        
-        [_caculatorButtons addObject:self.dotButton];
-        [_caculatorButtons addObject:self.negativeButton];
-        [_caculatorButtons addObject:self.delButton];
-        [_caculatorButtons addObject:self.clearButton];
+        [_caculatorButtons addObjectsFromArray:self.decCaculatorButtons];
+        [_caculatorButtons addObjectsFromArray:self.hexCaculatorButtons];
+        [_caculatorButtons addObjectsFromArray:self.specialCaculatorButtons];
     }
     
     return _caculatorButtons;
@@ -191,7 +228,7 @@
     {
         _functionButtons = [NSMutableArray arrayWithCapacity:5];
         [_functionButtons addObject:self.switchButton];
-        [_functionButtons addObject:self.formatButton];
+        [_functionButtons addObject:self.notationButton];
         [_functionButtons addObject:self.saveButton];
         [_functionButtons addObject:self.historyButton];
         [_functionButtons addObject:self.helpButton];
@@ -371,8 +408,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.isDbm2WattMode = FALSE;
-    self.isDecFormat = TRUE;
     self.isNegativeStatus = FALSE;
+    self.currentNotation = DecNotation;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueObject = [[CaculatorValue alloc] init];
     
@@ -402,18 +439,18 @@
     if ([self isDbm2WattMode])
     {
         self.isDbm2WattMode = FALSE;
-        [sender setTitle:SWITCHMODE_WATT2DBM forState:UIControlStateNormal];
-        
+        [sender setTitle:SWITCHMODE_DBM2WATT forState:UIControlStateNormal];
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
+        [self.negativeButton disableButton];
     }
     else
     {
         self.isDbm2WattMode = TRUE;
-        [sender setTitle:SWITCHMODE_DBM2WATT forState:UIControlStateNormal];
-
+        [sender setTitle:SWITCHMODE_WATT2DBM forState:UIControlStateNormal];
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
+        [self.negativeButton enableButton];
     }
     
     [self onClearButtonClicked:nil];
@@ -454,17 +491,20 @@
     
 }
 
-- (IBAction)onFormatButtonClicked:(CaculatorButton *)sender
+- (IBAction)onNotationButtonClicked:(CaculatorButton *)sender
 {
-    if (self.isDecFormat)
+    if (sender == self.notationButton)
     {
-        [self.formatButton setTitle:FORMAT_HEX forState:UIControlStateNormal];
-        [self setIsDecFormat:FALSE];
-    }
-    else
-    {
-        [self.formatButton setTitle:FORMAT_DEC forState:UIControlStateNormal];
-        [self setIsDecFormat:TRUE];
+        if ([sender.titleLabel.text isEqualToString:FORMAT_HEX])
+        {
+            [self setCurrentNotation:HexNotation];
+            [sender setTitle:FORMAT_DEC forState:UIControlStateNormal];
+        }
+        else if ([sender.titleLabel.text isEqualToString:FORMAT_DEC])
+        {
+            [self setCurrentNotation:DecNotation];
+            [sender setTitle:FORMAT_HEX forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -667,7 +707,7 @@
     {
         [CaculatorResource playSwitchButtonClickSound];
     }
-    else if (sender == self.formatButton)
+    else if (sender == self.notationButton)
     {
         [CaculatorResource playFormatButtonClickSound];
     }
@@ -842,6 +882,46 @@
     }
 }
 
+-(void) setCurrentNotation:(Notation) notation
+{
+    _currentNotation = notation;
+
+    for (CaculatorButton* button in self.caculatorButtons)
+    {
+        [button disableButton];
+    }
+    
+    switch (notation)
+    {
+        case DecNotation:
+        {
+            for (CaculatorButton* button in self.decCaculatorButtons)
+            {
+                [button enableButton];
+            }
+            for (CaculatorButton* button in self.specialCaculatorButtons)
+            {
+                [button enableButton];
+            }
+            break;
+        }
+        case HexNotation:
+        {
+            for (CaculatorButton* button in self.caculatorButtons)
+            {
+                [button enableButton];
+            }
+            [self.negativeButton disableButton];
+            [self.dotButton disableButton];
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+
 - (void)viewDidUnload
 {
     [self setDbmValueLabel:nil];
@@ -894,7 +974,7 @@
     [self setScreenView:nil];
     [self setButtonsView:nil];
     [self setDelButton:nil];
-    [self setFormatButton:nil];
+    [self setNotationButton:nil];
     [self setAButton:nil];
     [self setBButton:nil];
     [self setCButton:nil];

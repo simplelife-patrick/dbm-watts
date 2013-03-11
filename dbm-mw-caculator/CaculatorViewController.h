@@ -53,7 +53,7 @@
 @property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *negativeButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *delButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *formatButton;
+@property (weak, nonatomic) IBOutlet CaculatorButton *notationButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *kwTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *wTextLabel;
@@ -62,7 +62,7 @@
 
 @property (strong, nonatomic) CaculatorModel *caculatorModel;
 @property (nonatomic) BOOL isDbm2WattMode;
-@property (nonatomic) BOOL isDecFormat;
+@property (nonatomic) Notation currentNotation;
 
 @property (nonatomic) WattUnit currentWattUnit;
 @property (strong, nonatomic) CaculatorValue* currentInputValueObject;
@@ -79,7 +79,7 @@
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onHistoryButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onHelpButtonClicked:(CaculatorButton *)sender;
-- (IBAction)onFormatButtonClicked:(CaculatorButton *)sender;
+- (IBAction)onNotationButtonClicked:(CaculatorButton *)sender;
 
 - (IBAction)onDigitButtonClicked:(CaculatorButton *)sender;
 - (IBAction)onNegativeButtonClicked:(CaculatorButton *)sender;

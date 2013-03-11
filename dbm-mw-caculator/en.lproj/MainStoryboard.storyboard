@@ -78,7 +78,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="dbm">
+                                        <state key="normal" title="watt">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -477,12 +477,12 @@
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="h4Y-8U-ZIR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GDK-aI-gfX" userLabel="formatButton" customClass="CaculatorButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GDK-aI-gfX" userLabel="notationButton" customClass="CaculatorButton">
                                         <rect key="frame" x="68" y="3" width="59" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="dec">
+                                        <state key="normal" title="hex">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -490,7 +490,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onFormatButtonClicked:" destination="2" eventType="touchUpInside" id="n7T-fd-8ey"/>
+                                            <action selector="onNotationButtonClicked:" destination="2" eventType="touchUpInside" id="ncq-qs-Av5"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="H8l-eP-3WV"/>
                                         </connections>
                                     </button>
@@ -524,12 +524,12 @@
                         <outlet property="dotButton" destination="HkI-i8-3vh" id="8ct-wZ-crP"/>
                         <outlet property="eButton" destination="e24-LZ-LVM" id="SY8-30-EfM"/>
                         <outlet property="fButton" destination="vtB-0l-OXR" id="be2-h2-QJp"/>
-                        <outlet property="formatButton" destination="GDK-aI-gfX" id="Dmy-DC-A43"/>
                         <outlet property="helpButton" destination="9F1-3b-1ao" id="vXa-KU-gmg"/>
                         <outlet property="historyButton" destination="yGt-rZ-9ot" id="Lop-Wm-7Z4"/>
                         <outlet property="kwTextLabel" destination="xLj-an-SWE" id="Tnq-s2-qWj"/>
                         <outlet property="mwTextLabel" destination="Kkm-s9-kAI" id="cZP-b4-TwG"/>
                         <outlet property="negativeButton" destination="N1R-Ag-Tdj" id="aFD-Hm-jTh"/>
+                        <outlet property="notationButton" destination="GDK-aI-gfX" id="UQN-38-94S"/>
                         <outlet property="saveButton" destination="Da3-Bp-zG7" id="yAw-W8-hN9"/>
                         <outlet property="screenView" destination="bPJ-Jy-JB9" id="yua-DQ-uv0"/>
                         <outlet property="switchButton" destination="wKe-fe-DSQ" id="tFD-4k-OXL"/>
@@ -663,10 +663,10 @@
                 <relationship kind="action" name="onDelButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onDigitButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onDotButtonClicked:" candidateClass="CaculatorButton"/>
-                <relationship kind="action" name="onFormatButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onHelpButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onHistoryButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onNegativeButtonClicked:" candidateClass="CaculatorButton"/>
+                <relationship kind="action" name="onNotationButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onSaveButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onSwitchButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="playButtonClickSound:" candidateClass="CaculatorButton"/>
@@ -691,12 +691,12 @@
                 <relationship kind="outlet" name="dotButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="eButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="fButton" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="formatButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="helpButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="historyButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="kwTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mwTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="negativeButton" candidateClass="CaculatorButton"/>
+                <relationship kind="outlet" name="notationButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="screenView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="switchButton" candidateClass="CaculatorButton"/>
