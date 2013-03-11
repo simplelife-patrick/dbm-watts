@@ -31,13 +31,13 @@
     {
         // Initialization code
 
-        _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 50)];
+        _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
         _dbmValueLabel.textAlignment = NSTextAlignmentLeft;
-        _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 55, 310, 50)];
+        _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 35, 310, 30)];
         _wattValueLabel.textAlignment = NSTextAlignmentRight;
         
-        _dbmValueLabel.font = [UIFont boldSystemFontOfSize:26];
-        _wattValueLabel.font = [UIFont boldSystemFontOfSize:26];
+        _dbmValueLabel.font = [UIFont boldSystemFontOfSize:22];
+        _wattValueLabel.font = [UIFont boldSystemFontOfSize:22];
         
         _dbmValueLabel.adjustsFontSizeToFitWidth = TRUE;
         _wattValueLabel.adjustsFontSizeToFitWidth = TRUE;
@@ -60,15 +60,10 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
-    [view setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
-    [self setSelectedBackgroundView:view];
     
-    if (selected)
-    {
-        [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
-        [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
-    }
+    UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
+            [view setBackgroundColor:[CaculatorUIStyle caculatorButtonBackgroundColor]];
+            [self setSelectedBackgroundView:view];
 }
 
 -(void) updateCellWithRecord:(CaculatorRecord *)record

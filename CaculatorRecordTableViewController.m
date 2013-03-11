@@ -15,6 +15,8 @@
 @property UIBarButtonItem* deleteBarButton;
 @property UIBarButtonItem* cancelBarButton;
 
+@property NSIndexPath* selectedIndexPathInTableReadingMode;
+
 @property UILongPressGestureRecognizer* longPressGestureRecognizer;
 
 @property BOOL isSelectedAll;
@@ -29,6 +31,7 @@
 @synthesize selectAllBarButton = _selectAllBarButton;
 @synthesize deleteBarButton = _deleteBarButton;
 @synthesize cancelBarButton = _cancelBarButton;
+@synthesize selectedIndexPathInTableReadingMode = _selectedIndexPathInTableReadingMode;
 
 @synthesize longPressGestureRecognizer = _longPressGestureRecognizer;
 
@@ -156,7 +159,7 @@
     }
     else
     {
-//        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
     }
 }
 
@@ -186,7 +189,15 @@
     }
     else
     {
-//        [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+        if (nil != _selectedIndexPathInTableReadingMode && _selectedIndexPathInTableReadingMode.row == indexPath.row)
+        {
+            [self.tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+            _selectedIndexPathInTableReadingMode = nil;
+        }
+        else
+        {
+            _selectedIndexPathInTableReadingMode = indexPath;
+        }
     }
 }
 
@@ -232,7 +243,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    return UI_TABLE_ROW_HEIGHT;
 }
 
 -(void) onSelectAllBarButtonClicked
