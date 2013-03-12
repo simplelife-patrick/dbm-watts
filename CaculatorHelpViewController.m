@@ -71,24 +71,11 @@
     [_helpView addSubview:_pageControl];
     [_pageControl addTarget:self action:@selector(pageTurn:)forControlEvents:UIControlEventValueChanged];
     // set auto display timer
-    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    [self activateDisplayTimer:TRUE];
     
-//    _exitHelpButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    _exitHelpButton.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
-//    _exitHelpButton.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
-    _exitHelpButton.layer.backgroundColor = [CaculatorUIStyle caculatorButtonNormalBackgroundColor].CGColor;
-    [_exitHelpButton setExclusiveTouch:TRUE];
     [_helpView addSubview:_exitHelpButton];
-    
-//    _nextHelpPageButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    _nextHelpPageButton.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
-//    _nextHelpPageButton.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
-    _nextHelpPageButton.layer.backgroundColor = [CaculatorUIStyle caculatorButtonNormalBackgroundColor].CGColor;
-    [_exitHelpButton setExclusiveTouch:TRUE];
-    [_helpView addSubview:_nextHelpPageButton];
-
-    _prevHelpPageButton.layer.backgroundColor = [CaculatorUIStyle caculatorButtonNormalBackgroundColor].CGColor;
     [_helpView addSubview:_prevHelpPageButton];
+    [_helpView addSubview:_nextHelpPageButton];
 }
 
 -(void)scrollToNextPage:(id)sender
@@ -106,7 +93,7 @@
 //    {
 //        pageNum++;
 //        CGRect rect = CGRectMake(pageNum * viewSize.width, 0, viewSize.width, viewSize.height);
-//        [_scrollView scrollRectToVisible:rect animated:NO];
+//        [_scrollView scrollRectToVisible:rect animated:TRUE];
 //    }
 
     // single round scrolling
@@ -120,8 +107,10 @@
     {
         pageNum++;
         CGRect rect = CGRectMake(pageNum * pageSize.width, 0, pageSize.width, pageSize.height);
-        [_scrollView scrollRectToVisible:rect animated:NO];
+        [_scrollView scrollRectToVisible:rect animated:TRUE];
     }
+    
+    [self refreshPageControlButtonsStatus];
 }
 
 -(void)scrollToPrevPage:(id)sender
@@ -139,6 +128,8 @@
         CGRect rect = CGRectMake(pageNum * pageSize.width, 0, pageSize.width, pageSize.height);
         [_scrollView scrollRectToVisible:rect animated:NO];
     }
+    
+    [self refreshPageControlButtonsStatus];
 }
 
 - (void)viewDidLoad
@@ -146,6 +137,7 @@
     [super viewDidLoad];
     [self initArray];
     [self configHelpViewUI];
+    [self refreshPageControlButtonsStatus];
 }
 
 - (void)didReceiveMemoryWarning
@@ -169,8 +161,10 @@
 {
     CGFloat pageWidth = _scrollView.frame.size.width;
     int currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
     // repeat scrolling
-    // 
+    // N/A
+    
     // single round scrolling
     if (currentPage < imageArray.count)
     {
@@ -180,18 +174,20 @@
     {
         _pageControl.currentPage = imageArray.count;
     }
+    
+    [self refreshPageControlButtonsStatus];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     // disable auto display timer when user drags scrollView manually.
-    [displayTimer invalidate];
+    [self activateDisplayTimer:FALSE];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     // restart auto display timer when user stops to drag scrollView manually.
-//    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    [self activateDisplayTimer:TRUE];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -201,12 +197,14 @@
 
 -(IBAction)pageTurn:(UIPageControl *)sender
 {
-    [displayTimer invalidate];
+    [self activateDisplayTimer:FALSE];
     
     int pageNum = _pageControl.currentPage;
     CGSize pageSize = _scrollView.frame.size;
     CGRect rect = CGRectMake((pageNum) * pageSize.width, 0, pageSize.width, pageSize.height);
     [_scrollView scrollRectToVisible:rect animated:TRUE];
+    
+    [self refreshPageControlButtonsStatus];
 }
 
 - (IBAction)onExitHelpButtonClicked:(id)sender
@@ -216,33 +214,57 @@
 
 - (IBAction)onNextHelpPageButtonClicked:(id)sender
 {
-    [displayTimer invalidate];
-    if (_pageControl.currentPage == imageArray.count - 1)
+    [self activateDisplayTimer:FALSE];
+    if (_pageControl.currentPage < imageArray.count - 1)
     {
-        [_nextHelpPageButton setUserInteractionEnabled:FALSE];
-        [_nextHelpPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    }
-    else
-    {
-        [_nextHelpPageButton setUserInteractionEnabled:TRUE];
-        [_nextHelpPageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self scrollToNextPage:nil];
     }
+    [self refreshPageControlButtonsStatus];
 }
 
 - (IBAction)onPrevHelpPageButtonClicked:(id)sender
 {
-    [displayTimer invalidate];
-    if (_pageControl.currentPage == 0)
+    [self activateDisplayTimer:FALSE];
+    if (0 < _pageControl.currentPage)
     {
-        [_prevHelpPageButton setUserInteractionEnabled:FALSE];
-        [_prevHelpPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self scrollToPrevPage:nil];
+    }
+    [self refreshPageControlButtonsStatus];
+}
+
+-(void) refreshPageControlButtonsStatus
+{
+    NSInteger pageNum = _pageControl.currentPage;
+    if (0 == pageNum)
+    {
+        [_exitHelpButton setHidden:TRUE];
+        [_prevHelpPageButton setHidden:TRUE];
+    }
+    else if(pageNum == imageArray.count - 1)
+    {
+        [_exitHelpButton setHidden:FALSE];
+        [_nextHelpPageButton setHidden:TRUE];
     }
     else
     {
-        [_prevHelpPageButton setUserInteractionEnabled:TRUE];
-        [_prevHelpPageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self scrollToPrevPage:nil];
+        [_exitHelpButton setHidden:TRUE];
+        [_prevHelpPageButton setHidden:FALSE];
+        [_nextHelpPageButton setHidden:FALSE];
+    }
+}
+
+-(void) activateDisplayTimer:(BOOL) activate
+{
+    if (activate)
+    {
+        displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    }
+    else
+    {
+        if (displayTimer.isValid)
+        {
+            [displayTimer invalidate];
+        }
     }
 }
 

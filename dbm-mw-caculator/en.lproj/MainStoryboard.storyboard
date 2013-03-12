@@ -561,7 +561,7 @@
                                             <action selector="pageTurn:" destination="vvW-No-nrc" eventType="valueChanged" id="vBF-jl-Jtb"/>
                                         </connections>
                                     </pageControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BFG-PG-gVg" userLabel="exitHelpButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BFG-PG-gVg" userLabel="exitHelpButton" customClass="CaculatorButton">
                                         <rect key="frame" x="277" y="3" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -576,7 +576,7 @@
                                             <action selector="onExitHelpButtonClicked:" destination="vvW-No-nrc" eventType="touchUpInside" id="X4h-to-l4F"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y8d-vp-rUr" userLabel="nextHelpPageButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y8d-vp-rUr" userLabel="nextHelpPageButton" customClass="CaculatorButton">
                                         <rect key="frame" x="277" y="506" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -591,7 +591,7 @@
                                             <action selector="onNextHelpPageButtonClicked:" destination="vvW-No-nrc" eventType="touchUpInside" id="lZ7-zR-gGL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tql-wz-Zyu">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tql-wz-Zyu" customClass="CaculatorButton">
                                         <rect key="frame" x="3" y="506" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -781,7 +781,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="zcl-oL-67I"/>
         <segue reference="mOC-M3-3NL"/>
-        <segue reference="Fos-6E-Yj0"/>
     </inferredMetricsTieBreakers>
 </document>
