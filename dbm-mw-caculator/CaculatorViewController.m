@@ -400,20 +400,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self.navigationController setNavigationBarHidden:TRUE];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     self.isDbm2WattMode = FALSE;
     self.isNegativeStatus = FALSE;
     self.currentNotation = DecNotation;
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueObject = [[CaculatorValue alloc] init];
-    
-    [self onSwitchButtonClicked:nil];
     
     [self decorateDbmValueLabel];
     [self decorateWattValueLabel];
@@ -425,6 +427,7 @@
     [self initSingleTapGestureRecognizer];
     [self initSwipeGestureRecognizers];
 
+    [self onSwitchButtonClicked:nil];
     [self switchWattUnit:mW andInitStatus:TRUE];
 }
 
@@ -493,18 +496,15 @@
 
 - (IBAction)onNotationButtonClicked:(CaculatorButton *)sender
 {
-    if (sender == self.notationButton)
+    if ([sender.titleLabel.text isEqualToString:NOTATION_HEX])
     {
-        if ([sender.titleLabel.text isEqualToString:FORMAT_HEX])
-        {
-            [self setCurrentNotation:HexNotation];
-            [sender setTitle:FORMAT_DEC forState:UIControlStateNormal];
-        }
-        else if ([sender.titleLabel.text isEqualToString:FORMAT_DEC])
-        {
-            [self setCurrentNotation:DecNotation];
-            [sender setTitle:FORMAT_HEX forState:UIControlStateNormal];
-        }
+        [self setCurrentNotation:HexNotation];
+        [sender setTitle:NOTATION_DEC forState:UIControlStateNormal];
+    }
+    else if ([sender.titleLabel.text isEqualToString:NOTATION_DEC])
+    {
+        [self setCurrentNotation:DecNotation];
+        [sender setTitle:NOTATION_HEX forState:UIControlStateNormal];
     }
 }
 
