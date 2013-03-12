@@ -48,6 +48,9 @@
 
 #define UI_HELP_PAGE_DISPLAY_INTERVAL 2.0f
 
+#define UI_RENDER_RECORD_TABLECELL 1
+#define UI_CACULATOR_RECORD_TABLECELL_ID @"CaculatorRecordTableViewCell"
+
 #define WATT_UNIT_KW @"kW"
 #define WATT_UNIT_W @"W"
 #define WATT_UNIT_MW @"mW"

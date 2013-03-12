@@ -54,6 +54,13 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -122,23 +129,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CaculatorRecordTableViewCell";
+    static NSString *CellIdentifier = UI_CACULATOR_RECORD_TABLECELL_ID;
+    
+#if UI_RENDER_RECORD_TABLECELL
     CaculatorRecordTableViewCell *cell = (CaculatorRecordTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
         cell = [[CaculatorRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+#else
+    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+#endif
     [self configureCell:cell atIndexPath:indexPath];
-    
     return cell;
 }
 
-- (void)configureCell:(CaculatorRecordTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger index = [self recordIndexInModel:indexPath];
     CaculatorRecord* record = [self.caculatorModel recordAtIndex:index];
-    [cell updateCellWithRecord:record];
+
+#if UI_RENDER_RECORD_TABLECELL
+    [(CaculatorRecordTableViewCell*)cell updateCellWithRecord:record];
+#else
+    cell.textLabel.text = [record description];
+#endif
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -241,10 +260,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#if UI_RENDER_RECORD_TABLECELL
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UI_TABLE_ROW_HEIGHT;
 }
+#endif
 
 -(void) onSelectAllBarButtonClicked
 {
