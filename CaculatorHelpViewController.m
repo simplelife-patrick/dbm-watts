@@ -209,7 +209,17 @@
 
 - (IBAction)onExitHelpButtonClicked:(id)sender
 {
-    [self performSegueWithIdentifier:SEGUE_ID_HELPVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER sender:self];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isAppLaunchedBefore = [defaults boolForKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+    if (!isAppLaunchedBefore)
+    {
+        [defaults setBool:TRUE forKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+        [self performSegueWithIdentifier:SEGUE_ID_HELP_TO_CACULATOR sender:self];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:TRUE completion:^{}];
+    }
 }
 
 - (IBAction)onNextHelpPageButtonClicked:(id)sender

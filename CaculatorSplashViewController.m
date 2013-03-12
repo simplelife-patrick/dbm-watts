@@ -54,13 +54,11 @@
     BOOL isAppLaunchedBefore = [defaults boolForKey:APP_CONFIG_ISLAUNCHED_BEFORE];
     if (!isAppLaunchedBefore)
     {
-        [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_HELPVIEW_CONTROLLER sender:self];
-        isAppLaunchedBefore = TRUE;
-        [defaults setBool:isAppLaunchedBefore forKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+        [self performSegueWithIdentifier:SEGUE_ID_SPLASH_TO_HELP sender:self];
     }
     else
     {
-        [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER sender:self];        
+        [self performSegueWithIdentifier:SEGUE_ID_SPLASH_TO_CACULATOR sender:self];
     }
 }
 

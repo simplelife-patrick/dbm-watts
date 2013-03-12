@@ -105,7 +105,7 @@
                                         <connections>
                                             <action selector="onHistoryButtonClicked:" destination="2" eventType="touchUpInside" id="fKc-nU-tV9"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="OJ1-dc-Omj"/>
-                                            <segue destination="yaM-Fp-V7G" kind="push" identifier="toCaculatorRecordViewController" id="TIO-bi-EfF"/>
+                                            <segue destination="yaM-Fp-V7G" kind="push" identifier="caculator->table" id="993-Sc-ifA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Da3-Bp-zG7" userLabel="saveButton" customClass="CaculatorButton">
@@ -140,7 +140,7 @@
                                         <connections>
                                             <action selector="onHelpButtonClicked:" destination="2" eventType="touchUpInside" id="mI6-ge-ISS"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8Ah-ou-Gqs"/>
-                                            <segue destination="vvW-No-nrc" kind="modal" identifier="toCaculatorHelpViewController" modalTransitionStyle="crossDissolve" id="EHp-8z-pFd"/>
+                                            <segue destination="vvW-No-nrc" kind="modal" identifier="caculator->help" modalTransitionStyle="crossDissolve" id="IwO-yv-nQH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
@@ -540,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-951" y="410"/>
+            <point key="canvasLocation" x="-937" y="410"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="f67-yO-rwm">
@@ -620,12 +620,12 @@
                         <outlet property="pageControl" destination="oeK-m4-WF2" id="d5m-kC-nYs"/>
                         <outlet property="prevHelpPageButton" destination="Tql-wz-Zyu" id="IZS-r4-Ma7"/>
                         <outlet property="scrollView" destination="p3u-K8-ccj" id="yGb-1Z-2Hb"/>
-                        <segue destination="TWK-kM-egC" kind="modal" identifier="helpViewController2navigationController" modalTransitionStyle="crossDissolve" id="zcl-oL-67I"/>
+                        <segue destination="TWK-kM-egC" kind="modal" identifier="help->caculator" modalTransitionStyle="crossDissolve" id="P7K-HI-gBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjY-uO-Z6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="717"/>
+            <point key="canvasLocation" x="-397" y="801"/>
         </scene>
         <!--Caculator Splash View Controller-->
         <scene sceneID="dva-KE-wix">
@@ -653,8 +653,8 @@
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <segue destination="TWK-kM-egC" kind="modal" identifier="toNavigationController" modalTransitionStyle="crossDissolve" animates="NO" id="Fos-6E-Yj0"/>
-                        <segue destination="vvW-No-nrc" kind="modal" identifier="toHelpViewController" modalTransitionStyle="crossDissolve" animates="NO" id="mOC-M3-3NL"/>
+                        <segue destination="TWK-kM-egC" kind="modal" identifier="splash->caculator" modalTransitionStyle="crossDissolve" animates="NO" id="Fos-6E-Yj0"/>
+                        <segue destination="vvW-No-nrc" kind="modal" identifier="splash->help" modalTransitionStyle="crossDissolve" id="K0U-mT-S83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FG0-SH-shj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -665,12 +665,13 @@
         <scene sceneID="2pr-19-V5C">
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="TWK-kM-egC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lur-eB-SvA"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w4V-l6-WaY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="uBf-9A-p66"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="hhY-4c-f4s"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8f-ai-CwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -694,7 +695,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVz-K8-WS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="0.0"/>
+            <point key="canvasLocation" x="-407" y="-14"/>
         </scene>
     </scenes>
     <classes>
@@ -708,11 +709,11 @@
                 <relationship kind="action" name="onNextHelpPageButtonClicked:"/>
                 <relationship kind="action" name="onPrevHelpPageButtonClicked:"/>
                 <relationship kind="action" name="pageTurn:" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="exitHelpButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="exitHelpButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="helpView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nextHelpPageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nextHelpPageButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="prevHelpPageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="prevHelpPageButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
@@ -781,7 +782,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zcl-oL-67I"/>
-        <segue reference="mOC-M3-3NL"/>
+        <segue reference="P7K-HI-gBm"/>
+        <segue reference="K0U-mT-S83"/>
     </inferredMetricsTieBreakers>
 </document>
