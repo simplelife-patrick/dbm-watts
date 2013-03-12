@@ -555,7 +555,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="oeK-m4-WF2" userLabel="pageControl">
-                                        <rect key="frame" x="141" y="492" width="38" height="36"/>
+                                        <rect key="frame" x="110" y="492" width="100" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <action selector="pageTurn:" destination="vvW-No-nrc" eventType="valueChanged" id="vBF-jl-Jtb"/>

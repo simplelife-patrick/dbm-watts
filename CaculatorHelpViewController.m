@@ -39,79 +39,74 @@
 
 -(void)configScrollView
 {
-    /*
-     @//初始化UIScrollView，设置相关属性，均可在storyBoard中设置
-     CGRect frame=CGRectMake(0, 0, 320, 480);
-     self.myScrollView = [[UIScrollView alloc]initWithFrame:frame];    //scrollView的大小
-     self.myScrollView.backgroundColor=[UIColor blueColor];
-     self.myScrollView.pagingEnabled=YES;//以页为单位滑动，即自动到下一页的开始边界
-     self.myScrollView.showsVerticalScrollIndicator=NO;
-     self.myScrollView.showsHorizontalScrollIndicator=NO;//隐藏垂直和水平显示条
-     */
     _scrollView.delegate = self;
     
+    // set the last image in the first page
     UIImageView *firstView = [[UIImageView alloc] initWithImage:[imageArray lastObject]];
     CGFloat width = _scrollView.frame.size.width;
     CGFloat height = _scrollView.frame.size.height;
     firstView.frame = CGRectMake(0, 0, width, height);
     [_scrollView addSubview:firstView];
-    //set the last as the first
-    
+    // fill images
     for (int i = 0; i < imageArray.count; i++)
     {
         UIImageView *subViews = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:i]];
-        subViews.frame = CGRectMake(width * (i+1), 0, width, height);
+        subViews.frame = CGRectMake(width * (i + 1), 0, width, height);
         [_scrollView addSubview: subViews];
     }
-    
+    // set the first image in the last page
     UIImageView *lastView = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:0]];
     lastView.frame = CGRectMake(width * (imageArray.count + 1), 0, width, height);
     [_scrollView addSubview:lastView];
-    //set the first as the last
-    
+    // set the whole scrollView's size
     [_scrollView setContentSize:CGSizeMake(width * (imageArray.count + 2), height)];
     [self.view addSubview:_scrollView];
+    // show the visible first image(the second page), not the first page in the scrollView
     [_scrollView scrollRectToVisible:CGRectMake(width, 0, width, height) animated:NO];
-    //show the real first image,not the first in the scrollView
-    
-    /*
-     @//设置pageControl的位置，及相关属性，可选
-     CGRect pageControlFrame=CGRectMake(100, 160, 78, 36);
-     self.pageControl=[[UIPageControl alloc]initWithFrame:pageControlFrame];
-     
-     [self.pageControl setBounds:CGRectMake(0, 0, 16*(self.pageControl.numberOfPages-1), 16)];//设置pageControl中点的间距为16
-     [self.pageControl.layer setCornerRadius:8];//设置圆角
-     */
+    // set page control UI attributes
+    [_pageControl setBounds:CGRectMake(0, 0, 18 * (_pageControl.numberOfPages + 1), 18)];
+    [_pageControl.layer setCornerRadius:8];
     _pageControl.numberOfPages = imageArray.count;
-    //    self.pageControl.backgroundColor=[UIColor blueColor];//背景
+    _pageControl.backgroundColor=[UIColor grayColor];
     _pageControl.currentPage = 0;
     _pageControl.enabled = YES;
     [self.view addSubview:_pageControl];
     [_pageControl addTarget:self action:@selector(pageTurn:)forControlEvents:UIControlEventValueChanged];
-    
-    displayTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    // set auto display timer
+    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
 }
 
 -(void)scrollToNextPage:(id)sender
 {
-    int pageNum = _pageControl.currentPage;
+    // repeat scrolling
+//    int pageNum = _pageControl.currentPage;
+//    CGSize viewSize = _scrollView.frame.size;
+//    CGRect rect = CGRectMake((pageNum + 2) * viewSize.width, 0, viewSize.width, viewSize.height);
+//    [_scrollView scrollRectToVisible:rect animated:NO];
+//    pageNum++;
+//    if (pageNum == imageArray.count)
+//    {
+//        CGRect newRect = CGRectMake(viewSize.width, 0, viewSize.width, viewSize.height);
+//        [_scrollView scrollRectToVisible:newRect animated:NO];
+//    }
+    // single round scrolling
     CGSize viewSize = _scrollView.frame.size;
-    CGRect rect = CGRectMake((pageNum + 2) * viewSize.width, 0, viewSize.width, viewSize.height);
-    [_scrollView scrollRectToVisible:rect animated:NO];
+    int pageNum = _pageControl.currentPage;
     pageNum++;
     if (pageNum == imageArray.count)
     {
-        CGRect newRect = CGRectMake(viewSize.width, 0, viewSize.width, viewSize.height);
-        [_scrollView scrollRectToVisible:newRect animated:NO];
+        [displayTimer invalidate];
+    }
+    else
+    {
+        CGRect rect = CGRectMake((pageNum + 1) * viewSize.width, 0, viewSize.width, viewSize.height);
+        [_scrollView scrollRectToVisible:rect animated:NO];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-//    [self.navigationController setNavigationBarHidden:FALSE];
-//    NSString *webpage = [NSBundle pathForResource:@"help" ofType:@"html" inDirectory:[[NSBundle mainBundle] bundlePath]];
     [self initArray];
     [self configScrollView];
 }
@@ -135,23 +130,25 @@
     int currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     if (0 == currentPage)
     {
-        self.pageControl.currentPage = imageArray.count - 1;
+        _pageControl.currentPage = imageArray.count - 1;
     }
     else if(currentPage == imageArray.count + 1)
     {
-        self.pageControl.currentPage = 0;
+        _pageControl.currentPage = 0;
     }
-    self.pageControl.currentPage = currentPage - 1;
+    _pageControl.currentPage = currentPage - 1;
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    // disable auto display timer when user drags scrollView manually.
     [displayTimer invalidate];
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    displayTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    // restart auto display timer when user stops to drag scrollView manually.
+//    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -181,7 +178,6 @@
     
     _pageControl.currentPage = currentPage - 1;
     NSLog(@"pageControl currentPage==%d", _pageControl.currentPage);
-    
 }
 
 -(IBAction)pageTurn:(UIPageControl *)sender
@@ -193,6 +189,5 @@
     NSLog(@"pageControl currentPage==%d", _pageControl.currentPage);
     [displayTimer invalidate];
 }
-
 
 @end
