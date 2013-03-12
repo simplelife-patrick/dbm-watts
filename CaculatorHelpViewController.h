@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CaculatorHelpViewController : UIViewController
+@interface CaculatorHelpViewController : UIViewController <UIScrollViewDelegate>
+{
+    NSMutableArray *imageArray;
+    NSTimer *displayTimer;
+}
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+- (IBAction)pageTurn:(UIPageControl *)sender;
 
 @end
