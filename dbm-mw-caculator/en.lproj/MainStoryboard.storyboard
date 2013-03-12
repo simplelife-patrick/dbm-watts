@@ -620,7 +620,7 @@
                         <outlet property="pageControl" destination="oeK-m4-WF2" id="d5m-kC-nYs"/>
                         <outlet property="prevHelpPageButton" destination="Tql-wz-Zyu" id="IZS-r4-Ma7"/>
                         <outlet property="scrollView" destination="p3u-K8-ccj" id="yGb-1Z-2Hb"/>
-                        <segue destination="TWK-kM-egC" kind="modal" identifier="help->caculator" modalTransitionStyle="crossDissolve" id="P7K-HI-gBm"/>
+                        <segue destination="TWK-kM-egC" kind="modal" identifier="help->caculator" modalTransitionStyle="crossDissolve" animates="NO" id="P7K-HI-gBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjY-uO-Z6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,7 +654,7 @@
                     </view>
                     <connections>
                         <segue destination="TWK-kM-egC" kind="modal" identifier="splash->caculator" modalTransitionStyle="crossDissolve" animates="NO" id="Fos-6E-Yj0"/>
-                        <segue destination="vvW-No-nrc" kind="modal" identifier="splash->help" modalTransitionStyle="crossDissolve" id="K0U-mT-S83"/>
+                        <segue destination="vvW-No-nrc" kind="modal" identifier="splash->help" modalTransitionStyle="crossDissolve" animates="NO" id="K0U-mT-S83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FG0-SH-shj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -782,7 +782,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="P7K-HI-gBm"/>
-        <segue reference="K0U-mT-S83"/>
+        <segue reference="Fos-6E-Yj0"/>
+        <segue reference="IwO-yv-nQH"/>
     </inferredMetricsTieBreakers>
 </document>
