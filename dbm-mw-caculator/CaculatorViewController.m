@@ -400,10 +400,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    
     [self.navigationController setNavigationBarHidden:TRUE];
-    
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad
