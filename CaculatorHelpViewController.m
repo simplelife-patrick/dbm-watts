@@ -40,29 +40,22 @@
 -(void)configScrollView
 {
     _scrollView.delegate = self;
-    
-    // set the last image in the first page
-    UIImageView *firstView = [[UIImageView alloc] initWithImage:[imageArray lastObject]];
+
     CGFloat width = _scrollView.frame.size.width;
     CGFloat height = _scrollView.frame.size.height;
-    firstView.frame = CGRectMake(0, 0, width, height);
-    [_scrollView addSubview:firstView];
+
     // fill images
     for (int i = 0; i < imageArray.count; i++)
     {
-        UIImageView *subViews = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:i]];
-        subViews.frame = CGRectMake(width * (i + 1), 0, width, height);
-        [_scrollView addSubview: subViews];
+        UIImageView *subImageView = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:i]];
+        subImageView.frame = CGRectMake(width * i, 0, width, height);
+        [_scrollView addSubview: subImageView];
     }
-    // set the first image in the last page
-    UIImageView *lastView = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:0]];
-    lastView.frame = CGRectMake(width * (imageArray.count + 1), 0, width, height);
-    [_scrollView addSubview:lastView];
+ 
     // set the whole scrollView's size
-    [_scrollView setContentSize:CGSizeMake(width * (imageArray.count + 2), height)];
+    [_scrollView setContentSize:CGSizeMake(width * imageArray.count, height)];
     [self.view addSubview:_scrollView];
-    // show the visible first image(the second page), not the first page in the scrollView
-    [_scrollView scrollRectToVisible:CGRectMake(width, 0, width, height) animated:NO];
+    [_scrollView scrollRectToVisible:CGRectMake(0, 0, width, height) animated:NO];
     // set page control UI attributes
     [_pageControl setBounds:CGRectMake(0, 0, 18 * (_pageControl.numberOfPages + 1), 18)];
     [_pageControl.layer setCornerRadius:8];
@@ -73,33 +66,38 @@
     [self.view addSubview:_pageControl];
     [_pageControl addTarget:self action:@selector(pageTurn:)forControlEvents:UIControlEventValueChanged];
     // set auto display timer
-    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
+    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPageByTimer:) userInfo:nil repeats:YES];
 }
 
--(void)scrollToNextPage:(id)sender
+-(void)scrollToNextPageByTimer:(id)sender
 {
     // repeat scrolling
 //    int pageNum = _pageControl.currentPage;
 //    CGSize viewSize = _scrollView.frame.size;
-//    CGRect rect = CGRectMake((pageNum + 2) * viewSize.width, 0, viewSize.width, viewSize.height);
-//    [_scrollView scrollRectToVisible:rect animated:NO];
-//    pageNum++;
-//    if (pageNum == imageArray.count)
+//
+//    if (pageNum == imageArray.count - 1)
 //    {
-//        CGRect newRect = CGRectMake(viewSize.width, 0, viewSize.width, viewSize.height);
+//        CGRect newRect = CGRectMake(0, 0, viewSize.width, viewSize.height);
 //        [_scrollView scrollRectToVisible:newRect animated:NO];
 //    }
+//    else
+//    {
+//        pageNum++;
+//        CGRect rect = CGRectMake(pageNum * viewSize.width, 0, viewSize.width, viewSize.height);
+//        [_scrollView scrollRectToVisible:rect animated:NO];
+//    }
+
     // single round scrolling
-    CGSize viewSize = _scrollView.frame.size;
+    CGSize pageSize = _scrollView.frame.size;
     int pageNum = _pageControl.currentPage;
-    pageNum++;
-    if (pageNum == imageArray.count)
+    if (pageNum == imageArray.count - 1)
     {
         [displayTimer invalidate];
     }
     else
     {
-        CGRect rect = CGRectMake((pageNum + 1) * viewSize.width, 0, viewSize.width, viewSize.height);
+        pageNum++;
+        CGRect rect = CGRectMake(pageNum * pageSize.width, 0, pageSize.width, pageSize.height);
         [_scrollView scrollRectToVisible:rect animated:NO];
     }
 }
@@ -128,15 +126,14 @@
 {
     CGFloat pageWidth = _scrollView.frame.size.width;
     int currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    if (0 == currentPage)
+    if (currentPage < imageArray.count)
     {
-        _pageControl.currentPage = imageArray.count - 1;
+        _pageControl.currentPage = currentPage;
     }
-    else if(currentPage == imageArray.count + 1)
+    else
     {
-        _pageControl.currentPage = 0;
+        _pageControl.currentPage = imageArray.count;
     }
-    _pageControl.currentPage = currentPage - 1;
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -153,41 +150,17 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = _scrollView.frame.size.width;
-    CGFloat pageHeigth = _scrollView.frame.size.height;
-    int currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    NSLog(@"the current offset==%f", _scrollView.contentOffset.x);
-    NSLog(@"the current page==%d", currentPage);
-    
-    if (0 == currentPage)
-    {
-        [_scrollView scrollRectToVisible:CGRectMake(pageWidth * imageArray.count, 0, pageWidth, pageHeigth) animated:NO];
-        _pageControl.currentPage = imageArray.count - 1;
-        NSLog(@"pageControl currentPage==%d", self.pageControl.currentPage);
-        NSLog(@"the last image");
-        return;
-    }
-    else if(currentPage == imageArray.count + 1)
-    {
-        [_scrollView scrollRectToVisible:CGRectMake(pageWidth, 0, pageWidth, pageHeigth) animated:NO];
-        _pageControl.currentPage = 0;
-        NSLog(@"pageControl currentPage==%d", _pageControl.currentPage);
-        NSLog(@"the first image");
-        return;
-    }
-    
-    _pageControl.currentPage = currentPage - 1;
-    NSLog(@"pageControl currentPage==%d", _pageControl.currentPage);
+
 }
 
 -(IBAction)pageTurn:(UIPageControl *)sender
 {
-    int pageNum = _pageControl.currentPage;
-    CGSize viewSize = _scrollView.frame.size;
-    [_scrollView setContentOffset:CGPointMake((pageNum + 1) * viewSize.width, 0)];
-    NSLog(@"myscrollView.contentOffSet.x==%f", _scrollView.contentOffset.x);
-    NSLog(@"pageControl currentPage==%d", _pageControl.currentPage);
     [displayTimer invalidate];
+    
+    int pageNum = _pageControl.currentPage;
+    CGSize pageSize = _scrollView.frame.size;
+    CGRect rect = CGRectMake((pageNum) * pageSize.width, 0, pageSize.width, pageSize.height);
+    [_scrollView scrollRectToVisible:rect animated:TRUE];
 }
 
 @end
