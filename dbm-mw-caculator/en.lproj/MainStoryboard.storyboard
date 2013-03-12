@@ -654,6 +654,7 @@
                     </view>
                     <connections>
                         <segue destination="TWK-kM-egC" kind="modal" identifier="toNavigationController" modalTransitionStyle="crossDissolve" animates="NO" id="Fos-6E-Yj0"/>
+                        <segue destination="vvW-No-nrc" kind="modal" identifier="toHelpViewController" modalTransitionStyle="crossDissolve" animates="NO" id="mOC-M3-3NL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FG0-SH-shj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -780,6 +781,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zcl-oL-67I"/>
+        <segue reference="mOC-M3-3NL"/>
+        <segue reference="Fos-6E-Yj0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,8 @@
 #ifndef dbm_watt_CaculatorTypeDefinitions_h
 #define dbm_watt_CaculatorTypeDefinitions_h
 
+#define APP_CONFIG_ISLAUNCHED_BEFORE @"isAppLaunchedBefore"
+
 #define APP_CONFIG_RECORD_LIST @"cfg_recordList"
 
 #define DECIMAL_ROUND_LENGTH 10
@@ -63,6 +65,7 @@
 
 #define LOCAL_STORE_FILE @"caculator_record_list.rl"
 
+#define SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_HELPVIEW_CONTROLLER @"tohelpViewController"
 #define SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER @"toNavigationController"
 #define SEGUE_ID_NAVIGATION_CONTROLLER_TO_TABLEVIEW_CONTROLLER @"toCaculatorRecordViewController"
 #define SEGUE_ID_TABLEVIEW_CONTROLLER_TO_HELPVIEW_CONTROLLER @"toCaculatorHelpViewController"

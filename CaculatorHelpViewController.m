@@ -71,7 +71,7 @@
     [_helpView addSubview:_pageControl];
     [_pageControl addTarget:self action:@selector(pageTurn:)forControlEvents:UIControlEventValueChanged];
     // set auto display timer
-    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPageByTimer:) userInfo:nil repeats:YES];
+    displayTimer = [NSTimer scheduledTimerWithTimeInterval:UI_HELP_PAGE_DISPLAY_INTERVAL target:self selector:@selector(scrollToNextPage:) userInfo:nil repeats:YES];
     
 //    _exitHelpButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
 //    _exitHelpButton.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;

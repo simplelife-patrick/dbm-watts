@@ -50,7 +50,18 @@
 
 - (void) finishFadingSplashScreen
 {
-    [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER sender:self];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isAppLaunchedBefore = [defaults boolForKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+    if (!isAppLaunchedBefore)
+    {
+        [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_HELPVIEW_CONTROLLER sender:self];
+        isAppLaunchedBefore = TRUE;
+        [defaults setBool:isAppLaunchedBefore forKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER sender:self];        
+    }
 }
 
 - (void) loadAnyNecessaryStuff
