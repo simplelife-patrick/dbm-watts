@@ -24,6 +24,11 @@
 @synthesize dbmValueLabel = _dbmValueLabel;
 @synthesize wattValueLabel = _wattValueLabel;
 
+- (void) drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -62,8 +67,8 @@
     [super setSelected:selected animated:animated];
     
     UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
-            [view setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
-            [self setSelectedBackgroundView:view];
+    [view setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
+    [self setSelectedBackgroundView:view];
 }
 
 -(void) updateCellWithRecord:(CaculatorRecord *)record
