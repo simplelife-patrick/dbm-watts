@@ -30,7 +30,7 @@
     // Self drawing codes
     self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.layer.borderWidth = UI_CACULATOR_BUTTON_BORDERWIDTH;
-//    self.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
+    self.layer.cornerRadius = UI_CACULATOR_BUTTON_CORNERRADIUS;
 
     self.layer.backgroundColor = [CaculatorUIStyle caculatorButtonNormalBackgroundColor].CGColor;
 
