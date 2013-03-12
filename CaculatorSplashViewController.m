@@ -50,7 +50,7 @@
 
 - (void) finishFadingSplashScreen
 {
-    [self performSegueWithIdentifier:SEGUE_ID_TO_NAVIGATION_CONTROLLER sender:self];
+    [self performSegueWithIdentifier:SEGUE_ID_SPLASHVIEW_CONTROLLER_TO_NAVIGATION_CONTROLLER sender:self];
 }
 
 - (void) loadAnyNecessaryStuff
