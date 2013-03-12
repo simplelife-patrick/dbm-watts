@@ -157,11 +157,11 @@
 {
     if (nil == _specialCaculatorButtons)
     {
-        _specialCaculatorButtons = [NSMutableArray arrayWithCapacity:4];
+        _specialCaculatorButtons = [NSMutableArray arrayWithCapacity:2];
         [_specialCaculatorButtons addObject:self.dotButton];
         [_specialCaculatorButtons addObject:self.negativeButton];
-        [_specialCaculatorButtons addObject:self.delButton];
-        [_specialCaculatorButtons addObject:self.clearButton];
+//        [_specialCaculatorButtons addObject:self.delButton];
+//        [_specialCaculatorButtons addObject:self.clearButton];
     }
     
     return _specialCaculatorButtons;

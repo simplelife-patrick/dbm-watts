@@ -59,7 +59,7 @@
     
     if (highlighted)
     {
-            [self setBackgroundColor:[UIColor darkGrayColor]];
+        [self setBackgroundColor:[UIColor darkGrayColor]];
     }
     else
     {
