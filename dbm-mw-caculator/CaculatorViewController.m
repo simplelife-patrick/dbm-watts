@@ -801,10 +801,10 @@
         stopLocation = [recognizer locationInView:self.screenView];
     }
     
-    if (CGRectContainsPoint(self.dbmValueLabel.frame, startLocation) && CGRectContainsPoint(self.wattValueLabel.frame, stopLocation))
-    {
-        // TODO:
-    }
+//    if (CGRectContainsPoint(self.dbmValueLabel.frame, startLocation) && CGRectContainsPoint(self.wattValueLabel.frame, stopLocation))
+//    {
+//        // TODO:
+//    }
 }
 
 - (void)upSwipeGestureUpdated:(UISwipeGestureRecognizer *) recognizer
@@ -821,10 +821,10 @@
         stopLocation = [recognizer locationInView:self.screenView];
     }
     
-    if (CGRectContainsPoint(self.wattValueLabel.frame, startLocation) && CGRectContainsPoint(self.dbmValueLabel.frame, stopLocation))
-    {
-        // TODO:
-    }
+//    if (CGRectContainsPoint(self.wattValueLabel.frame, startLocation) && CGRectContainsPoint(self.dbmValueLabel.frame, stopLocation))
+//    {
+//        // TODO:
+//    }
 }
 
 - (void)longPressGestureUpdated:(UILongPressGestureRecognizer *) recognizer
