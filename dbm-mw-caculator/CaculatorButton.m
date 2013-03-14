@@ -8,7 +8,13 @@
 
 #import "CaculatorButton.h"
 
+@interface CaculatorButton()
+
+@end
+
 @implementation CaculatorButton
+
+@synthesize isEmphasized = _isEmphasized;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -17,6 +23,8 @@
     {
         // Initialization code
         //   [notes addTarget:self action:@selector(sb) forControlEvents:UIControlEventTouchUpInside];
+        
+        _isEmphasized = FALSE;
     }
     return self;
 }
@@ -50,7 +58,8 @@
 -(void) enableButton
 {
     self.userInteractionEnabled = TRUE;
-    self.titleLabel.textColor = [UIColor blackColor];
+    UIColor* newColor = (_isEmphasized) ? [UIColor redColor] : [UIColor blackColor];
+    self.titleLabel.textColor = newColor;
 }
 
 -(void) emphasizeButton

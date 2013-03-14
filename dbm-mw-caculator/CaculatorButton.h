@@ -11,8 +11,9 @@
 
 @interface CaculatorButton : UIButton
 
+@property (nonatomic) BOOL isEmphasized;
+
 -(void) disableButton;
 -(void) enableButton;
--(void) emphasizeButton;
 
 @end

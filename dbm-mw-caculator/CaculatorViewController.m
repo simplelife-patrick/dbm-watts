@@ -148,7 +148,9 @@
         [_specialCaculatorButtons addObject:self.dotButton];
         [_specialCaculatorButtons addObject:self.negativeButton];
         [_specialCaculatorButtons addObject:self.delButton];
+        self.delButton.isEmphasized = TRUE;
         [_specialCaculatorButtons addObject:self.clearButton];
+        self.clearButton.isEmphasized = TRUE;
     }
     
     return _specialCaculatorButtons;
