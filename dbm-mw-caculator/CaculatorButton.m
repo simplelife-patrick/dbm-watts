@@ -53,6 +53,11 @@
     self.titleLabel.textColor = [UIColor blackColor];
 }
 
+-(void) emphasizeButton
+{
+    self.titleLabel.textColor = [UIColor redColor];
+}
+
 -(void) setHighlighted:(BOOL)highlighted
 {
     [super setHighlighted:highlighted];

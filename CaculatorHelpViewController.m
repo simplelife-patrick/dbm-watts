@@ -126,7 +126,7 @@
     {
         pageNum--;
         CGRect rect = CGRectMake(pageNum * pageSize.width, 0, pageSize.width, pageSize.height);
-        [_scrollView scrollRectToVisible:rect animated:NO];
+        [_scrollView scrollRectToVisible:rect animated:TRUE];
     }
     
     [self refreshPageControlButtonsStatus];

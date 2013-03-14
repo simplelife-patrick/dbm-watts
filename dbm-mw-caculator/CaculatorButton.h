@@ -13,5 +13,6 @@
 
 -(void) disableButton;
 -(void) enableButton;
+-(void) emphasizeButton;
 
 @end

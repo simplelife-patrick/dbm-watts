@@ -21,10 +21,7 @@
 @property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
 
 -(void) resetCaculatorStatus:(BOOL) status;
--(void) decorateDbmValueLabel;
--(void) decorateWattValueLabel;
--(void) decorateCaculatorButtons;
--(void) decorateFunctionButtons;
+
 -(void) initSingleTapGestureRecognizer;
 -(void) initDoubleTapGestureRecognizer;
 -(void) initSwipeGestureRecognizers;
@@ -143,16 +140,6 @@
     self.isUserInMiddleOfEnteringDigit = status;
 }
 
--(void) decorateDbmValueLabel
-{
-
-}
-
--(void) decorateWattValueLabel
-{
-
-}
-
 -(NSMutableArray *) specialCaculatorButtons
 {
     if (nil == _specialCaculatorButtons)
@@ -160,8 +147,8 @@
         _specialCaculatorButtons = [NSMutableArray arrayWithCapacity:2];
         [_specialCaculatorButtons addObject:self.dotButton];
         [_specialCaculatorButtons addObject:self.negativeButton];
-//        [_specialCaculatorButtons addObject:self.delButton];
-//        [_specialCaculatorButtons addObject:self.clearButton];
+        [_specialCaculatorButtons addObject:self.delButton];
+        [_specialCaculatorButtons addObject:self.clearButton];
     }
     
     return _specialCaculatorButtons;
@@ -217,11 +204,6 @@
     return _caculatorButtons;
 }
 
--(void) decorateCaculatorButtons
-{
-
-}
-
 -(NSMutableArray *) functionButtons
 {
     if (nil == _functionButtons)
@@ -235,11 +217,6 @@
     }
     
     return _functionButtons;
-}
-
--(void) decorateFunctionButtons
-{    
-
 }
 
 -(NSMutableArray *) wattUnitTextLabels
@@ -415,11 +392,6 @@
     [self resetCaculatorStatus:FALSE];
     self.currentInputValueObject = [[CaculatorValue alloc] init];
     
-    [self decorateDbmValueLabel];
-    [self decorateWattValueLabel];
-    [self decorateFunctionButtons];
-    [self decorateCaculatorButtons];
-
     [self initLongPressGestureRecognizer];
     [self initDoubleTapGestureRecognizer];
     [self initSingleTapGestureRecognizer];
