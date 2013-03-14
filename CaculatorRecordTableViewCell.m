@@ -41,19 +41,19 @@
         _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 35, 310, 30)];
         _wattValueLabel.textAlignment = NSTextAlignmentRight;
         
-        _dbmValueLabel.font = [UIFont boldSystemFontOfSize:22];
-        _wattValueLabel.font = [UIFont boldSystemFontOfSize:22];
+        _dbmValueLabel.font = [UIFont systemFontOfSize:UI_TABLECELL_FONT_SIZE];
+        _wattValueLabel.font = [UIFont systemFontOfSize:UI_TABLECELL_FONT_SIZE];
         
         _dbmValueLabel.adjustsFontSizeToFitWidth = TRUE;
         _wattValueLabel.adjustsFontSizeToFitWidth = TRUE;
 
         _dbmValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _dbmValueLabel.layer.borderWidth = 1;
-        _dbmValueLabel.layer.cornerRadius = 4;
+        _dbmValueLabel.layer.cornerRadius = 3;
         
         _wattValueLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _wattValueLabel.layer.borderWidth = 1;
-        _wattValueLabel.layer.cornerRadius = 4;
+        _wattValueLabel.layer.cornerRadius = 3;
         
         [self.contentView addSubview:_dbmValueLabel];
         [self.contentView addSubview:_wattValueLabel];

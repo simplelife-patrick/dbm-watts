@@ -23,8 +23,6 @@
     {
         // Initialization code
         //   [notes addTarget:self action:@selector(sb) forControlEvents:UIControlEventTouchUpInside];
-        
-        _isEmphasized = FALSE;
     }
     return self;
 }
