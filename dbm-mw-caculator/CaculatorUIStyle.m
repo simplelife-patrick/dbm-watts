@@ -7,7 +7,7 @@
 //
 
 #import "CaculatorUIStyle.h"
-
+#import "CaculatorButton.h"
 static UIColor* s_caculatorButtonNormalBackgroundColor;
 static UIColor* s_caculatorButtonHighlightedBackgroundColor;
 static UIColor* s_screenLabelBackgroundColor;
@@ -123,6 +123,8 @@ static UIColor* s_focusedScreenLabelBackgroundColor;
 +(void) globalUIStyleSetup
 {
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationbar.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    [[CaculatorButton appearance] setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 }
 
 @end

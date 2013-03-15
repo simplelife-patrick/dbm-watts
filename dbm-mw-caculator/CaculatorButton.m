@@ -49,15 +49,12 @@
 
 -(void) disableButton
 {
-    self.userInteractionEnabled = FALSE;
-    self.titleLabel.textColor = [UIColor grayColor];
+    self.enabled = FALSE;
 }
 
 -(void) enableButton
 {
-    self.userInteractionEnabled = TRUE;
-    UIColor* newColor = (_isEmphasized) ? [UIColor redColor] : [UIColor blackColor];
-    self.titleLabel.textColor = newColor;
+    self.enabled = TRUE;
 }
 
 -(void) emphasizeButton
