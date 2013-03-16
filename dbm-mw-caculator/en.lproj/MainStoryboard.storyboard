@@ -678,11 +678,11 @@
             </objects>
             <point key="canvasLocation" x="-1435" y="410"/>
         </scene>
-        <!--Record Table View Controller-->
+        <!--Result Table View Controller-->
         <scene sceneID="xdo-In-Afu">
             <objects>
-                <tableViewController id="yaM-Fp-V7G" userLabel="Record Table View Controller" customClass="CaculatorRecordTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rqa-BI-3Mw" userLabel="recordTableView">
+                <tableViewController id="yaM-Fp-V7G" userLabel="Result Table View Controller" customClass="CaculatorResultTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rqa-BI-3Mw" userLabel="resultTableView">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -717,8 +717,8 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="CaculatorRecordTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorRecordTableViewController.h"/>
+        <class className="CaculatorResultTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorResultTableViewController.h"/>
         </class>
         <class className="CaculatorScreenLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CaculatorScreenLabel.h"/>

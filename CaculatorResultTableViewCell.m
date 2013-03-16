@@ -35,7 +35,6 @@
     if (self)
     {
         // Initialization code
-
         _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
         _dbmValueLabel.textAlignment = NSTextAlignmentLeft;
         _wattValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 35, 310, 30)];
@@ -66,7 +65,8 @@
 {
     [super setSelected:selected animated:animated];
     
-    UIView* view = [[UIView alloc] initWithFrame:self.contentView.bounds];
+    CGRect rect = self.contentView.bounds;
+    UIView* view = [[UIView alloc] initWithFrame:rect];
     [view setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
     [self setSelectedBackgroundView:view];
 }
