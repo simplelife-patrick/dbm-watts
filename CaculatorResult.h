@@ -1,5 +1,5 @@
 //
-//  CaculatorRecord.h
+//  CaculatorResult.h
 //  dbm-watt
 //
 //  Created by Patrick Deng on 13-2-23.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CaculatorRecord : NSObject <NSCoding>
+@interface CaculatorResult : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString* dbmValue;
 @property (strong, nonatomic) NSString* wattValue;

@@ -1,14 +1,14 @@
 //
-//  CaculatorRecord.m
+//  CaculatorResult.m
 //  dbm-watt
 //
 //  Created by Patrick Deng on 13-2-23.
 //  Copyright (c) 2013年 Code Animal. All rights reserved.
 //
 
-#import "CaculatorRecord.h"
+#import "CaculatorResult.h"
 
-@implementation CaculatorRecord
+@implementation CaculatorResult
 
 @synthesize dbmValue;
 @synthesize wattValue;

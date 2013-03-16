@@ -81,10 +81,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CaculatorRecord.h"
+#import "CaculatorResult.h"
 #import "CaculatorResource.h"
 
-@interface CaculatorModel : NSObject
+@interface CaculatorResultModel : NSObject
 
 +(NSString*) renderValueStringWithThousandSeparator:(NSString *)rawString;
 +(NSString*) derenderValueStringWithThousandSeparator:(NSString *)rawString;
@@ -102,8 +102,8 @@
 +(double) getWattValueFromDbmValue:(double) dbmValue andUnit:(WattUnit) unit;
 
 -(NSUInteger) recordsCount;
--(CaculatorRecord*) recordAtIndex:(NSUInteger) index;
--(void) addRecord:(CaculatorRecord*) record;
+-(CaculatorResult*) recordAtIndex:(NSUInteger) index;
+-(void) addRecord:(CaculatorResult*) record;
 -(void) deleteRecord:(NSUInteger) index compressList:(BOOL) needCompress;
 -(void) deleteRecord:(NSUInteger) index;
 -(void) compressList;

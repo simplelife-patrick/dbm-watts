@@ -10,8 +10,8 @@
 
 typedef enum {BinNotation, OctNotation, DecNotation, HexNotation} Notation;
 typedef enum {BinByteBitsLength=8, BinWordBitsLength=16, BinDWordBitsLength=32, BinQWordBitsLength=64, DecBitsLength=19, HexByteBitsLength=2, HexWordBitsLength=4, HexDWordBitsLength=8, HexQWordBitsLength=16} BitsLength;
-typedef enum {DecByteValueMin=-128, DecWordValueMin, DecDWordValueMin, DecQWordValueMin} DecNotationValueMinEdge;
-typedef enum {DecByteValueMax=127, DecWordValueMax, DecDWordValueMax, DecQWordValueMax} DecNotationValueMaxEdge;
+//typedef enum {DecByteValueMin=-128, DecWordValueMin=-32768, DecDWordValueMin=-2147483648, DecQWordValueMin=-9223372036854776000} DecNotationValueMinEdge;
+//typedef enum {DecByteValueMax=127, DecWordValueMax=32767, DecDWordValueMax=2147483647, DecQWordValueMax=9223372036854775999} DecNotationValueMaxEdge;
 
 @interface CaculatorValue : NSObject
 

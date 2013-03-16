@@ -12,10 +12,10 @@
 
 #import "CaculatorScreenLabel.h"
 #import "CaculatorButton.h"
-#import "CaculatorRecordTableViewController.h"
+#import "CaculatorResultTableViewController.h"
 #import "CaculatorHelpViewController.h"
 
-#import "CaculatorModel.h"
+#import "CaculatorResultModel.h"
 #import "CaculatorResource.h"
 
 @interface CaculatorViewController : UIViewController <UIGestureRecognizerDelegate>
@@ -60,7 +60,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mwTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uwTextLabel;
 
-@property (strong, nonatomic) CaculatorModel *caculatorModel;
+@property (strong, nonatomic) CaculatorResultModel *caculatorResultModel;
 @property (nonatomic) BOOL isDbm2WattMode;
 @property (nonatomic) Notation currentNotation;
 

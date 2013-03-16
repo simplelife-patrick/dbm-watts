@@ -11,7 +11,7 @@
 @interface CaculatorViewController ()
 
 @property (nonatomic) BOOL isUserInMiddleOfEnteringDigit;
-@property (nonatomic) BOOL isDigitInDecimalPart;
+@property (nonatomic) BOOL isDigitInFractionalPart;
 @property (nonatomic) BOOL isNegativeStatus;
 @property (nonatomic, strong) NSMutableArray* caculatorButtons;
 @property (nonatomic, strong) NSMutableArray* hexCaculatorButtons;
@@ -37,7 +37,7 @@
 
 @implementation CaculatorViewController
 
-@synthesize caculatorModel = _caculatorModel;
+@synthesize caculatorResultModel = _caculatorResultModel;
 @synthesize isDbm2WattMode;
 @synthesize currentNotation = _currentNotation;
 @synthesize isUserInMiddleOfEnteringDigit;
@@ -124,19 +124,19 @@
 
 -(void) updateDbmValueLabelText:(NSString *)newString
 {
-    NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:newString];
+    NSString* renderredString = [CaculatorResultModel renderValueStringWithThousandSeparator:newString];
     [self.dbmValueLabel setText:renderredString];
 }
 
 -(void) updateWattValueLabelText:(NSString *)newString
 {
-    NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:newString];
+    NSString* renderredString = [CaculatorResultModel renderValueStringWithThousandSeparator:newString];
     [self.wattValueLabel setText:renderredString];
 }
 
 -(void) resetCaculatorStatus:(BOOL) status
 {
-    self.isDigitInDecimalPart = status;
+    self.isDigitInFractionalPart = status;
     self.isUserInMiddleOfEnteringDigit = status;
 }
 
@@ -305,7 +305,7 @@
         {
             self.currentWattUnit = unit;
             NSNumber* dbmValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
-            double newWattValue = [CaculatorModel getWattValueFromDbmValue:dbmValue.doubleValue andUnit:self.currentWattUnit];
+            double newWattValue = [CaculatorResultModel getWattValueFromDbmValue:dbmValue.doubleValue andUnit:self.currentWattUnit];
             NSString* rawString = [CaculatorUIStyle formatDoubleToString:newWattValue];
             [self updateWattValueLabelText:rawString];
         }
@@ -313,7 +313,7 @@
         {
             self.currentWattUnit = unit;
             NSNumber* wattValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
-            double dbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:wattValue.doubleValue andUnit:self.currentWattUnit];
+            double dbmValue = [CaculatorResultModel getDbmValueFromWattValueWithUnit:wattValue.doubleValue andUnit:self.currentWattUnit];
             NSString* rawString = [CaculatorUIStyle formatDoubleToString:dbmValue];
             [self updateDbmValueLabelText:rawString];
         }
@@ -367,14 +367,14 @@
     [self switchWattUnit:unit andInitStatus:FALSE];
 }
 
-- (CaculatorModel *) caculatorModel
+- (CaculatorResultModel *) caculatorResultModel
 {
-    if (nil == _caculatorModel)
+    if (nil == _caculatorResultModel)
     {
-        _caculatorModel = [[CaculatorModel alloc] init];
+        _caculatorResultModel = [[CaculatorResultModel alloc] init];
     }
     
-    return _caculatorModel;
+    return _caculatorResultModel;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -433,27 +433,27 @@
 
 - (IBAction)onSaveButtonClicked:(CaculatorButton *)sender
 {
-    CaculatorRecord* record = nil;
+    CaculatorResult* record = nil;
     
     if (self.isDbm2WattMode)
     {
         NSString* str = self.currentInputValueObject.valueString;
         NSString* dbm = [CaculatorUIStyle formatDoubleToString:str.doubleValue];
         
-        NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:dbm];
-        record = [[CaculatorRecord alloc] initWithDbmValue:renderredString wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+        NSString* renderredString = [CaculatorResultModel renderValueStringWithThousandSeparator:dbm];
+        record = [[CaculatorResult alloc] initWithDbmValue:renderredString wattValue:self.wattValueLabel.text wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
     else
     {
         NSString* watt = self.currentInputValueObject.valueString;
-        NSString* renderredString = [CaculatorModel renderValueStringWithThousandSeparator:watt];
-        record = [[CaculatorRecord alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:renderredString wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
+        NSString* renderredString = [CaculatorResultModel renderValueStringWithThousandSeparator:watt];
+        record = [[CaculatorResult alloc] initWithDbmValue:self.dbmValueLabel.text wattValue:renderredString wattUnit:self.currentWattUnit isDbm2Watt:self.isDbm2WattMode];
     }
 
     UIPasteboard *pboard = [UIPasteboard generalPasteboard];
     pboard.string = [record description];
 
-    [self.caculatorModel addRecord:record];
+    [self.caculatorResultModel addRecord:record];
 }
 
 - (IBAction)onHistoryButtonClicked:(CaculatorButton *)sender
@@ -562,7 +562,7 @@
 
 - (IBAction)onDotButtonClicked:(CaculatorButton *)sender
 {
-    if (!self.isDigitInDecimalPart)
+    if (!self.isDigitInFractionalPart)
     {
         BOOL appendSuccess = [self appendCurrentInputString:DIGIT_DOT];
         if (self.isDbm2WattMode)
@@ -586,7 +586,7 @@
         NSString* stringToBeDel = [self.currentInputValueObject substringFromIndex:lengthBeforeDel - 1];
         if ([DIGIT_DOT isEqualToString: stringToBeDel])
         {
-            self.isDigitInDecimalPart = FALSE;
+            self.isDigitInFractionalPart = FALSE;
         }
         
         [_currentInputValueObject deleteStringInRange:NSMakeRange(lengthBeforeDel - 1, 1)];
@@ -608,13 +608,13 @@
             {
                 self.isUserInMiddleOfEnteringDigit = FALSE;
             }
-            self.isDigitInDecimalPart = FALSE;
+            self.isDigitInFractionalPart = FALSE;
         }
         else if (2 == lengthAfterDel)
         {
             if (self.isNegativeStatus)
             {
-                self.isDigitInDecimalPart = FALSE;
+                self.isDigitInFractionalPart = FALSE;
                 self.isUserInMiddleOfEnteringDigit = FALSE;
             }
         }
@@ -637,13 +637,13 @@
     if (self.isDbm2WattMode)
     {
         NSNumber* newDbmValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
-        double newWattValue = [CaculatorModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit];
+        double newWattValue = [CaculatorResultModel getWattValueFromDbmValue:newDbmValue.doubleValue andUnit:self.currentWattUnit];
         [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:newWattValue]];
     }
     else
     {
         NSNumber* newWattValue = [NSNumber numberWithDouble:self.currentInputValueObject.doubleValue];
-        double newDbmValue = [CaculatorModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit];
+        double newDbmValue = [CaculatorResultModel getDbmValueFromWattValueWithUnit:newWattValue.doubleValue andUnit:self.currentWattUnit];
         [self updateDbmValueLabelText:[CaculatorUIStyle formatDoubleToString:newDbmValue]];
     }
 }
@@ -655,7 +655,7 @@
         [self.currentInputValueObject setString:DIGIT_0];
         [self updateDbmValueLabelText:self.currentInputValueObject.valueString];
         
-        double wattValue = [CaculatorModel getWattValueFromDbmValue:0 andUnit:self.currentWattUnit];
+        double wattValue = [CaculatorResultModel getWattValueFromDbmValue:0 andUnit:self.currentWattUnit];
         [self updateWattValueLabelText:[CaculatorUIStyle formatDoubleToString:wattValue]];
     }
     else
@@ -843,10 +843,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController isKindOfClass:[CaculatorRecordTableViewController class]])
+    if ([segue.destinationViewController isKindOfClass:[CaculatorResultTableViewController class]])
     {
-        CaculatorRecordTableViewController* recordTableViewController = segue.destinationViewController;
-        [recordTableViewController setCaculatorModel:self.caculatorModel];
+        CaculatorResultTableViewController* recordTableViewController = segue.destinationViewController;
+        [recordTableViewController setCaculatorResultModel:self.caculatorResultModel];
     }
     else if ([segue.destinationViewController isKindOfClass:[CaculatorHelpViewController class]])
     {
@@ -940,7 +940,7 @@
     [self.screenView removeGestureRecognizer:self.upSwipeGestureRecognizer];
     [self setUpSwipeGestureRecognizer:nil];
     
-    [self setCaculatorModel:nil];
+    [self setCaculatorResultModel:nil];
     [self setCurrentInputValueObject:nil];
     
     [self setScreenView:nil];

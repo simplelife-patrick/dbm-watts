@@ -1,14 +1,14 @@
 //
-//  CaculatorRecordTableViewCell.m
+//  CaculatorResultTableViewCell.m
 //  dbm-watt
 //
 //  Created by Patrick Deng on 13-3-2.
 //  Copyright (c) 2013年 Code Animal. All rights reserved.
 //
 
-#import "CaculatorRecordTableViewCell.h"
+#import "CaculatorResultTableViewCell.h"
 
-@interface CaculatorRecordTableViewCell()
+@interface CaculatorResultTableViewCell()
 
 @property (strong, nonatomic) UILabel* dbmValueLabel;
 @property (strong, nonatomic) UILabel* wattValueLabel;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation CaculatorRecordTableViewCell
+@implementation CaculatorResultTableViewCell
 
 @synthesize dbmValueLabel = _dbmValueLabel;
 @synthesize wattValueLabel = _wattValueLabel;
@@ -71,14 +71,14 @@
     [self setSelectedBackgroundView:view];
 }
 
--(void) updateCellWithRecord:(CaculatorRecord *)record
+-(void) updateCellWithResult:(CaculatorResult *)result
 {
-    if (nil != record)
+    if (nil != result)
     {
-        [self updateDbmValue:record.dbmValue];
-        [self updateWattValue:record.wattValue andWattUnit:record.wattUnit];
+        [self updateDbmValue:result.dbmValue];
+        [self updateWattValue:result.wattValue andWattUnit:result.wattUnit];
         
-        if (record.isDbm2Watt)
+        if (result.isDbm2Watt)
         {
             [self.dbmValueLabel setBackgroundColor:[CaculatorUIStyle focusedScreenLabelBackgroundColor]];
             [self.wattValueLabel setBackgroundColor:[CaculatorUIStyle screenLabelBackgroundColor]];

@@ -1,14 +1,14 @@
 //
-//  CaculatorRecordTableViewController.m
+//  CaculatorResultTableViewController.m
 //  dbm-watt
 //
 //  Created by Patrick Deng on 13-2-24.
 //  Copyright (c) 2013年 Code Animal. All rights reserved.
 //
 
-#import "CaculatorRecordTableViewController.h"
+#import "CaculatorResultTableViewController.h"
 
-@interface CaculatorRecordTableViewController ()
+@interface CaculatorResultTableViewController ()
 
 @property UIBarButtonItem* editBarButton;
 @property UIBarButtonItem* selectAllBarButton;
@@ -23,9 +23,9 @@
 
 @end
 
-@implementation CaculatorRecordTableViewController
+@implementation CaculatorResultTableViewController
 
-@synthesize caculatorModel;
+@synthesize caculatorResultModel;
 
 @synthesize editBarButton = _editBarButton;
 @synthesize selectAllBarButton = _selectAllBarButton;
@@ -40,7 +40,7 @@
 - (NSUInteger) recordIndexInModel:(NSIndexPath*) indexPathInTable
 {
     NSInteger index = indexPathInTable.row;
-    NSUInteger reversedIndex = [self.caculatorModel recordsCount] - 1 - index;
+    NSUInteger reversedIndex = [self.caculatorResultModel recordsCount] - 1 - index;
     return reversedIndex;
 }
 
@@ -96,7 +96,7 @@
         if (nil != indexPath)
         {
             NSUInteger recordIndex = [self recordIndexInModel:indexPath];
-            CaculatorRecord* record = [self.caculatorModel recordAtIndex:recordIndex];
+            CaculatorResult* record = [self.caculatorResultModel recordAtIndex:recordIndex];
             if (nil != record)
             {
                 UIPasteboard *pboard = [UIPasteboard generalPasteboard];
@@ -124,7 +124,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.caculatorModel recordsCount];
+    return [self.caculatorResultModel recordsCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,10 +132,10 @@
     static NSString *CellIdentifier = UI_CACULATOR_RECORD_TABLECELL_ID;
     
 #if UI_RENDER_RECORD_TABLECELL
-    CaculatorRecordTableViewCell *cell = (CaculatorRecordTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CaculatorResultTableViewCell *cell = (CaculatorResultTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[CaculatorRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CaculatorResultTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 #else
     UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -151,10 +151,10 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger index = [self recordIndexInModel:indexPath];
-    CaculatorRecord* record = [self.caculatorModel recordAtIndex:index];
+    CaculatorResult* record = [self.caculatorResultModel recordAtIndex:index];
 
 #if UI_RENDER_RECORD_TABLECELL
-    [(CaculatorRecordTableViewCell*)cell updateCellWithRecord:record];
+    [(CaculatorResultTableViewCell*)cell updateCellWithResult:record];
 #else
     cell.textLabel.text = [record description];
 #endif
@@ -197,7 +197,7 @@
             self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
         }
         
-        if ([self.caculatorModel recordsCount] == selectedRows.count)
+        if ([self.caculatorResultModel recordsCount] == selectedRows.count)
         {
             [self setIsSelectedAll:TRUE];
         }
@@ -271,7 +271,7 @@
 {
     if (self.isSelectedAll)
     {
-        NSUInteger rowCount = [self.caculatorModel recordsCount];
+        NSUInteger rowCount = [self.caculatorResultModel recordsCount];
         for (NSInteger integer = 0; integer < rowCount; integer++)
         {
             NSIndexPath* indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
@@ -283,7 +283,7 @@
     }
     else
     {
-        NSUInteger rowCount = [self.caculatorModel recordsCount];
+        NSUInteger rowCount = [self.caculatorResultModel recordsCount];
         for (NSInteger integer = 0; integer < rowCount; integer++)
         {
             NSIndexPath* indexPath = [NSIndexPath indexPathForRow:integer inSection:0];
@@ -297,7 +297,7 @@
 
 -(void) onEditBarButtonClicked
 {
-    if (!self.tableView.editing && (0 < [self.caculatorModel recordsCount]))
+    if (!self.tableView.editing && (0 < [self.caculatorResultModel recordsCount]))
     {
         self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
         [self.tableView setEditing:TRUE animated:TRUE];
@@ -313,10 +313,10 @@
         {
             NSIndexPath* indexPath = [selectedRows objectAtIndex:index];
             NSUInteger recordIndex = [self recordIndexInModel:indexPath];
-            [self.caculatorModel deleteRecord:recordIndex compressList:FALSE];
+            [self.caculatorResultModel deleteRecord:recordIndex compressList:FALSE];
         }
         
-        [self.caculatorModel compressList];
+        [self.caculatorResultModel compressList];
         [self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
         
         [self.tableView setEditing:FALSE animated:TRUE];

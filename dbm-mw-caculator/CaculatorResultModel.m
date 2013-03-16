@@ -8,17 +8,17 @@
 //
 //
 
-#import "CaculatorModel.h"
+#import "CaculatorResultModel.h"
 
 static NSArray* s_hexCharArray;
 
-@interface CaculatorModel ()
+@interface CaculatorResultModel ()
 
 @property (strong, nonatomic) NSMutableArray* recordList;
 
 @end
 
-@implementation CaculatorModel
+@implementation CaculatorResultModel
 
 @synthesize recordList = _recordList;
 
@@ -412,9 +412,9 @@ static NSArray* s_hexCharArray;
     return self.recordList.count;
 }
 
--(CaculatorRecord*) recordAtIndex:(NSUInteger) index
+-(CaculatorResult*) recordAtIndex:(NSUInteger) index
 {
-    CaculatorRecord* record = nil;
+    CaculatorResult* record = nil;
     
     if (index < self.recordList.count)
     {
@@ -424,7 +424,7 @@ static NSArray* s_hexCharArray;
     return record;
 }
 
--(void) addRecord:(CaculatorRecord*) record
+-(void) addRecord:(CaculatorResult*) record
 {
     if (nil != record)
     {
