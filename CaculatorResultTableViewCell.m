@@ -67,8 +67,15 @@
     
     CGRect rect = self.contentView.bounds;
     UIView* view = [[UIView alloc] initWithFrame:rect];
-    [view setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
-    [self setSelectedBackgroundView:view];
+    if (selected)
+    {
+        [view setBackgroundColor:[UIColor whiteColor]];
+        
+        [_dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
+        [_wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
+
+        [self setSelectedBackgroundView:view];
+    }
 }
 
 -(void) updateCellWithResult:(CaculatorResult *)result
