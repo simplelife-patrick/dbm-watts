@@ -148,12 +148,6 @@
 
 - (void)viewDidUnload
 {
-    [self setScrollView:nil];
-    [self setPageControl:nil];
-    [self setHelpView:nil];
-    [self setExitHelpButton:nil];
-    [self setNextHelpPageButton:nil];
-    [self setPrevHelpPageButton:nil];
     [super viewDidUnload];
 }
 

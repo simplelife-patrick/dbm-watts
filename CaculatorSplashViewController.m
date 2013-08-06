@@ -28,8 +28,9 @@
 
 - (void)viewDidLoad
 {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];    
+    
     [super viewDidLoad];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(loadAnyNecessaryStuff) userInfo:nil repeats:NO];
 }
 
 - (void)didReceiveMemoryWarning
