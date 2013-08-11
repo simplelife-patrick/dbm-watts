@@ -9,6 +9,9 @@
 #import "CaculatorResultTableViewCell.h"
 
 @interface CaculatorResultTableViewCell()
+{
+    UIView* _selectedBackgroundView;
+}
 
 @property (strong, nonatomic) UILabel* dbmValueLabel;
 @property (strong, nonatomic) UILabel* wattValueLabel;
@@ -56,6 +59,14 @@
         
         [self.contentView addSubview:_dbmValueLabel];
         [self.contentView addSubview:_wattValueLabel];
+                
+        if (nil == _selectedBackgroundView)
+        {
+            CGRect rect = self.contentView.bounds;
+            _selectedBackgroundView = [[UIView alloc] initWithFrame:rect];
+            [_selectedBackgroundView setBackgroundColor:[UIColor whiteColor]];
+        }
+        [self setSelectedBackgroundView:_selectedBackgroundView];
     }
     return self;
 }
@@ -65,16 +76,12 @@
 {
     [super setSelected:selected animated:animated];
     
-    CGRect rect = self.contentView.bounds;
-    UIView* view = [[UIView alloc] initWithFrame:rect];
     if (selected)
     {
-        [view setBackgroundColor:[UIColor whiteColor]];
-        
         [_dbmValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
         [_wattValueLabel setBackgroundColor:[CaculatorUIStyle caculatorButtonNormalBackgroundColor]];
 
-        [self setSelectedBackgroundView:view];
+        [self setSelectedBackgroundView:_selectedBackgroundView];
     }
 }
 
