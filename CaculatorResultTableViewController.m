@@ -80,10 +80,7 @@
     
     _isSelectedAll = FALSE;
     
-    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureUpdated:)];
-    _longPressGestureRecognizer.delegate = self;
-    _longPressGestureRecognizer.minimumPressDuration = 0.5;
-    [self.tableView addGestureRecognizer:_longPressGestureRecognizer];
+    [self _registerGestureRecognizers];
 }
 
 -(void) longPressGestureUpdated:(UITapGestureRecognizer *) recognizer
@@ -334,6 +331,34 @@
         [self.tableView setEditing:FALSE animated:TRUE];
         self.navigationItem.rightBarButtonItems = @[_editBarButton];
     }
+}
+
+#pragma mark - Private Methods
+
+- (void) _registerGestureRecognizers
+{
+    _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureUpdated:)];
+    _longPressGestureRecognizer.delegate = self;
+    _longPressGestureRecognizer.minimumPressDuration = 0.5;
+    [self.tableView addGestureRecognizer:_longPressGestureRecognizer];
+    
+    UISwipeGestureRecognizer* swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handleSwipeLeft:)];
+    [swipeLeftRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.tableView addGestureRecognizer:swipeLeftRecognizer];
+    
+    UISwipeGestureRecognizer* swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(_handleSwipeRight:)];
+    [swipeRightRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.tableView addGestureRecognizer:swipeRightRecognizer];
+}
+
+- (void) _handleSwipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer
+{
+
+}
+
+- (void) _handleSwipeRight:(UISwipeGestureRecognizer*) gestureRecognizer
+{
+    [self.navigationController popViewControllerAnimated:TRUE];
 }
 
 @end
