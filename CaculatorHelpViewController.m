@@ -76,6 +76,35 @@
     [_helpView addSubview:_exitHelpButton];
     [_helpView addSubview:_prevHelpPageButton];
     [_helpView addSubview:_nextHelpPageButton];
+    
+    [self _registerGestureRecognizers];    
+}
+
+- (void) _registerGestureRecognizers
+{
+    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_handleDoubleTap:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [_helpView addGestureRecognizer:tapRecognizer];
+}
+
+- (void)_handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self _exit];
+}
+
+-(void) _exit
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isAppLaunchedBefore = [defaults boolForKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+    if (!isAppLaunchedBefore)
+    {
+        [defaults setBool:TRUE forKey:APP_CONFIG_ISLAUNCHED_BEFORE];
+        [self performSegueWithIdentifier:SEGUE_ID_HELP_TO_CACULATOR sender:self];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:TRUE completion:^{}];
+    }
 }
 
 -(void)scrollToNextPage:(id)sender
@@ -203,17 +232,7 @@
 
 - (IBAction)onExitHelpButtonClicked:(id)sender
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    BOOL isAppLaunchedBefore = [defaults boolForKey:APP_CONFIG_ISLAUNCHED_BEFORE];
-    if (!isAppLaunchedBefore)
-    {
-        [defaults setBool:TRUE forKey:APP_CONFIG_ISLAUNCHED_BEFORE];
-        [self performSegueWithIdentifier:SEGUE_ID_HELP_TO_CACULATOR sender:self];
-    }
-    else
-    {
-        [self dismissViewControllerAnimated:TRUE completion:^{}];
-    }
+    [self _exit];
 }
 
 - (IBAction)onNextHelpPageButtonClicked:(id)sender
