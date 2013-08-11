@@ -67,13 +67,6 @@
 @synthesize digit1Button = _digit1Button;
 @synthesize digit0Button = _digit0Button;
 
-@synthesize aButton = _aButton;
-@synthesize bButton = _bButton;
-@synthesize cButton = _cButton;
-@synthesize dButton = _dButton;
-@synthesize eButton = _eButton;
-@synthesize fButton = _fButton;
-
 @synthesize dotButton = _dotButton;
 @synthesize clearButton = _clearButton;
 @synthesize negativeButton = _negativeButton;
@@ -181,12 +174,6 @@
     if (nil == _hexCaculatorButtons)
     {
         _hexCaculatorButtons = [NSMutableArray arrayWithCapacity:6];
-        [_hexCaculatorButtons addObject:self.aButton];
-        [_hexCaculatorButtons addObject:self.bButton];
-        [_hexCaculatorButtons addObject:self.cButton];
-        [_hexCaculatorButtons addObject:self.dButton];
-        [_hexCaculatorButtons addObject:self.eButton];
-        [_hexCaculatorButtons addObject:self.fButton];
     }
     
     return _hexCaculatorButtons;

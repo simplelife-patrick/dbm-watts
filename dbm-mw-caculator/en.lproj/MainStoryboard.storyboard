@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kL2-hc-KQD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kL2-hc-KQD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -74,7 +74,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="3" width="59" height="44"/>
+                                        <rect key="frame" x="5" y="3" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="194" y="3" width="59" height="44"/>
+                                        <rect key="frame" x="162" y="3" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Da3-Bp-zG7" userLabel="saveButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="131" y="3" width="59" height="44"/>
+                                        <rect key="frame" x="83" y="3" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,7 +126,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="256" y="3" width="59" height="44"/>
+                                        <rect key="frame" x="240" y="3" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,7 +144,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="51" width="59" height="55"/>
+                                        <rect key="frame" x="5" y="51" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,7 +161,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u8l-me-a3Z" userLabel="digit8Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="68" y="51" width="59" height="55"/>
+                                        <rect key="frame" x="83" y="51" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -178,7 +178,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nmo-tk-yP3" userLabel="digit9Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="131" y="51" width="59" height="55"/>
+                                        <rect key="frame" x="162" y="51" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -195,12 +195,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eWx-mD-a6M" userLabel="delButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="256" y="168" width="59" height="55"/>
+                                        <rect key="frame" x="240" y="51" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="&lt;">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -212,7 +212,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yx2-hr-D9s" userLabel="digit4Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="109" width="59" height="55"/>
+                                        <rect key="frame" x="5" y="109" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q3M-52-8lu" userLabel="digit5Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="68" y="109" width="59" height="55"/>
+                                        <rect key="frame" x="83" y="109" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,7 +246,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y3j-3e-0bN" userLabel="digit6Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="131" y="109" width="59" height="55"/>
+                                        <rect key="frame" x="162" y="109" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,7 +263,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ssW-kk-4Cb" userLabel="digit1Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="168" width="59" height="55"/>
+                                        <rect key="frame" x="5" y="168" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -280,7 +280,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XZ1-fy-NBf" userLabel="digit2Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="68" y="168" width="59" height="55"/>
+                                        <rect key="frame" x="83" y="168" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,7 +297,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKF-if-aOW" userLabel="digit3Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="131" y="168" width="59" height="55"/>
+                                        <rect key="frame" x="162" y="168" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,7 +314,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsC-XE-70A" userLabel="digit0Button" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="227" width="59" height="55"/>
+                                        <rect key="frame" x="5" y="227" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,7 +331,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HkI-i8-3vh" userLabel="dotButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="68" y="227" width="59" height="55"/>
+                                        <rect key="frame" x="83" y="227" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -348,7 +348,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N1R-Ag-Tdj" userLabel="negativeButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="131" y="227" width="59" height="55"/>
+                                        <rect key="frame" x="162" y="227" width="75" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -365,12 +365,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="KZQ-NE-vk5" userLabel="clearButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="256" y="227" width="59" height="55"/>
+                                        <rect key="frame" x="240" y="109" width="75" height="173"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="R">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -379,119 +379,6 @@
                                         <connections>
                                             <action selector="onClearButtonClicked:" destination="2" eventType="touchUpInside" id="1VI-xU-fIR"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="O7z-fW-FnR"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4zK-II-x7R" userLabel="dButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="194" y="51" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="D">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="eDR-Yu-Ss8"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BKG-5d-Vh9" userLabel="cButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="194" y="109" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="C">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="6ut-LA-hnm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bbe-KL-RYm" userLabel="bButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="194" y="168" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="B">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="UJz-5J-sOF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="16p-GW-3A7" userLabel="aButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="194" y="227" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="A">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="yug-mv-KmG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e24-LZ-LVM" userLabel="eButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="256" y="109" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="E">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="lmT-i4-rIS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vtB-0l-OXR" userLabel="fButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="256" y="51" width="59" height="55"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="F">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="h4Y-8U-ZIR"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GDK-aI-gfX" userLabel="notationButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="68" y="3" width="59" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="hex">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onNotationButtonClicked:" destination="2" eventType="touchUpInside" id="ncq-qs-Av5"/>
-                                            <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="H8l-eP-3WV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -503,12 +390,8 @@
                     <navigationItem key="navigationItem" id="K5Q-XZ-FCn"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="aButton" destination="16p-GW-3A7" id="XDk-Af-GUr"/>
-                        <outlet property="bButton" destination="Bbe-KL-RYm" id="jmd-Ab-uYp"/>
                         <outlet property="buttonsView" destination="Fdy-cD-QqD" id="nVL-E5-hv8"/>
-                        <outlet property="cButton" destination="BKG-5d-Vh9" id="fLr-4b-6uN"/>
                         <outlet property="clearButton" destination="KZQ-NE-vk5" id="s6l-WH-ZHO"/>
-                        <outlet property="dButton" destination="4zK-II-x7R" id="dR2-kX-JNp"/>
                         <outlet property="dbmValueLabel" destination="HoC-qu-vIG" id="Lar-v4-OFK"/>
                         <outlet property="delButton" destination="eWx-mD-a6M" id="JTp-b5-cYo"/>
                         <outlet property="digit0Button" destination="bsC-XE-70A" id="opG-V8-yZR"/>
@@ -522,14 +405,11 @@
                         <outlet property="digit8Button" destination="u8l-me-a3Z" id="B36-1j-r1b"/>
                         <outlet property="digit9Button" destination="Nmo-tk-yP3" id="HUd-nm-ttW"/>
                         <outlet property="dotButton" destination="HkI-i8-3vh" id="8ct-wZ-crP"/>
-                        <outlet property="eButton" destination="e24-LZ-LVM" id="SY8-30-EfM"/>
-                        <outlet property="fButton" destination="vtB-0l-OXR" id="be2-h2-QJp"/>
                         <outlet property="helpButton" destination="9F1-3b-1ao" id="vXa-KU-gmg"/>
                         <outlet property="historyButton" destination="yGt-rZ-9ot" id="Lop-Wm-7Z4"/>
                         <outlet property="kwTextLabel" destination="xLj-an-SWE" id="Tnq-s2-qWj"/>
                         <outlet property="mwTextLabel" destination="Kkm-s9-kAI" id="cZP-b4-TwG"/>
                         <outlet property="negativeButton" destination="N1R-Ag-Tdj" id="aFD-Hm-jTh"/>
-                        <outlet property="notationButton" destination="GDK-aI-gfX" id="UQN-38-94S"/>
                         <outlet property="saveButton" destination="Da3-Bp-zG7" id="yAw-W8-hN9"/>
                         <outlet property="screenView" destination="bPJ-Jy-JB9" id="yua-DQ-uv0"/>
                         <outlet property="switchButton" destination="wKe-fe-DSQ" id="tFD-4k-OXL"/>
@@ -635,14 +515,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="twitter:@motodexter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8AU-lX-WkD" userLabel="authorLabel">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="twitter:@motodexter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8AU-lX-WkD" userLabel="authorLabel">
                                 <rect key="frame" x="100" y="498" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Code Animal Studio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bDA-ON-SfB">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simplelife Studio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bDA-ON-SfB">
                                 <rect key="frame" x="40" y="194" width="240" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
@@ -740,12 +620,8 @@
                 <relationship kind="action" name="onSaveButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="onSwitchButtonClicked:" candidateClass="CaculatorButton"/>
                 <relationship kind="action" name="playButtonClickSound:" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="aButton" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="bButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="buttonsView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="dButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="dbmValueLabel" candidateClass="CaculatorScreenLabel"/>
                 <relationship kind="outlet" name="delButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="digit0Button" candidateClass="CaculatorButton"/>
@@ -759,8 +635,6 @@
                 <relationship kind="outlet" name="digit8Button" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="digit9Button" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="dotButton" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="eButton" candidateClass="CaculatorButton"/>
-                <relationship kind="outlet" name="fButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="helpButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="historyButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="kwTextLabel" candidateClass="UILabel"/>
@@ -782,7 +656,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Fos-6E-Yj0"/>
         <segue reference="IwO-yv-nQH"/>
+        <segue reference="Fos-6E-Yj0"/>
     </inferredMetricsTieBreakers>
 </document>

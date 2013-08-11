@@ -42,13 +42,6 @@
 @property (weak, nonatomic) IBOutlet CaculatorButton *digit1Button;
 @property (weak, nonatomic) IBOutlet CaculatorButton *digit0Button;
 
-@property (weak, nonatomic) IBOutlet CaculatorButton *aButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *bButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *cButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *dButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *eButton;
-@property (weak, nonatomic) IBOutlet CaculatorButton *fButton;
-
 @property (weak, nonatomic) IBOutlet CaculatorButton *dotButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *clearButton;
 @property (weak, nonatomic) IBOutlet CaculatorButton *negativeButton;
