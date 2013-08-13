@@ -22,6 +22,19 @@
 		C58382D316F356D10044585B /* CaculatorValueRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C58382D216F356D00044585B /* CaculatorValueRule.m */; };
 		C58382D916F3630E0044585B /* DecNotationValueRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C58382D816F3630E0044585B /* DecNotationValueRule.m */; };
 		C58382DC16F363330044585B /* HexNotationValueRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C58382DB16F363320044585B /* HexNotationValueRule.m */; };
+		C5A4902717BA1A5E00E8CB6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4901617BA1A5E00E8CB6F /* AppDelegate.m */; };
+		C5A4902817BA1A5E00E8CB6F /* CaculatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4901817BA1A5E00E8CB6F /* CaculatorButton.m */; };
+		C5A4902917BA1A5E00E8CB6F /* CaculatorResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4901A17BA1A5E00E8CB6F /* CaculatorResultModel.m */; };
+		C5A4902A17BA1A5E00E8CB6F /* CaculatorScreenLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4901C17BA1A5E00E8CB6F /* CaculatorScreenLabel.m */; };
+		C5A4902B17BA1A5E00E8CB6F /* CaculatorUIStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4901E17BA1A5E00E8CB6F /* CaculatorUIStyle.m */; };
+		C5A4902C17BA1A5E00E8CB6F /* CaculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4902017BA1A5E00E8CB6F /* CaculatorViewController.m */; };
+		C5A4902E17BA1A5E00E8CB6F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5A4902317BA1A5E00E8CB6F /* Default-568h@2x.png */; };
+		C5A4902F17BA1A5E00E8CB6F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5A4902417BA1A5E00E8CB6F /* Default.png */; };
+		C5A4903017BA1A5E00E8CB6F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5A4902517BA1A5E00E8CB6F /* Default@2x.png */; };
+		C5A4903117BA1A5E00E8CB6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4902617BA1A5E00E8CB6F /* main.m */; };
+		C5A4903717BA1AA900E8CB6F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A4903417BA1AA900E8CB6F /* MainStoryboard.storyboard */; };
+		C5A4903A17BA1D5F00E8CB6F /* dbm-watt.Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5A4903817BA1D5F00E8CB6F /* dbm-watt.Info.plist */; };
+		C5A4903D17BA1D6800E8CB6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5A4903B17BA1D6800E8CB6F /* InfoPlist.strings */; };
 		C5AE6B3016D649B700A1690B /* Icon_Small.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B2D16D649B700A1690B /* Icon_Small.png */; };
 		C5AE6B3116D649B700A1690B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B2E16D649B700A1690B /* Icon.png */; };
 		C5AE6B3216D649B700A1690B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B2F16D649B700A1690B /* Icon@2x.png */; };
@@ -32,23 +45,11 @@
 		C5AE6B4116D913D800A1690B /* save.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B3E16D913D800A1690B /* save.wav */; };
 		C5AE6B4516D9C58700A1690B /* switch.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B4416D9C58700A1690B /* switch.wav */; };
 		C5D8A7DF16CFD277007C3C21 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */; };
-		C5D8A7E316D12515007C3C21 /* CaculatorUIStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D8A7E216D12515007C3C21 /* CaculatorUIStyle.m */; };
 		C5D8A7E816D2437D007C3C21 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */; };
 		C5D8A7EB16D24E71007C3C21 /* CaculatorResource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D8A7EA16D24E71007C3C21 /* CaculatorResource.m */; };
 		C5DA80CD16CA70F3001B9EC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */; };
 		C5DA80CF16CA70F3001B9EC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */; };
 		C5DA80D116CA70F3001B9EC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */; };
-		C5DA80D716CA70F3001B9EC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80D516CA70F3001B9EC7 /* InfoPlist.strings */; };
-		C5DA80D916CA70F3001B9EC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80D816CA70F3001B9EC7 /* main.m */; };
-		C5DA80DD16CA70F3001B9EC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */; };
-		C5DA80DF16CA70F3001B9EC7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80DE16CA70F3001B9EC7 /* Default.png */; };
-		C5DA80E116CA70F3001B9EC7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E016CA70F3001B9EC7 /* Default@2x.png */; };
-		C5DA80E316CA70F3001B9EC7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */; };
-		C5DA80E616CA70F3001B9EC7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */; };
-		C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */; };
-		C5DA80F116CA7EF8001B9EC7 /* CaculatorResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F016CA7EF8001B9EC7 /* CaculatorResultModel.m */; };
-		C5DA80F416CBE37B001B9EC7 /* CaculatorScreenLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */; };
-		C5DA80F716CBE39F001B9EC7 /* CaculatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */; };
 		C5E3CEC016DA60F200DC9FAA /* CaculatorHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E3CEBF16DA60F200DC9FAA /* CaculatorHelpViewController.m */; };
 		C5ECD6BB16DB94B2005069FE /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = C5ECD6BA16DB94B2005069FE /* navigationbar.png */; };
 		C5ECD6BD16DB9A4A005069FE /* barbuttonitem.png in Resources */ = {isa = PBXBuildFile; fileRef = C5ECD6BC16DB9A4A005069FE /* barbuttonitem.png */; };
@@ -78,6 +79,26 @@
 		C58382D816F3630E0044585B /* DecNotationValueRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecNotationValueRule.m; sourceTree = "<group>"; };
 		C58382DA16F363320044585B /* HexNotationValueRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexNotationValueRule.h; sourceTree = "<group>"; };
 		C58382DB16F363320044585B /* HexNotationValueRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexNotationValueRule.m; sourceTree = "<group>"; };
+		C5A4901517BA1A5E00E8CB6F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C5A4901617BA1A5E00E8CB6F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C5A4901717BA1A5E00E8CB6F /* CaculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorButton.h; sourceTree = "<group>"; };
+		C5A4901817BA1A5E00E8CB6F /* CaculatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorButton.m; sourceTree = "<group>"; };
+		C5A4901917BA1A5E00E8CB6F /* CaculatorResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorResultModel.h; sourceTree = "<group>"; };
+		C5A4901A17BA1A5E00E8CB6F /* CaculatorResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorResultModel.m; sourceTree = "<group>"; };
+		C5A4901B17BA1A5E00E8CB6F /* CaculatorScreenLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorScreenLabel.h; sourceTree = "<group>"; };
+		C5A4901C17BA1A5E00E8CB6F /* CaculatorScreenLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorScreenLabel.m; sourceTree = "<group>"; };
+		C5A4901D17BA1A5E00E8CB6F /* CaculatorUIStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorUIStyle.h; sourceTree = "<group>"; };
+		C5A4901E17BA1A5E00E8CB6F /* CaculatorUIStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorUIStyle.m; sourceTree = "<group>"; };
+		C5A4901F17BA1A5E00E8CB6F /* CaculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorViewController.h; sourceTree = "<group>"; };
+		C5A4902017BA1A5E00E8CB6F /* CaculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorViewController.m; sourceTree = "<group>"; };
+		C5A4902317BA1A5E00E8CB6F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C5A4902417BA1A5E00E8CB6F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C5A4902517BA1A5E00E8CB6F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C5A4902617BA1A5E00E8CB6F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5A4903517BA1AA900E8CB6F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C5A4903817BA1D5F00E8CB6F /* dbm-watt.Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "dbm-watt.Info.plist"; sourceTree = "<group>"; };
+		C5A4903917BA1D5F00E8CB6F /* dbm-watt.Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dbm-watt.Prefix.pch"; sourceTree = "<group>"; };
+		C5A4903C17BA1D6800E8CB6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C5AE6B2D16D649B700A1690B /* Icon_Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Small.png; sourceTree = "<group>"; };
 		C5AE6B2E16D649B700A1690B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		C5AE6B2F16D649B700A1690B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -90,8 +111,6 @@
 		C5AE6B3E16D913D800A1690B /* save.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = save.wav; sourceTree = "<group>"; };
 		C5AE6B4416D9C58700A1690B /* switch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = switch.wav; sourceTree = "<group>"; };
 		C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C5D8A7E116D12515007C3C21 /* CaculatorUIStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorUIStyle.h; path = "dbm-mw-caculator/CaculatorUIStyle.h"; sourceTree = "<group>"; };
-		C5D8A7E216D12515007C3C21 /* CaculatorUIStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorUIStyle.m; path = "dbm-mw-caculator/CaculatorUIStyle.m"; sourceTree = "<group>"; };
 		C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C5D8A7E916D24E70007C3C21 /* CaculatorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorResource.h; sourceTree = "<group>"; };
 		C5D8A7EA16D24E71007C3C21 /* CaculatorResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorResource.m; sourceTree = "<group>"; };
@@ -99,24 +118,6 @@
 		C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C5DA80CE16CA70F3001B9EC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C5DA80D016CA70F3001B9EC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C5DA80D416CA70F3001B9EC7 /* dbm-watt.Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dbm-watt.Info.plist"; sourceTree = "<group>"; };
-		C5DA80D616CA70F3001B9EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C5DA80D816CA70F3001B9EC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C5DA80DA16CA70F3001B9EC7 /* dbm-watt.Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dbm-watt.Prefix.pch"; sourceTree = "<group>"; };
-		C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "dbm-mw-caculator/AppDelegate.h"; sourceTree = "<group>"; };
-		C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "dbm-mw-caculator/AppDelegate.m"; sourceTree = "<group>"; };
-		C5DA80DE16CA70F3001B9EC7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "dbm-mw-caculator/Default.png"; sourceTree = "<group>"; };
-		C5DA80E016CA70F3001B9EC7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "dbm-mw-caculator/Default@2x.png"; sourceTree = "<group>"; };
-		C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "dbm-mw-caculator/Default-568h@2x.png"; sourceTree = "<group>"; };
-		C5DA80E516CA70F3001B9EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CaculatorViewController.h; path = "dbm-mw-caculator/CaculatorViewController.h"; sourceTree = "<group>"; };
-		C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CaculatorViewController.m; path = "dbm-mw-caculator/CaculatorViewController.m"; sourceTree = "<group>"; };
-		C5DA80EF16CA7EF8001B9EC7 /* CaculatorResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorResultModel.h; path = "dbm-mw-caculator/CaculatorResultModel.h"; sourceTree = "<group>"; };
-		C5DA80F016CA7EF8001B9EC7 /* CaculatorResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorResultModel.m; path = "dbm-mw-caculator/CaculatorResultModel.m"; sourceTree = "<group>"; };
-		C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorScreenLabel.h; path = "dbm-mw-caculator/CaculatorScreenLabel.h"; sourceTree = "<group>"; };
-		C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorScreenLabel.m; path = "dbm-mw-caculator/CaculatorScreenLabel.m"; sourceTree = "<group>"; };
-		C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaculatorButton.h; path = "dbm-mw-caculator/CaculatorButton.h"; sourceTree = "<group>"; };
-		C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaculatorButton.m; path = "dbm-mw-caculator/CaculatorButton.m"; sourceTree = "<group>"; };
 		C5E3CEBE16DA60F100DC9FAA /* CaculatorHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorHelpViewController.h; sourceTree = "<group>"; };
 		C5E3CEBF16DA60F200DC9FAA /* CaculatorHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorHelpViewController.m; sourceTree = "<group>"; };
 		C5ECD6BA16DB94B2005069FE /* navigationbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationbar.png; sourceTree = "<group>"; };
@@ -146,31 +147,32 @@
 		C575FD9F16D509130022B5E4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C5A4903417BA1AA900E8CB6F /* MainStoryboard.storyboard */,
+				C5A4901517BA1A5E00E8CB6F /* AppDelegate.h */,
+				C5A4901617BA1A5E00E8CB6F /* AppDelegate.m */,
+				C5A4901717BA1A5E00E8CB6F /* CaculatorButton.h */,
+				C5A4901817BA1A5E00E8CB6F /* CaculatorButton.m */,
+				C5A4901917BA1A5E00E8CB6F /* CaculatorResultModel.h */,
+				C5A4901A17BA1A5E00E8CB6F /* CaculatorResultModel.m */,
+				C5A4901B17BA1A5E00E8CB6F /* CaculatorScreenLabel.h */,
+				C5A4901C17BA1A5E00E8CB6F /* CaculatorScreenLabel.m */,
+				C5A4901D17BA1A5E00E8CB6F /* CaculatorUIStyle.h */,
+				C5A4901E17BA1A5E00E8CB6F /* CaculatorUIStyle.m */,
+				C5A4901F17BA1A5E00E8CB6F /* CaculatorViewController.h */,
+				C5A4902017BA1A5E00E8CB6F /* CaculatorViewController.m */,
 				C5AE6B3A16D8F1B400A1690B /* CaculatorTypeDefinitions.h */,
-				C5DA80DB16CA70F3001B9EC7 /* AppDelegate.h */,
-				C5DA80DC16CA70F3001B9EC7 /* AppDelegate.m */,
 				C55C848E16EC766B006A29E7 /* CaculatorValue.h */,
 				C55C848F16EC766B006A29E7 /* CaculatorValue.m */,
 				C5AE6B3716D8E2DA00A1690B /* CaculatorResult.h */,
 				C5AE6B3816D8E2DA00A1690B /* CaculatorResult.m */,
-				C5DA80F516CBE39F001B9EC7 /* CaculatorButton.h */,
-				C5DA80F616CBE39F001B9EC7 /* CaculatorButton.m */,
-				C5D8A7E116D12515007C3C21 /* CaculatorUIStyle.h */,
-				C5D8A7E216D12515007C3C21 /* CaculatorUIStyle.m */,
 				C5D8A7E916D24E70007C3C21 /* CaculatorResource.h */,
 				C5D8A7EA16D24E71007C3C21 /* CaculatorResource.m */,
 				C58382D116F356D00044585B /* CaculatorValueRule.h */,
 				C58382D216F356D00044585B /* CaculatorValueRule.m */,
-				C5DA80F216CBE37A001B9EC7 /* CaculatorScreenLabel.h */,
-				C5DA80F316CBE37A001B9EC7 /* CaculatorScreenLabel.m */,
-				C5DA80EF16CA7EF8001B9EC7 /* CaculatorResultModel.h */,
-				C5DA80F016CA7EF8001B9EC7 /* CaculatorResultModel.m */,
 				C58382D716F3630E0044585B /* DecNotationValueRule.h */,
 				C58382D816F3630E0044585B /* DecNotationValueRule.m */,
 				C58382DA16F363320044585B /* HexNotationValueRule.h */,
 				C58382DB16F363320044585B /* HexNotationValueRule.m */,
-				C5DA80E716CA70F3001B9EC7 /* CaculatorViewController.h */,
-				C5DA80E816CA70F3001B9EC7 /* CaculatorViewController.m */,
 				C58382CE16F355850044585B /* CaculatorValueRuleManager.h */,
 				C58382CF16F355850044585B /* CaculatorValueRuleManager.m */,
 				C5E3CEBE16DA60F100DC9FAA /* CaculatorHelpViewController.h */,
@@ -181,7 +183,6 @@
 				C5F9AEAC16D9F048002BE8AD /* CaculatorSplashViewController.m */,
 				C5F9AEB216DA3BA8002BE8AD /* CaculatorResultTableViewController.h */,
 				C5F9AEB316DA3BA8002BE8AD /* CaculatorResultTableViewController.m */,
-				C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */,
 				C5DA80D316CA70F3001B9EC7 /* Supporting Files */,
 			);
 			name = Classes;
@@ -190,6 +191,9 @@
 		C575FDA016D509280022B5E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C5A4902317BA1A5E00E8CB6F /* Default-568h@2x.png */,
+				C5A4902417BA1A5E00E8CB6F /* Default.png */,
+				C5A4902517BA1A5E00E8CB6F /* Default@2x.png */,
 				C583828116EEB8E20044585B /* help1.png */,
 				C583828216EEB8E20044585B /* help1@2x.png */,
 				C583828316EEB8E20044585B /* help2.png */,
@@ -209,9 +213,6 @@
 				C5AE6B2D16D649B700A1690B /* Icon_Small.png */,
 				C5AE6B2E16D649B700A1690B /* Icon.png */,
 				C5AE6B2F16D649B700A1690B /* Icon@2x.png */,
-				C5DA80DE16CA70F3001B9EC7 /* Default.png */,
-				C5DA80E016CA70F3001B9EC7 /* Default@2x.png */,
-				C5DA80E216CA70F3001B9EC7 /* Default-568h@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -249,13 +250,12 @@
 		C5DA80D316CA70F3001B9EC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C5DA80D416CA70F3001B9EC7 /* dbm-watt.Info.plist */,
-				C5DA80D516CA70F3001B9EC7 /* InfoPlist.strings */,
-				C5DA80D816CA70F3001B9EC7 /* main.m */,
-				C5DA80DA16CA70F3001B9EC7 /* dbm-watt.Prefix.pch */,
+				C5A4903B17BA1D6800E8CB6F /* InfoPlist.strings */,
+				C5A4903817BA1D5F00E8CB6F /* dbm-watt.Info.plist */,
+				C5A4903917BA1D5F00E8CB6F /* dbm-watt.Prefix.pch */,
+				C5A4902617BA1A5E00E8CB6F /* main.m */,
 			);
 			name = "Supporting Files";
-			path = "dbm-mw-caculator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +275,7 @@
 			dependencies = (
 			);
 			name = "dbm-watt";
-			productName = "dbm-mw-caculator";
+			productName = "dbm-watt";
 			productReference = C5DA80C916CA70F3001B9EC7 /* dbm-watt.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -310,11 +310,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5DA80D716CA70F3001B9EC7 /* InfoPlist.strings in Resources */,
-				C5DA80DF16CA70F3001B9EC7 /* Default.png in Resources */,
-				C5DA80E116CA70F3001B9EC7 /* Default@2x.png in Resources */,
-				C5DA80E316CA70F3001B9EC7 /* Default-568h@2x.png in Resources */,
-				C5DA80E616CA70F3001B9EC7 /* MainStoryboard.storyboard in Resources */,
 				C5AE6B3016D649B700A1690B /* Icon_Small.png in Resources */,
 				C5AE6B3116D649B700A1690B /* Icon.png in Resources */,
 				C5AE6B3216D649B700A1690B /* Icon@2x.png in Resources */,
@@ -334,6 +329,12 @@
 				C583828E16EEB8E30044585B /* help3@2x.png in Resources */,
 				C583828F16EEB8E30044585B /* help4.png in Resources */,
 				C583829016EEB8E30044585B /* help4@2x.png in Resources */,
+				C5A4902E17BA1A5E00E8CB6F /* Default-568h@2x.png in Resources */,
+				C5A4902F17BA1A5E00E8CB6F /* Default.png in Resources */,
+				C5A4903017BA1A5E00E8CB6F /* Default@2x.png in Resources */,
+				C5A4903717BA1AA900E8CB6F /* MainStoryboard.storyboard in Resources */,
+				C5A4903A17BA1D5F00E8CB6F /* dbm-watt.Info.plist in Resources */,
+				C5A4903D17BA1D6800E8CB6F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,13 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5DA80D916CA70F3001B9EC7 /* main.m in Sources */,
-				C5DA80DD16CA70F3001B9EC7 /* AppDelegate.m in Sources */,
-				C5DA80E916CA70F3001B9EC7 /* CaculatorViewController.m in Sources */,
-				C5DA80F116CA7EF8001B9EC7 /* CaculatorResultModel.m in Sources */,
-				C5DA80F416CBE37B001B9EC7 /* CaculatorScreenLabel.m in Sources */,
-				C5DA80F716CBE39F001B9EC7 /* CaculatorButton.m in Sources */,
-				C5D8A7E316D12515007C3C21 /* CaculatorUIStyle.m in Sources */,
 				C5D8A7EB16D24E71007C3C21 /* CaculatorResource.m in Sources */,
 				C5AE6B3916D8E2DA00A1690B /* CaculatorResult.m in Sources */,
 				C5F9AEAE16D9F049002BE8AD /* CaculatorSplashViewController.m in Sources */,
@@ -378,27 +372,33 @@
 				C58382D316F356D10044585B /* CaculatorValueRule.m in Sources */,
 				C58382D916F3630E0044585B /* DecNotationValueRule.m in Sources */,
 				C58382DC16F363330044585B /* HexNotationValueRule.m in Sources */,
+				C5A4902717BA1A5E00E8CB6F /* AppDelegate.m in Sources */,
+				C5A4902817BA1A5E00E8CB6F /* CaculatorButton.m in Sources */,
+				C5A4902917BA1A5E00E8CB6F /* CaculatorResultModel.m in Sources */,
+				C5A4902A17BA1A5E00E8CB6F /* CaculatorScreenLabel.m in Sources */,
+				C5A4902B17BA1A5E00E8CB6F /* CaculatorUIStyle.m in Sources */,
+				C5A4902C17BA1A5E00E8CB6F /* CaculatorViewController.m in Sources */,
+				C5A4903117BA1A5E00E8CB6F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C5DA80D516CA70F3001B9EC7 /* InfoPlist.strings */ = {
+		C5A4903417BA1AA900E8CB6F /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C5DA80D616CA70F3001B9EC7 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C5DA80E416CA70F3001B9EC7 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C5DA80E516CA70F3001B9EC7 /* en */,
+				C5A4903517BA1AA900E8CB6F /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			path = "dbm-mw-caculator";
+			sourceTree = "<group>";
+		};
+		C5A4903B17BA1D6800E8CB6F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5A4903C17BA1D6800E8CB6F /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -472,8 +472,8 @@
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-watt.Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/dbm-mw-caculator/dbm-watt.Info.plist";
+				GCC_PREFIX_HEADER = "dbm-watt.Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/dbm-watt.Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -487,8 +487,8 @@
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "dbm-mw-caculator/dbm-watt.Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/dbm-mw-caculator/dbm-watt.Info.plist";
+				GCC_PREFIX_HEADER = "dbm-watt.Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/dbm-watt.Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
