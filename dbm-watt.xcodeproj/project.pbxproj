@@ -41,6 +41,7 @@
 		C5A4904717BA1DC800E8CB6F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = C5A4904217BA1DC800E8CB6F /* iTunesArtwork */; };
 		C5A4904A17BA1E0E00E8CB6F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5A4904817BA1E0E00E8CB6F /* Icon.png */; };
 		C5A4904B17BA1E0E00E8CB6F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5A4904917BA1E0E00E8CB6F /* Icon@2x.png */; };
+		C5A4905117BA516C00E8CB6F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A4905017BA516C00E8CB6F /* Crashlytics.framework */; };
 		C5AE6B3416D64D6400A1690B /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B3316D64D6400A1690B /* button.wav */; };
 		C5AE6B3916D8E2DA00A1690B /* CaculatorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE6B3816D8E2DA00A1690B /* CaculatorResult.m */; };
 		C5AE6B3F16D913D800A1690B /* help.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5AE6B3C16D913D800A1690B /* help.wav */; };
@@ -109,6 +110,7 @@
 		C5A4904217BA1DC800E8CB6F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C5A4904817BA1E0E00E8CB6F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		C5A4904917BA1E0E00E8CB6F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C5A4905017BA516C00E8CB6F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C5AE6B3316D64D6400A1690B /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		C5AE6B3716D8E2DA00A1690B /* CaculatorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorResult.h; sourceTree = "<group>"; };
 		C5AE6B3816D8E2DA00A1690B /* CaculatorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorResult.m; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				C5DA80CD16CA70F3001B9EC7 /* UIKit.framework in Frameworks */,
 				C5DA80CF16CA70F3001B9EC7 /* Foundation.framework in Frameworks */,
 				C5DA80D116CA70F3001B9EC7 /* CoreGraphics.framework in Frameworks */,
+				C5A4905117BA516C00E8CB6F /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +252,7 @@
 		C5DA80CB16CA70F3001B9EC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5A4905017BA516C00E8CB6F /* Crashlytics.framework */,
 				C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */,
 				C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */,
 				C5DA80CC16CA70F3001B9EC7 /* UIKit.framework */,
@@ -280,6 +284,7 @@
 				C5DA80C616CA70F3001B9EC7 /* Frameworks */,
 				C5DA80C716CA70F3001B9EC7 /* Resources */,
 				C500EF2216CF363A00C2BFF0 /* ShellScript */,
+				C5A4904F17BA513C00E8CB6F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -367,6 +372,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n";
+		};
+		C5A4904F17BA513C00E8CB6F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 592220da47f22b9cdb4a9df47ea79170d94a150a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -485,6 +503,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dbm-watt.Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/dbm-watt.Info.plist";
@@ -500,6 +522,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dbm-watt.Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/dbm-watt.Info.plist";
