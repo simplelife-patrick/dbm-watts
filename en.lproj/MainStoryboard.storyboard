@@ -74,7 +74,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wKe-fe-DSQ" userLabel="switchButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="5" y="3" width="75" height="44"/>
+                                        <rect key="frame" x="5" y="4" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="162" y="3" width="75" height="44"/>
+                                        <rect key="frame" x="162" y="4" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Da3-Bp-zG7" userLabel="saveButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="84" y="3" width="75" height="44"/>
+                                        <rect key="frame" x="84" y="4" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,7 +126,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9F1-3b-1ao" userLabel="helpButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="240" y="3" width="75" height="44"/>
+                                        <rect key="frame" x="240" y="4" width="75" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
