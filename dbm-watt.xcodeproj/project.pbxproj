@@ -285,6 +285,7 @@
 				C5DA80C716CA70F3001B9EC7 /* Resources */,
 				C500EF2216CF363A00C2BFF0 /* ShellScript */,
 				C5A4904F17BA513C00E8CB6F /* ShellScript */,
+				C5D1D4EA17BB17D200C5A15B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,6 +386,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Crashlytics.framework/run 592220da47f22b9cdb4a9df47ea79170d94a150a";
+		};
+		C5D1D4EA17BB17D200C5A15B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "version=`/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH`\nversion=`expr $version + 1`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $version\" $PRODUCT_SETTINGS_PATH\n#/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version\" $PRODUCT_SETTINGS_PATH 这行代码会让version也自增，一般不需要";
 		};
 /* End PBXShellScriptBuildPhase section */
 

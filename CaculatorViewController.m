@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSMutableArray* functionButtons;
 @property (nonatomic, strong) NSMutableArray* wattUnitTextLabels;
 
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
+
 -(void) resetCaculatorStatus:(BOOL) status;
 
 -(void) initSingleTapGestureRecognizer;
@@ -50,6 +52,8 @@
 @synthesize buttonsView = _buttonsView;
 @synthesize dbmValueLabel = _dbmValueLabel;
 @synthesize wattValueLabel = _wattValueLabel;
+
+@synthesize versionLabel = _versionLabel;
 
 @synthesize switchButton = _switchButton;
 @synthesize saveButton = _saveButton;
@@ -388,6 +392,9 @@
 
     [self onSwitchButtonClicked:nil];
     [self switchWattUnit:mW andInitStatus:TRUE];
+    
+    NSString* versionStr = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
+    _versionLabel.text = versionStr;
 }
 
 - (void)didReceiveMemoryWarning
@@ -883,6 +890,7 @@
 
 - (void)viewDidUnload
 {
+    [self setVersionLabel:nil];
     [super viewDidUnload];
 }
 
