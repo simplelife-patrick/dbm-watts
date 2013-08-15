@@ -66,6 +66,20 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="input" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Qd-6F-o5L" userLabel="wattTipLabel">
+                                        <rect key="frame" x="252" y="236.5" width="50" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="input" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qPK-vi-Ek5" userLabel="dbmTipLabel">
+                                        <rect key="frame" x="252" y="109" width="50" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -399,6 +413,7 @@
                     <connections>
                         <outlet property="buttonsView" destination="Fdy-cD-QqD" id="nVL-E5-hv8"/>
                         <outlet property="clearButton" destination="KZQ-NE-vk5" id="s6l-WH-ZHO"/>
+                        <outlet property="dbmTipLabel" destination="qPK-vi-Ek5" id="c2R-f4-Wlm"/>
                         <outlet property="dbmValueLabel" destination="HoC-qu-vIG" id="Lar-v4-OFK"/>
                         <outlet property="delButton" destination="eWx-mD-a6M" id="JTp-b5-cYo"/>
                         <outlet property="digit0Button" destination="bsC-XE-70A" id="opG-V8-yZR"/>
@@ -423,6 +438,7 @@
                         <outlet property="uwTextLabel" destination="lhI-FG-LB8" id="Qcs-qo-dlG"/>
                         <outlet property="versionLabel" destination="8j8-QW-ZJi" id="YPh-SL-lvn"/>
                         <outlet property="wTextLabel" destination="tbL-Ok-ttV" id="FWS-q7-jiR"/>
+                        <outlet property="wattTipLabel" destination="3Qd-6F-o5L" id="68J-8e-2qi"/>
                         <outlet property="wattValueLabel" destination="sMV-wS-Ma3" id="FzF-BK-LUs"/>
                     </connections>
                 </viewController>
@@ -630,6 +646,7 @@
                 <relationship kind="action" name="playButtonClickSound:" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="buttonsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="CaculatorButton"/>
+                <relationship kind="outlet" name="dbmTipLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dbmValueLabel" candidateClass="CaculatorScreenLabel"/>
                 <relationship kind="outlet" name="delButton" candidateClass="CaculatorButton"/>
                 <relationship kind="outlet" name="digit0Button" candidateClass="CaculatorButton"/>

@@ -52,6 +52,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *wTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mwTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *uwTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dbmTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wattTipLabel;
 
 @property (strong, nonatomic) CaculatorResultModel *caculatorResultModel;
 @property (nonatomic) BOOL isDbm2WattMode;

@@ -53,6 +53,9 @@
 @synthesize dbmValueLabel = _dbmValueLabel;
 @synthesize wattValueLabel = _wattValueLabel;
 
+@synthesize dbmTipLabel = _dbmTipLabel;
+@synthesize wattTipLabel = _wattTipLabel;
+
 @synthesize versionLabel = _versionLabel;
 
 @synthesize switchButton = _switchButton;
@@ -412,6 +415,11 @@
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
         [self.negativeButton disableButton];
+        
+        [_dbmTipLabel setHidden:NO];
+        [_wattTipLabel setHidden:YES];
+        
+        [_dbmTipLabel setHidden:NO];
     }
     else
     {
@@ -420,6 +428,9 @@
         self.dbmValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
         [self.negativeButton enableButton];
+        
+        [_dbmTipLabel setHidden:YES];
+        [_wattTipLabel setHidden:NO];
     }
     
     [self onClearButtonClicked:nil];
@@ -891,6 +902,8 @@
 - (void)viewDidUnload
 {
     [self setVersionLabel:nil];
+    [self setDbmTipLabel:nil];
+    [self setWattTipLabel:nil];
     [super viewDidUnload];
 }
 
