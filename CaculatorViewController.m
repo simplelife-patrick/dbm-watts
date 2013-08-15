@@ -416,10 +416,8 @@
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle focusedScreenLabelBackgroundColor];
         [self.negativeButton disableButton];
         
-        [_dbmTipLabel setHidden:NO];
-        [_wattTipLabel setHidden:YES];
-        
-        [_dbmTipLabel setHidden:NO];
+        [_dbmTipLabel setHidden:YES];
+        [_wattTipLabel setHidden:NO];
     }
     else
     {
@@ -429,8 +427,8 @@
         self.wattValueLabel.backgroundColor = [CaculatorUIStyle screenLabelBackgroundColor];
         [self.negativeButton enableButton];
         
-        [_dbmTipLabel setHidden:YES];
-        [_wattTipLabel setHidden:NO];
+        [_dbmTipLabel setHidden:NO];
+        [_wattTipLabel setHidden:YES];
     }
     
     [self onClearButtonClicked:nil];
