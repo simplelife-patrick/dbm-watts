@@ -105,11 +105,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGt-rZ-9ot" userLabel="historyButton" customClass="CaculatorButton">
-                                        <rect key="frame" x="162" y="4" width="75" height="44"/>
+                                        <rect key="frame" x="161" y="4" width="77" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="history">
+                                        <state key="normal" title="results">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -154,7 +154,7 @@
                                         <connections>
                                             <action selector="onHelpButtonClicked:" destination="2" eventType="touchUpInside" id="mI6-ge-ISS"/>
                                             <action selector="playButtonClickSound:" destination="2" eventType="touchUpInside" id="8Ah-ou-Gqs"/>
-                                            <segue destination="vvW-No-nrc" kind="modal" identifier="caculator->help" modalTransitionStyle="crossDissolve" id="IwO-yv-nQH"/>
+                                            <segue destination="vvW-No-nrc" kind="modal" identifier="caculator->help" modalTransitionStyle="coverVertical" id="IwO-yv-nQH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dsa-m4-rFl" userLabel="digit7Button" customClass="CaculatorButton">
@@ -558,7 +558,7 @@
                     </view>
                     <connections>
                         <segue destination="TWK-kM-egC" kind="modal" identifier="splash->caculator" modalTransitionStyle="crossDissolve" animates="NO" id="Fos-6E-Yj0"/>
-                        <segue destination="vvW-No-nrc" kind="modal" identifier="splash->help" modalTransitionStyle="crossDissolve" animates="NO" id="K0U-mT-S83"/>
+                        <segue destination="vvW-No-nrc" kind="modal" identifier="splash->help" modalTransitionStyle="coverVertical" animates="NO" id="K0U-mT-S83"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FG0-SH-shj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -672,6 +672,7 @@
                 <relationship kind="outlet" name="uwTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="wTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wattTipLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="wattValueLabel" candidateClass="CaculatorScreenLabel"/>
             </relationships>
         </class>
@@ -682,7 +683,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="IwO-yv-nQH"/>
         <segue reference="Fos-6E-Yj0"/>
+        <segue reference="IwO-yv-nQH"/>
     </inferredMetricsTieBreakers>
 </document>

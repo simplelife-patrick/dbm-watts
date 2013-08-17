@@ -36,7 +36,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
-    {
+    {                
         // Initialization code
         _dbmValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 310, 30)];
         _dbmValueLabel.textAlignment = NSTextAlignmentLeft;
@@ -59,7 +59,7 @@
         
         [self.contentView addSubview:_dbmValueLabel];
         [self.contentView addSubview:_wattValueLabel];
-                
+        
         if (nil == _selectedBackgroundView)
         {
             CGRect rect = self.contentView.bounds;
@@ -67,10 +67,20 @@
             [_selectedBackgroundView setBackgroundColor:[UIColor whiteColor]];
         }
         [self setSelectedBackgroundView:_selectedBackgroundView];
+        
+        _wattValueLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _dbmValueLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+//    _dbmValueLabel.frame = CGRectMake(0.0f, 0.0f, self.contentRect.size.width, self.contentRect.size.height); // Adjust as needed
+//    _wattValueLabel.frame = CGRectMake(0.0f, 0.0f, self.contentRect.size.width, self.contentRect.size.height); // Adjust as needed
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

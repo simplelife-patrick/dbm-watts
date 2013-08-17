@@ -58,7 +58,9 @@
 {
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [self.tableView reloadData];    
+    });
 }
 
 - (void)viewDidLoad
@@ -297,7 +299,7 @@
     if (!self.tableView.editing && (0 < [self.caculatorResultModel recordsCount]))
     {
         self.navigationItem.rightBarButtonItems = @[_cancelBarButton, _selectAllBarButton];
-        [self.tableView setEditing:TRUE animated:TRUE];
+        [self.tableView setEditing:TRUE animated:NO];
     }
 }
 
@@ -316,7 +318,7 @@
         [self.caculatorResultModel compressList];
         [self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
         
-        [self.tableView setEditing:FALSE animated:TRUE];
+        [self.tableView setEditing:FALSE animated:NO];
         self.navigationItem.rightBarButtonItems = @[_editBarButton];
         
         [self setIsSelectedAll:FALSE];
@@ -328,7 +330,7 @@
     if (self.tableView.editing)
     {
         [self setIsSelectedAll:FALSE];
-        [self.tableView setEditing:FALSE animated:TRUE];
+        [self.tableView setEditing:FALSE animated:NO];
         self.navigationItem.rightBarButtonItems = @[_editBarButton];
     }
 }
