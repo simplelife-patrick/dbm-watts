@@ -34,38 +34,41 @@
 
 -(void)initArray
 {
-    UIImage* helpImage1 = [UIImage imageNamed:@"help1.png"];
-    UIImage* helpImage2 = [UIImage imageNamed:@"help2.png"];
-    UIImage* helpImage3 = [UIImage imageNamed:@"help3.png"];
-    UIImage* helpImage4 = [UIImage imageNamed:@"help4.png"];
+    UIImage* helpImage1 = [UIImage imageNamed:@"help_01.jpg"];
+    UIImage* helpImage2 = [UIImage imageNamed:@"help_02.jpg"];
+    UIImage* helpImage3 = [UIImage imageNamed:@"help_03.jpg"];
+    UIImage* helpImage4 = [UIImage imageNamed:@"help_04.jpg"];
+    UIImage* helpImage5 = [UIImage imageNamed:@"help_05.jpg"];
+    UIImage* helpImage6 = [UIImage imageNamed:@"help_06.jpg"];
     
-    imageArray=[NSArray arrayWithObjects: helpImage1, helpImage2, helpImage3, helpImage4, nil];
+    imageArray = [NSArray arrayWithObjects: helpImage1, helpImage2, helpImage3, helpImage4, helpImage5, helpImage6, nil];
 }
 
 -(void)configHelpViewUI
 {
     _scrollView.delegate = self;
-
+    
     CGFloat width = _scrollView.frame.size.width;
     CGFloat height = _scrollView.frame.size.height;
-
+    
     // fill images
     for (int i = 0; i < imageArray.count; i++)
     {
         UIImageView *subImageView = [[UIImageView alloc] initWithImage:[imageArray objectAtIndex:i]];
         subImageView.frame = CGRectMake(width * i, 0, width, height);
+        subImageView.contentMode = UIViewContentModeScaleToFill;//UIViewContentModeScaleAspectFit;
         [_scrollView addSubview: subImageView];
     }
- 
+    
     // set the whole scrollView's size
     [_scrollView setContentSize:CGSizeMake(width * imageArray.count, height)];
     [_helpView addSubview:_scrollView];
     [_scrollView scrollRectToVisible:CGRectMake(0, 0, width, height) animated:NO];
     // set page control UI attributes
+    _pageControl.alpha = 1.0;
+    _pageControl.numberOfPages = imageArray.count;
     [_pageControl setBounds:CGRectMake(0, 0, 18 * (_pageControl.numberOfPages + 1), 18)];
     [_pageControl.layer setCornerRadius:8];
-    _pageControl.numberOfPages = imageArray.count;
-    _pageControl.backgroundColor=[UIColor grayColor];
     _pageControl.currentPage = 0;
     _pageControl.enabled = YES;
     [_helpView addSubview:_pageControl];
@@ -74,8 +77,8 @@
     [self activateDisplayTimer:TRUE];
     
     [_helpView addSubview:_exitHelpButton];
-    [_helpView addSubview:_prevHelpPageButton];
-    [_helpView addSubview:_nextHelpPageButton];
+//    [_helpView addSubview:_prevHelpPageButton];
+//    [_helpView addSubview:_nextHelpPageButton];
     
     [self _registerGestureRecognizers];    
 }
