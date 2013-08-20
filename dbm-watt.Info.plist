@@ -10,7 +10,7 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon_Small.png</string>
+		<string>Icon-Small.png</string>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
 	</array>
@@ -27,7 +27,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>76</string>
+	<string>90</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

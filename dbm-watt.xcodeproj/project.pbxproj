@@ -115,6 +115,7 @@
 		C5AE6B3D16D913D800A1690B /* history.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = history.wav; sourceTree = "<group>"; };
 		C5AE6B3E16D913D800A1690B /* save.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = save.wav; sourceTree = "<group>"; };
 		C5AE6B4416D9C58700A1690B /* switch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = switch.wav; sourceTree = "<group>"; };
+		C5CB991917C3450000628D26 /* dbm-watt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "dbm-watt.entitlements"; sourceTree = "<group>"; };
 		C5D8A7DE16CFD277007C3C21 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C5D8A7E716D2437D007C3C21 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C5D8A7E916D24E70007C3C21 /* CaculatorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorResource.h; sourceTree = "<group>"; };
@@ -259,6 +260,7 @@
 		C5DA80D316CA70F3001B9EC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5CB991917C3450000628D26 /* dbm-watt.entitlements */,
 				C5A4903B17BA1D6800E8CB6F /* InfoPlist.strings */,
 				C5A4903817BA1D5F00E8CB6F /* dbm-watt.Info.plist */,
 				C5A4903917BA1D5F00E8CB6F /* dbm-watt.Prefix.pch */,
@@ -277,7 +279,6 @@
 				C5DA80C516CA70F3001B9EC7 /* Sources */,
 				C5DA80C616CA70F3001B9EC7 /* Frameworks */,
 				C5DA80C716CA70F3001B9EC7 /* Resources */,
-				C500EF2216CF363A00C2BFF0 /* ShellScript */,
 				C5A4904F17BA513C00E8CB6F /* ShellScript */,
 				C5D1D4EA17BB17D200C5A15B /* ShellScript */,
 			);
@@ -353,19 +354,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C500EF2216CF363A00C2BFF0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n";
-		};
 		C5A4904F17BA513C00E8CB6F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,8 +442,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KE 邓 (R229UE6C87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KE 邓 (R229UE6C87)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -488,8 +476,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KE 邓 (R229UE6C87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KE 邓 (R229UE6C87)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -507,8 +495,9 @@
 		C5DA80ED16CA70F3001B9EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_ENTITLEMENTS = "dbm-watt.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KE 邓 (R229UE6C87)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KE 邓 (R229UE6C87)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -526,8 +515,9 @@
 		C5DA80EE16CA70F3001B9EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_ENTITLEMENTS = "dbm-watt.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DENG KE (3QC6PDN9W4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DENG KE (3QC6PDN9W4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
