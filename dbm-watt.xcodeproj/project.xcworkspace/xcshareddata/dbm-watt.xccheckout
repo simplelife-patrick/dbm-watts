@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07F67000-E439-4F00-8C18-D9DC143AE459</string>
+	<key>IDESourceControlProjectName</key>
+	<string>dbm-watt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>690BF6FB-5173-4127-9FDC-C46D8C9D7594</key>
+		<string>https://github.com/simplelife-patrick/dbm-watts.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>dbm-watt.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>690BF6FB-5173-4127-9FDC-C46D8C9D7594</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/simplelife-patrick/dbm-watts.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>690BF6FB-5173-4127-9FDC-C46D8C9D7594</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>690BF6FB-5173-4127-9FDC-C46D8C9D7594</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dbm-watts</string>
+		</dict>
+	</array>
+</dict>
+</plist>
